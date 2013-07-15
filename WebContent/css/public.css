@@ -1,0 +1,11 @@
+textarea {
+	resize: none;
+}
+
+.float_left {
+	float: left;
+}
+
+.clear {
+	clear: both;
+}

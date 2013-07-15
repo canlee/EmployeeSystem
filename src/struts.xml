@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+
+	<package name="app-default" extends="struts-default">
+	
+    </package>
+    <!-- 全局 -->
+	<package name="global" extends="app-default" namespace="/">
+		<default-action-ref name="index" />
+		
+		<action name="login" class="com.icss.employeeSystem.action.login.LoginAction" method="login">
+			<result name="success" type="redirect">
+				/index.html
+			</result>
+		</action>
+		
+	</package>
+
+</struts> 

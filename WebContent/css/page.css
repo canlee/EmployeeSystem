@@ -1,0 +1,62 @@
+.cmdField {
+	display: inline-block; 
+	margin: 5px;
+}
+
+.gridViewItem {
+	word-break : break-all; 
+	max-width: 200px;
+}
+
+.gridViewHeader {
+	word-break : break-all; 
+	max-width: 90px;
+}
+
+.has_department {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: 100px;
+	margin-right: 100px;
+	word-break : break-all;
+}
+
+.has_department table th {
+	width: 100px;
+}
+
+.has_department table td span {
+	width: 80px;
+	margin-bottom: 10px;
+	display: inline-block;
+	text-align: center;
+}
+
+.all_department {
+	float: left;
+}
+
+.gridViewBtn {
+	BORDER-RIGHT: #bad6ec 1px solid; BORDER-TOP: #bad6ec 1px solid; BORDER-LEFT: #bad6ec 1px solid; LINE-HEIGHT: 32px; BORDER-BOTTOM: #bad6ec 1px solid;
+}
+
+.gridViewHeaderMax {
+	text-align: center; 
+	BORDER-RIGHT: #bad6ec 1px solid; 
+	BORDER-TOP: #bad6ec 1px solid; 
+	BACKGROUND-IMAGE: url(../images/bg_th.gif); 
+	BORDER-LEFT: #bad6ec 1px solid; 
+	LINE-HEIGHT: 27px; 
+	BORDER-BOTTOM: #bad6ec 1px solid;
+	max-width: 40px;
+	min-width: 40px;
+}
+
+.selectPage {
+	margin-top: 10px;
+}
+
+.selectPage a {
+	text-decoration: none;
+	color: #566984;
+}

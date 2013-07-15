@@ -1,0 +1,91 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>无标题页</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<STYLE type=text/css> 
+{
+	FONT-SIZE: 12px
+}
+#menuTree A {
+	COLOR: #566984; TEXT-DECORATION: none
+}
+</STYLE>
+<SCRIPT src="Left.files/TreeNode.js" type=text/javascript></SCRIPT>
+<!-- <SCRIPT src="Left.files/Tree.js" type=text/javascript></SCRIPT> -->
+<META content="MSHTML 6.00.2900.5848" name=GENERATOR>
+</HEAD>
+<BODY 
+style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../images/bg.gif); BACKGROUND-REPEAT: repeat-x">
+<TABLE height="100%" cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+    <TR>
+      <TD width=10 height=29><IMG src="Left.files/bg_left_tl.gif"></TD>
+      <TD 
+    style="FONT-SIZE: 18px; BACKGROUND-IMAGE: url(../images/bg_left_tc.gif); COLOR: white; FONT-FAMILY: system">Main 
+        Menu</TD>
+      <TD width=10><IMG src="Left.files/bg_left_tr.gif"></TD>
+    </TR>
+    <TR>
+      <TD style="BACKGROUND-IMAGE: url(../images/bg_left_ls.gif)"></TD>
+      <TD id=menuTree 
+    style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; HEIGHT: 100%; BACKGROUND-COLOR: white" 
+    vAlign=top></TD>
+      <TD style="BACKGROUND-IMAGE: url(../images/bg_left_rs.gif)"></TD>
+    </TR>
+    <TR>
+      <TD width=10><IMG src="Left.files/bg_left_bl.gif"></TD>
+      <TD style="BACKGROUND-IMAGE: url(../images/bg_left_bc.gif)"></TD>
+      <TD width=10><IMG 
+src="Left.files/bg_left_br.gif"></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<SCRIPT type=text/javascript>
+var tree = null;var root = new TreeNode('系统菜单');
+var fun1 = new TreeNode('员工管理');
+var fun2 = new TreeNode('添加员工', 'EmployeeMgr.files/InsertEmployee.html', 'tree_node.gif', null, 'tree_node.gif', null);
+fun1.add(fun2);
+var fun3 = new TreeNode('查询员工信息', 'EmployeeMgr.files/QueryEmployee.html', 'tree_node.gif', null, 'tree_node.gif', null);
+fun1.add(fun3);
+var fun4 = new TreeNode('个人信息查询', 'EmployeeMgr.files/QueryIndividualInfo.html', 'tree_node.gif', null, 'tree_node.gif', null);
+fun1.add(fun4);
+var fun_update_myinfo = new TreeNode('个人信息修改', 'EmployeeMgr.files/UpdateIndividualInfo.html', 'tree_node.gif', null, 'tree_node.gif', null);
+fun1.add(fun_update_myinfo);
+root.add(fun1);
+
+var fun5 = new TreeNode('部门管理');
+var fun6 = new TreeNode('增加部门', 'DepartmentMgr.files/department_insert.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+fun5.add(fun6);
+var fun7 = new TreeNode('查询部门', 'DepartmentMgr.files/department_query.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+fun5.add(fun7);
+var fun8 = new TreeNode('修改部门', 'DepartmentMgr.files/department_update.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+fun5.add(fun8);
+root.add(fun5);
+var fun9 = new TreeNode('岗位管理');
+var fun10 = new TreeNode('增加岗位', 'PostMgr.files/post_insert.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+fun9.add(fun10);
+var fun11 = new TreeNode('查询岗位', 'PostMgr.files/post_query.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+fun9.add(fun11);
+var fun12 = new TreeNode('修改岗位', 'PostMgr.files/post_update.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+fun9.add(fun12);
+root.add(fun9);
+var fun13 = new TreeNode('权限管理');
+var fun14 = new TreeNode('请假', 'AuthorityMgr.files/ApplyForHoliday.html', 'tree_node.gif', null, 'tree_node.gif', null);
+fun13.add(fun14);
+var fun15 = new TreeNode('申请加薪', 'AuthorityMgr.files/ApplyForSalaryIncrease.html', 'tree_node.gif', null, 'tree_node.gif', null);
+fun13.add(fun15);
+var fun151 = new TreeNode('申请调部门', 'AuthorityMgr.files/ApplyForChangeDep.html', 'tree_node.gif', null, 'tree_node.gif', null);
+fun13.add(fun151);
+var fun152 = new TreeNode('审批申请', 'AuthorityMgr.files/VerifyApply.html', 'tree_node.gif', null, 'tree_node.gif', null);
+fun13.add(fun152);
+var fun_myApply = new TreeNode('我的申请', 'AuthorityMgr.files/my_apply.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+fun13.add(fun_myApply);
+var fun_allApply = new TreeNode('所有审批', 'AuthorityMgr.files/all_apply.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+fun13.add(fun_allApply);
+root.add(fun13);
+tree = new Tree(root);
+tree.show('menuTree')
+</SCRIPT>
+</BODY>
+</HTML>

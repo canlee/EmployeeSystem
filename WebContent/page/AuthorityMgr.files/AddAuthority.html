@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Insert Page</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="../../css/page.css" type=text/css rel=stylesheet>
+<LINK href="../../css/authority/add_authority.css" type=text/css rel=stylesheet>
+<STYLE type=text/css> 
+body
+{
+	FONT-SIZE: 5px
+}
+.gridView {
+	BORDER-RIGHT: #bad6ec 1px; BORDER-TOP: #bad6ec 1px; BORDER-LEFT: #bad6ec 1px; COLOR: #566984; BORDER-BOTTOM: #bad6ec 1px; FONT-FAMILY: Courier New
+}
+.gridViewHeader {
+	text-align: center; BORDER-RIGHT: #bad6ec 1px solid; BORDER-TOP: #bad6ec 1px solid; BORDER-LEFT: #bad6ec 1px solid; LINE-HEIGHT: 27px; BORDER-BOTTOM: #bad6ec 1px solid;
+	background-color: #DDEEFF;
+
+}
+.gridViewItem {
+	BORDER-RIGHT: #bad6ec 1px solid; BORDER-TOP: #bad6ec 1px solid; BORDER-LEFT: #bad6ec 1px solid; LINE-HEIGHT: 32px; BORDER-BOTTOM: #bad6ec 1px solid; TEXT-ALIGN: center;
+}
+.cmdField {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BACKGROUND-IMAGE: url(../../images/bg_rectbtn.png); OVERFLOW: hidden; BORDER-LEFT: 0px; WIDTH: 67px; COLOR: #364c6d; LINE-HEIGHT: 27px; BORDER-BOTTOM: 0px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 27px; BACKGROUND-COLOR: transparent; TEXT-DECORATION: none
+}
+.buttonBlue {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BACKGROUND-IMAGE: url(../../images/bg_button_blue.gif); BORDER-LEFT: 0px; WIDTH: 78px; COLOR: white; BORDER-BOTTOM: 0px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 21px
+}
+.authority_choose {
+	max-width: 300px;
+	word-break : break-all;
+	BORDER-RIGHT: #bad6ec 1px solid; 
+	BORDER-TOP: #bad6ec 1px solid; 
+	BORDER-LEFT: #bad6ec 1px solid; 
+	LINE-HEIGHT: 32px; 
+	BORDER-BOTTOM: #bad6ec 1px solid; 
+}
+.authority_choose input {
+	margin: 10px;
+}
+</STYLE>
+<META content="MSHTML 6.00.2900.5848" name=GENERATOR>
+</HEAD>
+<BODY 
+style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif); BACKGROUND-REPEAT: repeat-x">
+<DIV>
+  <TABLE height="100%" cellSpacing=0 cellPadding=0 width="100%" border=0>
+    <TBODY>
+      <TR 
+  style="BACKGROUND-IMAGE: url(../../images/bg_header.gif); BACKGROUND-REPEAT: repeat-x" 
+  height=47>
+        <TD width=10><SPAN 
+      style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
+        <TD><SPAN 
+      style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">添加员工 </SPAN><SPAN 
+      style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
+        <TD 
+    style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
+    width=10></TD>
+      </TR>
+      <TR>
+        <TD style="BACKGROUND-IMAGE: url(../../images/main_ls.gif)">&nbsp;</TD>
+        <TD 
+    style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
+    vAlign=top align=center>
+          <DIV>
+          	<form>
+            <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1
+      style="WIDTH: 90%; BORDER-COLLAPSE: collapse" cellSpacing=5 rules=all 
+      border=1	 cellpadding="5px">
+              <TBODY>
+                <TR><TH class="gridViewHeader" colspan="2" style="background-color: #D2E9FF;">选择赋予的权限</TH></TR>     
+                <TR>
+                	<TD class="gridViewHeader" style="background-color: #ECF5FF;">员工管理模块</TD>
+                	<TD class="authority_choose">
+                		<ul>
+		                	<li><input type="checkbox" name="authority" value=""/>增加员工</li>
+		                	<li><input type="checkbox" name="authority" value=""/>删除员工</li>
+		                	<li><input type="checkbox" name="authority" value=""/>修改所有员工信息</li>
+		                	<li><input type="checkbox" name="authority" value=""/>修改自己部门员工信息</li>
+		   					<li><input type="checkbox" name="authority" value=""/>查询所有员工信息</li>
+	   					</ul>
+   					</TD>
+                </TR> 
+                <TR>
+                <TD class="gridViewHeader">部门管理模块</TD>
+                    <TD class="authority_choose">
+                    	<ul>
+		                    <li><input type="checkbox" name="authority" value=""/>增加部门</li>
+		                	<li><input type="checkbox" name="authority" value=""/>删除部门</li>
+		                	<li><input type="checkbox" name="authority" value=""/>修改部门</li>
+		               		<li><input type="checkbox" name="authority" value=""/>查询部门</li>
+	               		</ul>
+               		</TD>               	
+                </TR>
+                <TR>
+                	<TD class="gridViewHeader"  style="background-color: #ECF5FF;">岗位管理模块</TD>
+                	<TD class="authority_choose">
+                		<ul>
+		                	<li><input type="checkbox" name="authority" value=""/>增加岗位</li>
+		                	<li><input type="checkbox" name="authority" value=""/>删除岗位</li>
+		                	<li><input type="checkbox" name="authority" value=""/>修改岗位</li> 
+		                	<li><input type="checkbox" name="authority" value=""/>查询岗位</li>
+		            	</ul>
+		            </TD>        
+                </TR> 
+                <TR>
+                	<TD class="gridViewHeader">权限管理模块</TD>
+               		<TD class="authority_choose">
+               			<ul>
+		               		<li><input type="checkbox" name="authority" value=""/>修改权限</li>
+		                	<li><input type="checkbox" name="authority" value=""/>查询权限</li>
+		                	<li><input type="checkbox" name="authority" value=""/>申请请假</li>
+		                	<li><input type="checkbox" name="authority" value=""/>申请加薪</li>
+		                	<li><input type="checkbox" name="authority" value=""/>申请调部门</li>
+		                	<li><input type="checkbox" name="authority" value=""/>审批所有员工休假</li>
+		                	<li><input type="checkbox" name="authority" value=""/>审批自己部门请假</li>
+		                	<li><input type="checkbox" name="authority" value=""/>审批加薪申请</li>
+		                	<li><input type="checkbox" name="authority" value=""/>审批调部门申请</li>
+                		</ul>
+                	</TD>
+                </TR>  
+                <TR><TD class="authority_choose"  colspan="2" align="right">
+                	<input class="buttonBlue" type="submit" value="提交"/>
+            	</TD></TR>              
+              </TBODY>
+            </TABLE>
+            </form>
+          </DIV>
+        </TD>
+        <TD style="BACKGROUND-IMAGE: url(../../images/main_rs.gif)"></TD>
+      </TR>
+      <TR 
+  style="BACKGROUND-IMAGE: url(../../images/main_fs.gif); BACKGROUND-REPEAT: repeat-x" 
+  height=10>
+        <TD style="BACKGROUND-IMAGE: url(../../images/main_lf.gif)"></TD>
+        <TD style="BACKGROUND-IMAGE: url(../../images/main_fs.gif)"></TD>
+        <TD 
+style="BACKGROUND-IMAGE: url(../../images/main_rf.gif)"></TD>
+      </TR>
+    </TBODY>
+  </TABLE>
+</DIV>
+</BODY>
+</HTML>

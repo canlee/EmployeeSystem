@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+	<!--
+		Copyright 2002-2004 The Apache Software Foundation Licensed under the
+		Apache License, Version 2.0 (the "License"); you may not use this file
+		except in compliance with the License. You may obtain a copy of the
+		License at http://www.apache.org/licenses/LICENSE-2.0 Unless required
+		by applicable law or agreed to in writing, software distributed under
+		the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+		CONDITIONS OF ANY KIND, either express or implied. See the License for
+		the specific language governing permissions and limitations under the
+		License.
+	-->
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+
+	<appender name="rollingAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="logs/uvip.log" />
+		<param name="Append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{MMdd HH:mm:ss SSS\} %-5p] [%t] %3x %F:%L - %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="dailyAppender" class="org.apache.log4j.DailyRollingFileAppender">  
+		<param name="File" value="logs/uvip.log" />   
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />   
+		<layout class="org.apache.log4j.PatternLayout">  
+			<!--
+			<param name="ConversionPattern"  value="[%d{MMdd HH:mm:ss SSS\} %-5p] [%t] %c{3\}:%L - %m%n" />
+			-->
+			<param name="ConversionPattern"  value="[%d{MMdd HH:mm:ss SSS\} %-5p] %3x %F:%L - %m%n" />
+		</layout>   
+	</appender>
+
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<!-- 
+		<param name="Target" value="System.out" />
+		<param name="Threshold" value="WARN" />
+		 -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{MMdd HH:mm:ss SSS\} %-5p] %3x %F:%L - %m%n" />
+		</layout>
+		<!--
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">  
+			<param name="levelMin" value="debug" />  
+			<param name="levelMax" value="info" />  
+			<param name="AcceptOnMatch" value="true" />  
+		</filter>
+		-->
+	</appender>
+
+	<!--<category name="org.springframework">
+		<level value="INFO" />
+	</category>
+	<category name="org.hibernate">
+		<level value="INFO" />
+	</category>-->
+
+	<root>
+		<level value="WARN" />
+		<appender-ref ref="console" />
+		<appender-ref ref="dailyAppender" />
+	</root>
+
+</log4j:configuration>
+

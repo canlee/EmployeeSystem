@@ -1,0 +1,9 @@
+.pwd {
+	margin-left: 165px;
+}
+
+.error_tips {
+	font-size: 13px;
+	color: red;
+	display: none;
+}
