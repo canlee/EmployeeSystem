@@ -2,8 +2,6 @@ package com.icss.employeeSystem.model.po;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -20,7 +18,6 @@ public class Authority {
 	
 	@Id
 	@Column(name = "authorityId" , nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getAuthorityId() {
 		return authorityId;
 	}
@@ -38,5 +35,16 @@ public class Authority {
 		this.authorityName = authorityName;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Authority) {
+			Authority au = (Authority) obj;
+			if(this.authorityId == au.getAuthorityId() && 
+					this.authorityName == au.getAuthorityName()) {
+				return true;
+			}
+		}
+		return false;
+	}
 	
 }
