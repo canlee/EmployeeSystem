@@ -30,7 +30,12 @@
 		<!--配置mappingResource，让spring知道要映射的文件 -->
 		<property name="annotatedClasses">
 			<list>
+				<value>com.icss.employeeSystem.model.po.ApplyHoliday</value>
+				<value>com.icss.employeeSystem.model.po.ApplyChangeDep</value>
+				<value>com.icss.employeeSystem.model.po.ApplySalaryIncrease</value>
+				<value>com.icss.employeeSystem.model.po.Authority</value>
 				<value>com.icss.employeeSystem.model.po.Department</value>
+				<value>com.icss.employeeSystem.model.po.Employee</value>
 				<value>com.icss.employeeSystem.model.po.Post</value>
 			</list>
 		</property>
