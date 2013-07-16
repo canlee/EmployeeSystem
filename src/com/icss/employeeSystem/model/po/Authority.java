@@ -40,7 +40,7 @@ public class Authority {
 		if(obj instanceof Authority) {
 			Authority au = (Authority) obj;
 			if(this.authorityId == au.getAuthorityId() && 
-					this.authorityName == au.getAuthorityName()) {
+					this.authorityName.equals(au.getAuthorityName())) {
 				return true;
 			}
 		}

@@ -5,8 +5,13 @@
 <struts>
 
     <!-- 全局 -->
-	<package name="canlee" extends="global">
-	
+	<package name="canlee" extends="struts-default">
+		
+		<action name="getAuthority" 
+			class="com.icss.employeeSystem.action.Authority.GetMyAuthorityAction" 
+			method="getAuthority">
+		</action>
+		
 	</package>
 
 </struts> 
