@@ -33,4 +33,36 @@
   <welcome-file-list>
     <welcome-file>login.htm</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+  	<description>用于初始化一些数据</description>
+  	<servlet-name>initServlet</servlet-name>
+  	<servlet-class>com.icss.employeeSystem.action.init.InitServlet</servlet-class>
+  	<init-param>
+  		<param-name>allAuthority</param-name>
+  		<param-value>configData/authority/allAuthority</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>admin</param-name>
+  		<param-value>configData/admin/rootUser</param-value>
+  	</init-param>
+  	<init-param>
+		<param-name>DBDriver</param-name>
+		<param-value>com.mysql.jdbc.Driver</param-value>
+	</init-param>
+	<init-param>
+		<param-name>DBConnStr</param-name>
+		<param-value>jdbc:mysql://localhost/employee_system?useUnicode=true</param-value>
+	</init-param>
+	<init-param>
+		<param-name>user</param-name>
+		<param-value>root</param-value>
+	</init-param>
+	<init-param>
+		<param-name>password</param-name>
+		<param-value>123456</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
 </web-app>
