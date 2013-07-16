@@ -35,7 +35,7 @@ public class InitServlet extends HttpServlet {
 				config.getServletContext().getRealPath("/") + 
 				"/WEB-INF/classes/" + authorityPath);
 		
-		//初始化管理员名单
+		//初始化管理员名单 
 		String userPath = config.getInitParameter("admin");
 		InitAdminService adService = new InitAdminServiceImpl(connection);
 		adService.initAdmin(
