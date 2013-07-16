@@ -26,15 +26,20 @@ public class LoginFilter implements Filter {
 		HttpSession session = req.getSession();
 		if(session.getAttribute("employee") == null) {
 			String url = req.getRequestURI();
-			if(url.endsWith("login.htm") || url.endsWith("login")) {
+			if(url.endsWith("login.htm") || 
+					url.endsWith("login") || 
+					url.endsWith("css") || 
+					url.endsWith("js") || 
+					url.endsWith("gif") || 
+					url.endsWith("png")) {
 				arg2.doFilter(arg0, arg1);
 			}
 			else {
 				HttpServletResponse resp = (HttpServletResponse) arg1;
 				resp.getWriter().write(
-						"<SCRIPT type=\"text/javascript\">" +
-						"top.document.location='/EmployeeSystem/login.htm';" +
-						"</SCRIPT>");
+						"<script type=\"text/javascript\">" +
+								"parent.document.location.href='/EmployeeSystem/login.htm';" +
+						"</script>");
 			}
 		}
 		else {
