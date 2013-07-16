@@ -60,7 +60,7 @@
 	</init-param>
 	<init-param>
 		<param-name>password</param-name>
-		<param-value>123456</param-value>
+		<param-value>a359712032</param-value>
   	</init-param>
   	<load-on-startup>1</load-on-startup>
   </servlet>
