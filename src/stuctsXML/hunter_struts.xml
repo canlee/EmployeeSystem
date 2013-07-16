@@ -5,8 +5,44 @@
 <struts>
 
     <!-- 全局 -->
-	<package name="hunter" extends="global">
-	
+	<package name="hunter" extends="struts-default">
+		<action name="login" class="com.icss.employeeSystem.action.login.LoginAction" method="login">
+			<result name="success" type="redirect">
+				/index.html
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>
+		
+		
+		<action name="insertEmployee" class="com.icss.employeeSystem.action.Employee.InsertEmployeeAction" method="insert">
+			<result name="success" type="dispatcher">
+				/page/AuthorityMgr.files/AddAuthority.html
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>	
+			
+			
+		<action name="addAuthority" class="com.icss.employeeSystem.action.Authority.AddAuthority" method="add">
+			<result name="success" type="redirect">
+				/index.html
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>	
+		
+		<action name="queryIndividualInfo" class="com.icss.employeeSystem.action.Employee.QueryIndividualInfo" method="query">
+			<result name="success" type="dispatcher">
+				/page/EmployeeMgr.files/QueryIndividualInfo.html
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>	
 	</package>
 
 </struts> 
