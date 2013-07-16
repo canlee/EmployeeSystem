@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
+	out.print(path);
 	if(path!=null)
 	{
 		request.setAttribute("path",path);

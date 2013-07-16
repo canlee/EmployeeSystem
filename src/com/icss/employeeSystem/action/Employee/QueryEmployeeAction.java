@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.struts2.ServletActionContext;
+
+import com.icss.employeeSystem.model.vo.EmployeeVo;
+import com.icss.employeeSystem.service.EOAService;
 import com.icss.employeeSystem.service.EmployeeService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -11,10 +15,27 @@ import com.opensymphony.xwork2.ActionSupport;
 public class QueryEmployeeAction extends ActionSupport{
 
 	private EmployeeService employeeService;
-	private String empId;
-	private String sex;
-	private String depId;
-	private String postId;
+	private EOAService EOAservice;
+	private String empId = "";
+	private String depId = "%";
+	private String postId = "%";
+	private String target;
+
+	public String getTarget() {
+		return target;
+	}
+
+	public void setTarget(String target) {
+		this.target = target;
+	}
+
+	public EOAService getEOAservice() {
+		return EOAservice;
+	}
+
+	public void setEOAservice(EOAService eOAservice) {
+		EOAservice = eOAservice;
+	}
 
 	public EmployeeService getEmployeeService() {
 		return employeeService;
@@ -30,14 +51,6 @@ public class QueryEmployeeAction extends ActionSupport{
 
 	public void setEmpId(String empId) {
 		this.empId = empId;
-	}
-
-	public String getSex() {
-		return sex;
-	}
-
-	public void setSex(String sex) {
-		this.sex = sex;
 	}
 
 	public String getDepId() {
@@ -57,32 +70,46 @@ public class QueryEmployeeAction extends ActionSupport{
 	}
 
 	public String query(){
-		ActionContext ac = ActionContext.getContext();
-		if(ac.getParameters().get("flag").equals("0")){
-			empId = "*";
-			postId = "*";
-			depId = "*";
-			sex = "*";
+		ActionContext ac = ActionContext.getContext();	
+		if(empId.equals("")){
+			if(target.equals("individual")){
+				empId = ((EmployeeVo)ac.getSession().get("employee")).getEmpID();
+			}
+			else{
+				empId = "%";
+			}
 		}
-		if(empId.equals(""))empId="*";
+		
+		
 		String sql = "select * from Employee,Post,Department where Employee.postId=Post.postId and Post.depId=Department.depId and " +
-				"Employee.empId like ? and Employee.postId like ? and Employee.depId like ? and sex like ?";
+				"Employee.empId like ? and Employee.postId like ? and Post.depId like ?";
 		List<Map<String, Object>> employeeList = new ArrayList<Map<String,Object>>();
 		List<String> param = new ArrayList<String>();
 		param.add(empId);
 		param.add(postId);
 		param.add(depId);
-		param.add(sex);
 		try {
 			employeeList = (List<Map<String, Object>>)employeeService.queryForList(sql, param);
 			ac.put("employeeList", employeeList);
-			System.out.println("safasdfasdfasdfasdfsadfasfasdf");
-			return "success";
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 			return "fail";
-		}		
+		}
 		
+		if(target.equals("individual")){
+			sql = "select authorityName from employee_authority,Authority where employee_authority.authId = Authority.authorityId and employee_authority.empId = "+empId;
+			try {
+				List<Map<String, String>> authorityList = new ArrayList<Map<String,String>>();
+				authorityList = (List<Map<String, String>>)EOAservice.queryForList(sql, authorityList);
+				//authorityList.get(0).get("authorityName");
+				ac.put("authorityList", authorityList);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+				return "fail";
+			}
+		}
+		return target;
 	}
 }

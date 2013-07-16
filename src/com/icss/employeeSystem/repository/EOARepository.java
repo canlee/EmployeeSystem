@@ -1,5 +1,7 @@
 package com.icss.employeeSystem.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,5 +27,9 @@ public class EOARepository {
 	
 	public void insert(String empId,String authId){
 		jdbcDaoHelper.getJdbcTemplate().execute("insert into employee_authority values(\""+authId+"\",\""+empId+"\")");
+	}
+	
+	public List<?> queryForList(final String sql, final List<?> paras){
+		return jdbcDaoHelper.queryForList(sql, paras);
 	}
 }

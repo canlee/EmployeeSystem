@@ -43,7 +43,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">æ¥è¯¢åå·¥ä¿¡æ¯ </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">查询员工信息 </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -55,21 +55,16 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
     vAlign=top align=center>
           <DIV>
-          	<form action="queryEmployee">
-          		员工号<input type="text" name="id"/>
-          		性别<select name="sex">
-          			<option value="*"></option>
-          			<option value="1">男</option>
-          			<option value="0">女</option>
-          		</select>
-          		部门<select name="department">
-          			<option value="*"></option>
+          	<form action="queryEmployee?target=success">
+          		员工号<input type="text" name="empId"/>
+          		部门<select name="depId">
+          			<option value="%"></option>
           			<option value="">人事部</option>
           			<option value="">技术部</option>
           			<option value="">你妈</option>
           		</select>
-          		职位<select name="post">
-          			<option value="*"></option>
+          		职位<select name="postId">
+          			<option value="%"></option>
           			<option value="">你阿玛</option>
           			<option value="">你妈</option>
           		</select>
@@ -107,7 +102,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                   <TD class=gridViewItem><%=employeeList.get(i).get("depName") %></TD>
                   <TD class=gridViewItem><%=employeeList.get(i).get("postName") %></TD>
                   <TD class=gridViewItem><A class=cmdField 
-            href="QueryIndividualInfo.html">查询详情</A></TD>
+            href="queryEmployee?empId=<%=employeeList.get(i).get("empId") %>&target=individual">查询详情</A></TD>
                   <TD class=gridViewItem>
                   	<A class="cmdField" 
             		href="EmployeeMgr.files/UpdateEmployee.html">个人资料</A>
