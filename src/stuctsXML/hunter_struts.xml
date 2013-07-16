@@ -43,6 +43,15 @@
 				/fail.html
 			</result>
 		</action>	
+		
+		<action name="queryEmployee" class="com.icss.employeeSystem.action.Employee.QueryEmployeeAction" method="query">
+			<result name="success" type="dispatcher">
+				/page/EmployeeMgr.files/QueryEmployee.html
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>
 	</package>
 
 </struts> 

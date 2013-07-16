@@ -1,16 +1,17 @@
 package com.icss.employeeSystem.action.Employee;
 
-import com.icss.employeeSystem.model.po.Employee;
-import com.icss.employeeSystem.model.vo.EmployeeVo;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import com.icss.employeeSystem.service.EmployeeService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class QueryIndividualInfo extends ActionSupport{
+public class QueryEmployeeAction extends ActionSupport{
 
-	private String empId;
 	private EmployeeService employeeService;
-	
+
 	public EmployeeService getEmployeeService() {
 		return employeeService;
 	}
@@ -18,28 +19,19 @@ public class QueryIndividualInfo extends ActionSupport{
 	public void setEmployeeService(EmployeeService employeeService) {
 		this.employeeService = employeeService;
 	}
-
-	public String getEmpId() {
-		return empId;
-	}
-
-	public void setEmpId(String empId) {
-		this.empId = empId;
-	}
-
+	
 	public String query(){
+		ActionContext ac = ActionContext.getContext();
+		String sql = "select * from Employee";
+		List<Map<String, Object>> employeeList = new ArrayList<Map<String,Object>>();
 		try {
-			ActionContext ac = ActionContext.getContext();
-			if(empId==null){
-				setEmpId(((EmployeeVo)ac.getSession().get("employee")).getEmpID());
-			}
-			Employee emp = (Employee)employeeService.get(Employee.class, getEmpId());
-			ac.put("emp", emp);
+			employeeList = (List<Map<String, Object>>)employeeService.queryForList(sql, employeeList);
+			ac.put("employeeList", employeeList);
 			return "success";
 		} catch (Exception e) {
 			// TODO: handle exception
-			e.printStackTrace();
 			return "fail";
 		}		
+		
 	}
 }
