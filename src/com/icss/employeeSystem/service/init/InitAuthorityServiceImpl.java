@@ -36,7 +36,6 @@ public class InitAuthorityServiceImpl implements InitAuthorityService {
 				}
 				for(Authority curAu : currentAus) {
 					if(!dbAus.contains(curAu)) {
-						System.out.println(curAu.getAuthorityId() + ", " + curAu.getAuthorityName());
 						resp.insert(curAu);
 					}
 				}

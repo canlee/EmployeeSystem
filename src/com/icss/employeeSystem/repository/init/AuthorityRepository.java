@@ -51,7 +51,7 @@ public class AuthorityRepository {
 				au.getAuthorityId() + ";");
 		state.close();
 		state = connection.createStatement();
-		state.execute("DELETE FROM employee_authority WHERE authorityId=" +
+		state.execute("DELETE FROM employee_authority WHERE authId=" +
 				au.getAuthorityId() + ";");
 		state.close();
 	}

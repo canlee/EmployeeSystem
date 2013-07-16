@@ -43,6 +43,10 @@
   		<param-value>configData/authority/allAuthority</param-value>
   	</init-param>
   	<init-param>
+  		<param-name>admin</param-name>
+  		<param-value>configData/admin/rootUser</param-value>
+  	</init-param>
+  	<init-param>
 		<param-name>DBDriver</param-name>
 		<param-value>com.mysql.jdbc.Driver</param-value>
 	</init-param>
