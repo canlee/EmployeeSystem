@@ -30,6 +30,10 @@ public class EmployeeService {
 		baseDao.save(obj);
 	}
 	
+	public void update(Object obj){
+		baseDao.update(obj);
+	}
+	
 	public List<?> queryForList(final String sql, final List<?> paras){
 		return baseDao.queryForList(sql, paras);
 	}

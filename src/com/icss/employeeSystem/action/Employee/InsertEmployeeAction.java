@@ -3,6 +3,7 @@ package com.icss.employeeSystem.action.Employee;
 import java.util.Date;
 
 import com.icss.employeeSystem.model.po.Employee;
+import com.icss.employeeSystem.service.EmployeeService;
 import com.icss.framework.base.dao.BaseDaoImpl;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -14,7 +15,17 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class InsertEmployeeAction extends ActionSupport{
 
-	private BaseDaoImpl baseDao;
+	private EmployeeService employeeService;
+	public EmployeeService getEmployeeService() {
+		return employeeService;
+	}
+
+
+	public void setEmployeeService(EmployeeService employeeService) {
+		this.employeeService = employeeService;
+	}
+
+
 	private String empId;
 	private String empName;
 	private String password;
@@ -57,16 +68,6 @@ public class InsertEmployeeAction extends ActionSupport{
 
 	public void setDay(String day) {
 		this.day = day;
-	}
-
-
-	public BaseDaoImpl getBaseDao() {
-		return baseDao;
-	}
-
-
-	public void setBaseDao(BaseDaoImpl baseDao) {
-		this.baseDao = baseDao;
 	}
 	
 	
@@ -171,7 +172,7 @@ public class InsertEmployeeAction extends ActionSupport{
 
 
 	public String insert(){
-		Employee e = (Employee)baseDao.get(Employee.class, getEmpId());
+		Employee e = (Employee)employeeService.get(Employee.class, getEmpId());
 		ActionContext ac = ActionContext.getContext();
 		if(e!=null){
 			return "fail";
@@ -190,7 +191,7 @@ public class InsertEmployeeAction extends ActionSupport{
 				emp.setPostId(Integer.parseInt(post));
 				Date date = new Date(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
 				emp.setBirthday(date);
-				baseDao.save(emp);
+				employeeService.save(emp);
 				ac.getSession().put("empId", empId);
 				return "success";
 			} catch (Exception e2) {

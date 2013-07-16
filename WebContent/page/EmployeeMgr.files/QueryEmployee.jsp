@@ -1,4 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <HTML>
 <HEAD>
 <TITLE>Query Page</TITLE>
@@ -39,7 +43,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">查询员工信息 </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">æ¥è¯¢åå·¥ä¿¡æ¯ </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -51,23 +55,23 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
     vAlign=top align=center>
           <DIV>
-          	<form>
+          	<form action="queryEmployee">
           		员工号<input type="text" name="id"/>
           		性别<select name="sex">
-          			<option value=""></option>
-          			<option value="male">男</option>
-          			<option value="female">女</option>
+          			<option value="*"></option>
+          			<option value="1">男</option>
+          			<option value="0">女</option>
           		</select>
           		部门<select name="department">
-          			<option value=""></option>
+          			<option value="*"></option>
           			<option value="">人事部</option>
           			<option value="">技术部</option>
-          			<option value="">宣传部</option>
+          			<option value="">你妈</option>
           		</select>
-          		职位<select name="post">
-          			<option value=""></option>
-          			<option value="">部长</option>
-          			<option value="">普通员工</option>
+          		职位<select name="post">
+          			<option value="*"></option>
+          			<option value="">你阿玛</option>
+          			<option value="">你妈</option>
           		</select>
           		<input type="submit" value="查询">
           	</form>
@@ -80,96 +84,45 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                   <TH class=gridViewHeader scope=col>员工号</TH>
                   <TH class=gridViewHeader scope=col>姓名</TH>
                   <TH class=gridviewHeader scope=col>性别</TH>
-                  <TH class=gridviewHeader scope=col>部门</TH>
-                  <TH class=gridviewHeader scope=col>职位</TH>
+                  <TH class=gridviewHeader scope=col>部门¨</TH>
+                  <TH class=gridviewHeader scope=col>职位</TH>
                   <TH class=gridviewHeader scope=col>查看详情</TH>
                   <TH class=gridviewHeader scope=col>修改</TH>
                   <TH class=gridviewHeader scope=col>删除</TH>
                 </TR>
-                <TR>
+              <%
+              	List<Map<String,Object>> employeeList = (List<Map<String,Object>>)request.getAttribute("employeeList");
+                for(int i=0;i<employeeList.size();++i){
+                	String sex = (String)employeeList.get(i).get("sex");
+                	if(sex==null)sex="";
+                	else if(sex.equals("1"))sex="男";
+                	else sex="女";
+              %>
+                  <TR>
                   <TD class=gridViewItem style="WIDTH: 50px"><IMG 
             src="bg_users.gif"> </TD>
-                  <TD class=gridViewItem>admin</TD>
-                  <TD class=gridViewItem>系统管理员</TD>
-                  <TD class=gridViewItem>男</TD>
-                  <TD class=gridViewItem>人事部</TD>
-                  <TD class=gridViewItem>部长 </TD>
+                  <TD class=gridViewItem><%=employeeList.get(i).get("empId") %></TD>
+                  <TD class=gridViewItem><%=employeeList.get(i).get("empName") %></TD>
+                  <TD class=gridViewItem><%=sex %></TD>
+                  <TD class=gridViewItem><%=employeeList.get(i).get("depName") %></TD>
+                  <TD class=gridViewItem><%=employeeList.get(i).get("postName") %></TD>
                   <TD class=gridViewItem><A class=cmdField 
-            href="QueryIndividualInfo.html">查看详情</A></TD>
+            href="QueryIndividualInfo.html">查询详情</A></TD>
                   <TD class=gridViewItem>
                   	<A class="cmdField" 
-            		href="UpdateEmployee.html">基本信息</A>
+            		href="EmployeeMgr.files/UpdateEmployee.html">个人资料</A>
             		<A class="cmdField"  
-            		href="../AuthorityMgr.files/AddAuthority.html">权限</A>
+            		href="AuthorityMgr.files/AddAuthority.html">权限</A>
             	  </TD>
                   <TD class=gridViewItem><A class=cmdField 
             id=ctl00_ContentPlaceHolder2_GridView1_ctl03_LinkButton1 
-            onclick="return confirm('确定要删除吗？');" 
+            onclick="return confirm('ç¡®å®è¦å é¤åï¼');" 
             href="javascript:__doPostBack('ctl00$ContentPlaceHolder2$GridView1$ctl03$LinkButton1','')">删除</A> </TD>
                 </TR>
-                <TR>
-                  <TD class=gridViewItem style="WIDTH: 50px"><IMG 
-            src="bg_users.gif"> </TD>
-                  <TD class=gridViewItem>lili</TD>
-                  <TD class=gridViewItem>lili</TD>
-                  <TD class=gridViewItem>女</TD>
-                  <TD class=gridViewItem>人事部</TD>
-                  <TD class=gridViewItem>普通员工 </TD>
-                  <TD class=gridViewItem><A class=cmdField 
-            href="QueryIndividualInfo.html">查看详情</A></TD>
-                 <TD class=gridViewItem>
-                  	<A class=cmdField 
-            		href="UpdateEmployee.html">基本信息</A>
-            		<A class=cmdField 
-            		href="../AuthorityMgr.files/AddAuthority.html">权限</A>
-            	  </TD>
-                  <TD class=gridViewItem><A class=cmdField 
-            id=ctl00_ContentPlaceHolder2_GridView1_ctl03_LinkButton1 
-            onclick="return confirm('确定要删除吗？');" 
-            href="javascript:__doPostBack('ctl00$ContentPlaceHolder2$GridView1$ctl03$LinkButton1','')">删除</A> </TD>
-                </TR>
-                <TR>
-                  <TD class=gridViewItem style="WIDTH: 50px"><IMG 
-            src="bg_users.gif"> </TD>
-                  <TD class=gridViewItem>liwei</TD>
-                  <TD class=gridViewItem>liwei</TD>
-                  <TD class=gridViewItem>男</TD>
-                  <TD class=gridViewItem>技术部</TD>
-                  <TD class=gridViewItem>普通员工 </TD>
-                  <TD class=gridViewItem><A class=cmdField 
-            href="QueryIndividualInfo.html">查看详情</A></TD>
-                  <TD class=gridViewItem>
-                  	<A class=cmdField 
-            		href="UpdateEmployee.html">基本信息</A>
-            		<A class=cmdField 
-            		href="../AuthorityMgr.files/AddAuthority.html">权限</A>
-            	  </TD>
-                  <TD class=gridViewItem><A class=cmdField 
-            id=ctl00_ContentPlaceHolder2_GridView1_ctl04_LinkButton1 
-            onclick="return confirm('确定要删除吗？');" 
-            href="javascript:__doPostBack('ctl00$ContentPlaceHolder2$GridView1$ctl04$LinkButton1','')">删除</A> </TD>
-                </TR>
-                <TR>
-                  <TD class=gridViewItem style="WIDTH: 50px"><IMG 
-            src="bg_users.gif"> </TD>
-                  <TD class=gridViewItem>ljs</TD>
-                  <TD class=gridViewItem>ljs</TD>
-                  <TD class=gridViewItem>男</TD>
-                  <TD class=gridViewItem>宣传部</TD>
-                  <TD class=gridViewItem>普通员工 </TD>
-                  <TD class=gridViewItem><A class=cmdField 
-            href="QueryIndividualInfo.html">查看详情</A></TD>
-                  <TD class=gridViewItem>
-                  	<A class=cmdField 
-            		href="UpdateEmployee.html">基本信息</A>
-            		<A class=cmdField 
-            		href="../AuthorityMgr.files/AddAuthority.html">权限</A>
-            	  </TD>
-                  <TD class=gridViewItem><A class=cmdField 
-            id=ctl00_ContentPlaceHolder2_GridView1_ctl05_LinkButton1 
-            onclick="return confirm('确定要删除吗？');" 
-            href="javascript:__doPostBack('ctl00$ContentPlaceHolder2$GridView1$ctl05$LinkButton1','')">删除</A> </TD>
-                </TR>                                                          
+              			
+              <%
+                }
+              %>                                                        
               </TBODY>	
             </TABLE>
             <div class="selectPage" align="right">

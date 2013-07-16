@@ -46,12 +46,21 @@
 		
 		<action name="queryEmployee" class="com.icss.employeeSystem.action.Employee.QueryEmployeeAction" method="query">
 			<result name="success" type="dispatcher">
-				/page/EmployeeMgr.files/QueryEmployee.html
+				/page/EmployeeMgr.files/QueryEmployee.jsp
 			</result>
 			<result name="fail" type="redirect">
 				/fail.html
 			</result>
 		</action>
+
+		<action name="updateEmployee" class="com.icss.employeeSystem.action.Employee.UpdateEmployeeAction" method="update">
+			<result name="success" type="dispatcher">
+				/index.html
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>		
 	</package>
 
 </struts> 
