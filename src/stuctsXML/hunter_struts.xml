@@ -18,7 +18,7 @@
 		
 		<action name="insertEmployee" class="com.icss.employeeSystem.action.Employee.InsertEmployeeAction" method="insert">
 			<result name="success">
-				/page/AuthorityMgr.files/AddAuthority.html
+				/page/AuthorityMgr.files/AddAuthority.jsp
 			</result>
 			<result name="fail" type="redirect">
 				/fail.html
@@ -79,6 +79,15 @@
 				/fail.html
 			</result>
 		</action>	
+		
+		<action name="queryAuthority" class="com.icss.employeeSystem.action.Authority.QueryAuthorityAction" method="query">
+			<result name="success">
+				/page/AuthorityMgr.files/AddAuthority.jsp
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>
 	</package>
 
 </struts> 

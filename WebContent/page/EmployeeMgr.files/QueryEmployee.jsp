@@ -108,7 +108,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                   	<A class="cmdField" 
             		href="queryEmployee?empId=<%=employeeList.get(i).get("empId") %>&target=updateOthers">个人资料</A>
             		<A class="cmdField"  
-            		href="AuthorityMgr.files/AddAuthority.html">权限</A>
+            		href="queryAuthority?empId=<%=employeeList.get(i).get("empId") %>">权限</A>
             	  </TD>
                   <TD class=gridViewItem><A class=cmdField 
             id=ctl00_ContentPlaceHolder2_GridView1_ctl03_LinkButton1 
