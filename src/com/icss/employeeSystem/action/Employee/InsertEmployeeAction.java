@@ -189,7 +189,7 @@ public class InsertEmployeeAction extends ActionSupport{
 				emp.setAddress(address);
 				emp.setSalary(Double.parseDouble(salary));
 				emp.setPostId(Integer.parseInt(post));
-				Date date = new Date(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
+				Date date = new Date(Integer.parseInt(year)-1900, Integer.parseInt(month), Integer.parseInt(day));
 				emp.setBirthday(date);
 				employeeService.save(emp);
 				ac.put("empId", empId);

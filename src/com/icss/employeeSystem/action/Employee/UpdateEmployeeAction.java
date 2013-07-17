@@ -150,6 +150,7 @@ public class UpdateEmployeeAction extends ActionSupport{
 			if(post!=null){
 				emp.setPostId(Integer.parseInt(post));
 			}
+			Date date = new Date(Integer.parseInt(year)-1900, Integer.parseInt(month), Integer.parseInt(day));
 			emp.setEmpName(empName);
 			emp.setSex(sex);
 			emp.setEmail(email);
