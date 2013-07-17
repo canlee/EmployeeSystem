@@ -7,7 +7,7 @@
     <!-- 全局 -->
 	<package name="hunter" extends="struts-default">
 		<action name="login" class="com.icss.employeeSystem.action.login.LoginAction" method="login">
-			<result name="success">
+			<result name="success" type="redirect">
 				/index.html
 			</result>
 			<result name="fail" type="redirect">
@@ -74,6 +74,15 @@
 		<action name="queryAuthority" class="com.icss.employeeSystem.action.Authority.QueryAuthorityAction" method="query">
 			<result name="success">
 				/page/AuthorityMgr.files/AddAuthority.jsp
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>
+		
+		<action name="deleteEmployee" class="com.icss.employeeSystem.action.Employee.DeleteEmployeeAction" method="delete">
+			<result name="success">
+				/index.html
 			</result>
 			<result name="fail" type="redirect">
 				/fail.html

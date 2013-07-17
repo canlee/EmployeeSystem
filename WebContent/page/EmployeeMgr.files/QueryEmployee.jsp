@@ -112,8 +112,8 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
             	  </TD>
                   <TD class=gridViewItem><A class=cmdField 
             id=ctl00_ContentPlaceHolder2_GridView1_ctl03_LinkButton1 
-            onclick="return confirm('ç¡®å®è¦å é¤åï¼');" 
-            href="javascript:__doPostBack('ctl00$ContentPlaceHolder2$GridView1$ctl03$LinkButton1','')">删除</A> </TD>
+            onclick="return confirm('确定删除？');" 
+            href="deleteEmployee?empId=<%=employeeList.get(i).get("empId") %>">删除</A> </TD>
                 </TR>
               			
               <%
