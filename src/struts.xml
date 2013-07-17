@@ -11,11 +11,6 @@
 	<package name="global" extends="app-default" namespace="/">
 		<default-action-ref name="index" />
 		
-		<action name="login" class="com.icss.employeeSystem.action.login.LoginAction" method="login">
-			<result name="success" type="redirect">
-				/index.html
-			</result>
-		</action>
 		
 	</package>
 

@@ -35,15 +35,6 @@
 			</result>
 		</action>	
 		
-		<action name="queryIndividualInfo" class="com.icss.employeeSystem.action.Employee.QueryIndividualInfo" method="query">
-			<result name="success">
-				/page/EmployeeMgr.files/QueryIndividualInfo.jsp
-			</result>
-			<result name="fail" type="redirect">
-				/fail.html
-			</result>
-		</action>	
-		
 		<action name="queryEmployee" class="com.icss.employeeSystem.action.Employee.QueryEmployeeAction" method="query">
 			<result name="success">
 				/page/EmployeeMgr.files/QueryEmployee.jsp

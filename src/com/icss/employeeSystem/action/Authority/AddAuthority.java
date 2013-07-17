@@ -15,7 +15,17 @@ public class AddAuthority {
 	private String[] authority;
 	private BaseDaoImpl baseDao;
 	private EOAService EOAservice;
+	private String empId;
 	
+	
+	public String getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(String empId) {
+		this.empId = empId;
+	}
+
 	public EOAService getEOAservice() {
 		return EOAservice;
 	}
@@ -41,10 +51,10 @@ public class AddAuthority {
 	}
 	
 	public String add(){
+		System.out.println(empId);
 		ActionContext ac = ActionContext.getContext();
-		String empId = (String)ac.getSession().get("empId");
-		ac.getSession().remove("empId");
 		try {
+			EOAservice.deleteWithEmpId(empId);
 			for(int i=0;i<authority.length;++i){
 				EOAservice.insert(empId, authority[i]);
 			}

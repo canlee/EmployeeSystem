@@ -29,6 +29,10 @@ public class EOARepository {
 		jdbcDaoHelper.getJdbcTemplate().execute("insert into employee_authority values(\""+authId+"\",\""+empId+"\")");
 	}
 	
+	public void deleteWithEmpId(String empId){
+		jdbcDaoHelper.getJdbcTemplate().execute("delete from employee_authority where empId = "+empId);
+	}
+	
 	public List<?> queryForList(final String sql, final List<?> paras){
 		return jdbcDaoHelper.queryForList(sql, paras);
 	}

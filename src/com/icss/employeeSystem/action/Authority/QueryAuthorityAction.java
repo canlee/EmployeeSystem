@@ -32,12 +32,14 @@ public class QueryAuthorityAction extends ActionSupport{
 	}
 	
 	public String query(){
+		System.out.println(empId);
 		ActionContext ac = ActionContext.getContext();
 		String sql = "select authorityId from employee_authority,Authority where employee_authority.authId = Authority.authorityId and employee_authority.empId = "+empId;
 		try {
-			List<Map<String, String>> authorityList = new ArrayList<Map<String,String>>();
-			authorityList = (List<Map<String, String>>)EOAservice.queryForList(sql, authorityList);
+			List<Map<String, Integer>> authorityList = new ArrayList<Map<String,Integer>>();
+			authorityList = (List<Map<String, Integer>>)EOAservice.queryForList(sql, authorityList);
 			ac.put("authorityList", authorityList);
+			ac.put("empId",empId);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
