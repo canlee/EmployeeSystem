@@ -172,7 +172,7 @@ public class UpdateEmployeeAction extends ActionSupport{
 		setEmpId(((EmployeeVo)ac.getSession().get("employee")).getEmpID());			
 		Employee emp = (Employee)employeeService.get(Employee.class, empId);
 		emp.setPassword(password);
-		employeeService.save(emp);
+		employeeService.update(emp);
 		return "success";
 	}
 }

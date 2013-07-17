@@ -64,7 +64,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
     vAlign=top align=center>
           <DIV>
-          	<form action="updateEmployee">
+          	<form action="updatePwd">
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
       style="WIDTH: 70%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
       border=1>
@@ -98,7 +98,12 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
 	                  	<div class="clear"></div>
                   	</div>
                   </TD>
-                </TR>                                                                     
+                </TR>  
+                <TR>
+                	<TD colspan="2" align="right">
+                		<input class="buttonBlue" type="submit" value="Ìá½»"/>
+                	</TD>
+                </TR>                                                                   
               </TBODY>
             </TABLE>
             </form>

@@ -28,7 +28,7 @@
 			
 		<action name="addAuthority" class="com.icss.employeeSystem.action.Authority.AddAuthority" method="add">
 			<result name="success" type="redirect">
-				/index.html
+				/success.html
 			</result>
 			<result name="fail" type="redirect">
 				/fail.html
@@ -55,7 +55,7 @@
 
 		<action name="updateEmployee" class="com.icss.employeeSystem.action.Employee.UpdateEmployeeAction" method="update">
 			<result name="success">
-				/index.html
+				/success.html
 			</result>
 			<result name="fail" type="redirect">
 				/fail.html
@@ -63,8 +63,8 @@
 		</action>	
 		
 		<action name="updatePwd" class="com.icss.employeeSystem.action.Employee.UpdateEmployeeAction" method="updatePwd">
-			<result name="success">
-				/index.html
+			<result name="success">	
+				/success.html
 			</result>
 			<result name="fail" type="redirect">
 				/fail.html
@@ -82,7 +82,7 @@
 		
 		<action name="deleteEmployee" class="com.icss.employeeSystem.action.Employee.DeleteEmployeeAction" method="delete">
 			<result name="success">
-				/index.html
+				/success.html
 			</result>
 			<result name="fail" type="redirect">
 				/fail.html
