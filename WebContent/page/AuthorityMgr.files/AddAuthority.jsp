@@ -15,7 +15,7 @@
 <STYLE type=text/css> 
 body
 {
-	FONT-SIZE: 5px
+	FONT-SIZE: 12px
 }
 .gridView {
 	BORDER-RIGHT: #bad6ec 1px; BORDER-TOP: #bad6ec 1px; BORDER-LEFT: #bad6ec 1px; COLOR: #566984; BORDER-BOTTOM: #bad6ec 1px; FONT-FAMILY: Courier New
@@ -76,7 +76,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           <%
           	List<Map<String,Integer>> authorityList = (List<Map<String,Integer>>)request.getAttribute("authorityList");
     		String[] flag = new String[23];
-          	if(authorityList.size()>0){
+          	if(authorityList!=null){
           		for(int i=0;i<authorityList.size();++i){
           			int index = (Integer)authorityList.get(i).get("authorityId");
           			flag[index] = "checked=\"checked\"";

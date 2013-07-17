@@ -11,7 +11,7 @@
 <STYLE type=text/css> 
 body
 {
-	FONT-SIZE: 5px
+	FONT-SIZE: 12px
 }
 .gridView {
 	BORDER-RIGHT: #bad6ec 1px; BORDER-TOP: #bad6ec 1px; BORDER-LEFT: #bad6ec 1px; COLOR: #566984; BORDER-BOTTOM: #bad6ec 1px; FONT-FAMILY: Courier New
