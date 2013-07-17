@@ -58,6 +58,11 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return depInfo;
 	}
 	
+	@Override
+	public boolean update(Department dep) {
+		return departmentRepository.update(dep);
+	}
+	
 	public void setDepartmentRepository(
 			DepartmentRepository departmentRepository) {
 		this.departmentRepository = departmentRepository;

@@ -27,4 +27,11 @@ public interface DepartmentService {
 	 */
 	public DepartmentInfoVo getDepartmentInfo(int depId);
 	
+	/**
+	 * 修改部门信息，如果修改成功返回true
+	 * @param dep
+	 * @return
+	 */
+	public boolean update(Department dep);
+	
 }

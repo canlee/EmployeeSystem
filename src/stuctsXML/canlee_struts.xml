@@ -41,6 +41,22 @@
 			method="queryDetailDepartment">
 		</action>
 		
+		<action name="getUpdateDep"
+			class="com.icss.employeeSystem.action.department.DepartmentAction"
+			method="getUpdateDepartment">
+			<result name="success">
+				/page/DepartmentMgr.files/department_update.jsp
+			</result>	
+		</action>
+		
+		<action name="updateDep" 
+			class="com.icss.employeeSystem.action.department.DepartmentAction" 
+			method="update">
+			<result name="success" type="redirect">
+				/page/DepartmenMgr.files/getUpdateDep
+			</result>
+		</action>
+		
 	</package>
 
 </struts> 

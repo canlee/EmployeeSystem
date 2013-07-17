@@ -30,5 +30,7 @@ public interface DepartmentRepository {
 	 * @return
 	 */
 	public List<Employee> getEmployeeInDepartment(int depId);
+
+	public boolean update(Department dep);
 	
 }

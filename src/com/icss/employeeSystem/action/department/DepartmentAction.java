@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 
@@ -65,6 +67,30 @@ public class DepartmentAction extends BaseAction {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public String getUpdateDepartment() {
+		List<Department> deps = departmentService.getAllDepartment();
+		getRequest().setAttribute("departments", deps);
+		return "success";
+	}
+	
+	public String update() {
+		HttpServletRequest req = getRequest();
+		try {
+			int depId = Integer.parseInt(req.getParameter("depId"));
+			String depName = req.getParameter("depName");
+			Department dep = new Department();
+			dep.setDepId(depId);
+			dep.setDepName(depName);
+			if(!departmentService.update(dep)) {
+				return "fail";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "fail";
+		}
+		return "success";
 	}
 	
 	public void setDepartmentService(DepartmentService departmentService) {

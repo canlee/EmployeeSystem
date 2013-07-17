@@ -72,6 +72,17 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
 	}
 	
 	@Override
+	public boolean update(Department dep) {
+		try {
+			baseDao.update(dep);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	@Override
 	public Department getById(int depId) {
 		return (Department) baseDao.get(Department.class, depId);
 	}
