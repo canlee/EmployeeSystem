@@ -3,6 +3,9 @@
 <HEAD>
 <TITLE>Insert Page</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
+<script type="text/javascript" src="../../js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../js/authority/authority_select.js"></script>
 <LINK href="../../css/page.css" type=text/css rel=stylesheet>
 <LINK href="../../css/authority/add_authority.css" type=text/css rel=stylesheet>
 <STYLE type=text/css> 
@@ -76,11 +79,11 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 	<TD class="gridViewHeader" style="background-color: #ECF5FF;">员工管理模块</TD>
                 	<TD class="authority_choose">
                 		<ul>
-		                	<li><input type="checkbox" name="authority" value=""/>增加员工</li>
-		                	<li><input type="checkbox" name="authority" value=""/>删除员工</li>
-		                	<li><input type="checkbox" name="authority" value=""/>修改所有员工信息</li>
-		                	<li><input type="checkbox" name="authority" value=""/>修改自己部门员工信息</li>
-		   					<li><input type="checkbox" name="authority" value=""/>查询所有员工信息</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="1"/>增加员工</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="2"/>删除员工</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="3"/>修改所有员工信息</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="4"/>修改自己部门员工信息</li>
+		   					<li><input class="authority" type="checkbox" name="authority" value="5"/>查询所有员工信息</li>
 	   					</ul>
    					</TD>
                 </TR> 
@@ -88,10 +91,10 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 <TD class="gridViewHeader">部门管理模块</TD>
                     <TD class="authority_choose">
                     	<ul>
-		                    <li><input type="checkbox" name="authority" value=""/>增加部门</li>
-		                	<li><input type="checkbox" name="authority" value=""/>删除部门</li>
-		                	<li><input type="checkbox" name="authority" value=""/>修改部门</li>
-		               		<li><input type="checkbox" name="authority" value=""/>查询部门</li>
+		                    <li><input class="authority" type="checkbox" name="authority" value="6"/>增加部门</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="7"/>删除部门</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="8"/>修改部门</li>
+		               		<li><input class="authority" type="checkbox" name="authority" value="9"/>查询部门</li>
 	               		</ul>
                		</TD>               	
                 </TR>
@@ -99,10 +102,10 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 	<TD class="gridViewHeader"  style="background-color: #ECF5FF;">岗位管理模块</TD>
                 	<TD class="authority_choose">
                 		<ul>
-		                	<li><input type="checkbox" name="authority" value=""/>增加岗位</li>
-		                	<li><input type="checkbox" name="authority" value=""/>删除岗位</li>
-		                	<li><input type="checkbox" name="authority" value=""/>修改岗位</li> 
-		                	<li><input type="checkbox" name="authority" value=""/>查询岗位</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="10"/>增加岗位</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="11"/>删除岗位</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="12"/>修改岗位</li> 
+		                	<li><input class="authority" type="checkbox" name="authority" value="13"/>查询岗位</li>
 		            	</ul>
 		            </TD>        
                 </TR> 
@@ -110,15 +113,15 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 	<TD class="gridViewHeader">权限管理模块</TD>
                		<TD class="authority_choose">
                			<ul>
-		               		<li><input type="checkbox" name="authority" value=""/>修改权限</li>
-		                	<li><input type="checkbox" name="authority" value=""/>查询权限</li>
-		                	<li><input type="checkbox" name="authority" value=""/>申请请假</li>
-		                	<li><input type="checkbox" name="authority" value=""/>申请加薪</li>
-		                	<li><input type="checkbox" name="authority" value=""/>申请调部门</li>
-		                	<li><input type="checkbox" name="authority" value=""/>审批所有员工休假</li>
-		                	<li><input type="checkbox" name="authority" value=""/>审批自己部门请假</li>
-		                	<li><input type="checkbox" name="authority" value=""/>审批加薪申请</li>
-		                	<li><input type="checkbox" name="authority" value=""/>审批调部门申请</li>
+		               		<li><input class="authority" type="checkbox" name="authority" value="14"/>修改权限</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="15"/>查询权限</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="16"/>申请请假</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="17"/>申请加薪</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="18"/>申请调部门</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="19"/>审批所有员工休假</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="20"/>审批自己部门请假</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="21"/>审批加薪申请</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="22"/>审批调部门申请</li>
                 		</ul>
                 	</TD>
                 </TR>  

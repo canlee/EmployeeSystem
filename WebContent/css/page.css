@@ -60,3 +60,9 @@
 	text-decoration: none;
 	color: #566984;
 }
+
+.tips {
+	color: red;
+	font-size: 13px;
+	display: none;
+}
