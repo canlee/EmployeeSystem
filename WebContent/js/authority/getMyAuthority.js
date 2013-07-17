@@ -75,7 +75,7 @@ function setAuthority(authIds) {
 			break;
 			
 		case 16:
-			var fun14 = new TreeNode('请假', 'AuthorityMgr.files/ApplyForHoliday.html', 'tree_node.gif', null, 'tree_node.gif', null);
+			var fun14 = new TreeNode('请假', 'AuthorityMgr.files/ApplyForHoliday.jsp', 'tree_node.gif', null, 'tree_node.gif', null);
 			fun13.add(fun14);
 			break;
 			
