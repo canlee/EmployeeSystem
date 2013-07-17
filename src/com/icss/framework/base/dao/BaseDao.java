@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.dao.DataAccessException;
 
 public interface BaseDao {
-	public void save(Object obj) throws DataAccessException;
+	public Serializable save(Object obj) throws DataAccessException;
 
 	public void update(Object obj) throws DataAccessException;
 	

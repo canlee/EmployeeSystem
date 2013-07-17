@@ -28,8 +28,8 @@ public class BaseDaoImpl implements BaseDao {
 	}
 
 	@Override
-	public void save(Object obj) throws DataAccessException {
-		hibernateDaoHelper.save(obj);
+	public Serializable save(Object obj) throws DataAccessException {
+		return hibernateDaoHelper.save(obj);
 	}
 
 	@Override

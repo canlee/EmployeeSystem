@@ -43,7 +43,7 @@ function setAuthority(authIds) {
 			break;
 			
 		case 6:
-			var fun6 = new TreeNode('增加部门', 'DepartmentMgr.files/department_insert.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+			var fun6 = new TreeNode('增加部门', 'DepartmentMgr.files/addDep', 'tree_node.gif', null, 'tree_node.gif', null);
 			fun5.add(fun6);
 			break;
 			

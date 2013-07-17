@@ -6,8 +6,8 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 public class HibernateDaoHelpler extends HibernateDaoSupport {
-	public void save(Object obj) throws DataAccessException {
-		getHibernateTemplate().save(obj);
+	public Serializable save(Object obj) throws DataAccessException {
+		return getHibernateTemplate().save(obj);
 	}
 
 	public void update(Object obj) throws DataAccessException {

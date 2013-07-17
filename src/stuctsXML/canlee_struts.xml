@@ -12,6 +12,22 @@
 			method="getAuthority">
 		</action>
 		
+		<action name="addDep" 
+			class="com.icss.employeeSystem.action.department.DepartmentAction"
+			method="addDepartment">
+			<result name="success">
+				/page/DepartmentMgr.files/department_insert.jsp
+			</result>
+		</action>
+		
+		<action name="insertDep" 
+			class="com.icss.employeeSystem.action.department.DepartmentAction" 
+			method="insert">
+			<result name="success" type="chain">
+				addDep
+			</result>
+		</action>
+		
 	</package>
 
 </struts> 
