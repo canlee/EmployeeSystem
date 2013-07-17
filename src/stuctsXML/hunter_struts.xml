@@ -69,7 +69,16 @@
 			<result name="fail" type="redirect">
 				/fail.html
 			</result>
-		</action>		
+		</action>	
+		
+		<action name="updatePwd" class="com.icss.employeeSystem.action.Employee.UpdateEmployeeAction" method="updatePwd">
+			<result name="success">
+				/index.html
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>	
 	</package>
 
 </struts> 

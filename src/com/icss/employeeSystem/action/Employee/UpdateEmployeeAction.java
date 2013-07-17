@@ -140,20 +140,22 @@ public class UpdateEmployeeAction extends ActionSupport{
 	public String update(){
 		try {
 			ActionContext ac = ActionContext.getContext();
-			Employee emp = (Employee)employeeService.get(Employee.class, empId);
 			if(empId==null){
 				setEmpId(((EmployeeVo)ac.getSession().get("employee")).getEmpID());				
 			}
-			else{
+			Employee emp = (Employee)employeeService.get(Employee.class, empId);
+			if(salary!=null){
 				emp.setSalary(Double.parseDouble(salary));
+			}
+			if(post!=null){
 				emp.setPostId(Integer.parseInt(post));
 			}
 			emp.setSex(sex);
 			emp.setEmail(email);
 			emp.setPhone(phone);
 			emp.setAddress(address);
-			Date date = new Date(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
-			emp.setBirthday(date);
+			//Date date = new Date(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
+			//emp.setBirthday(date);
 			employeeService.update(emp);
 			return "success";			
 		} catch (Exception e) {
@@ -162,5 +164,14 @@ public class UpdateEmployeeAction extends ActionSupport{
 			return "fail";
 		}
 
+	}
+	
+	public String updatePwd(){
+		ActionContext ac = ActionContext.getContext();
+		setEmpId(((EmployeeVo)ac.getSession().get("employee")).getEmpID());			
+		Employee emp = (Employee)employeeService.get(Employee.class, empId);
+		emp.setPassword(password);
+		employeeService.save(emp);
+		return "success";
 	}
 }
