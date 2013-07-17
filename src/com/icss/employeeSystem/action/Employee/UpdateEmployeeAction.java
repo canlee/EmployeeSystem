@@ -150,6 +150,7 @@ public class UpdateEmployeeAction extends ActionSupport{
 			if(post!=null){
 				emp.setPostId(Integer.parseInt(post));
 			}
+			emp.setEmpName(empName);
 			emp.setSex(sex);
 			emp.setEmail(email);
 			emp.setPhone(phone);
