@@ -48,8 +48,14 @@
 			<result name="success">
 				/page/EmployeeMgr.files/QueryEmployee.jsp
 			</result>
-			<result name="individual" type="dispatcher">
+			<result name="individual">
 				/page/EmployeeMgr.files/QueryIndividualInfo.jsp
+			</result>
+			<result name="update">
+				/page/EmployeeMgr.files/UpdateIndividualInfo.jsp
+			</result>
+			<result name="updateOthers">
+				/page/EmployeeMgr.files/UpdateEmployee.jsp
 			</result>
 			<result name="fail" type="redirect">
 				/fail.html

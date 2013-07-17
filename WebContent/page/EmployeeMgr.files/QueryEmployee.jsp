@@ -59,14 +59,14 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           		员工号<input type="text" name="empId"/>
           		部门<select name="depId">
           			<option value="%"></option>
-          			<option value="">人事部</option>
-          			<option value="">技术部</option>
-          			<option value="">你妈</option>
+          			<option value="1">人事部</option>
+          			<option value="2">技术部</option>
+          			<option value="3">你妈</option>
           		</select>
           		职位<select name="postId">
           			<option value="%"></option>
-          			<option value="">你阿玛</option>
-          			<option value="">你妈</option>
+          			<option value="1">你阿玛</option>
+          			<option value="2">你妈</option>
           		</select>
           		<input type="submit" value="查询">
           	</form>
@@ -105,7 +105,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
             href="queryEmployee?empId=<%=employeeList.get(i).get("empId") %>&target=individual">查询详情</A></TD>
                   <TD class=gridViewItem>
                   	<A class="cmdField" 
-            		href="EmployeeMgr.files/UpdateEmployee.html">个人资料</A>
+            		href="queryEmployee?empId=<%=employeeList.get(i).get("empId") %>&target=updateOthers">个人资料</A>
             		<A class="cmdField"  
             		href="AuthorityMgr.files/AddAuthority.html">权限</A>
             	  </TD>

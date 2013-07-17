@@ -140,17 +140,18 @@ public class UpdateEmployeeAction extends ActionSupport{
 	public String update(){
 		try {
 			ActionContext ac = ActionContext.getContext();
-			if(empId==null){
-				setEmpId(((EmployeeVo)ac.getSession().get("employee")).getEmpID());
-			}
 			Employee emp = (Employee)employeeService.get(Employee.class, empId);
-			emp.setPassword(password);
+			if(empId==null){
+				setEmpId(((EmployeeVo)ac.getSession().get("employee")).getEmpID());				
+			}
+			else{
+				emp.setSalary(Double.parseDouble(salary));
+				emp.setPostId(Integer.parseInt(post));
+			}
 			emp.setSex(sex);
 			emp.setEmail(email);
 			emp.setPhone(phone);
 			emp.setAddress(address);
-			emp.setSalary(Double.parseDouble(salary));
-			emp.setPostId(Integer.parseInt(post));
 			Date date = new Date(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
 			emp.setBirthday(date);
 			employeeService.update(emp);
