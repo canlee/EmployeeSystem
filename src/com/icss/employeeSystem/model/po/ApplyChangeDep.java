@@ -21,8 +21,7 @@ import javax.persistence.TemporalType;
 public class ApplyChangeDep extends Apply {
 
 	private int applyDepId;
-	private String applyDepartment;
-	private String applyPost;
+	private int applyPostId;
 	
 	/**
 	 * 申请调部门的id
@@ -40,29 +39,16 @@ public class ApplyChangeDep extends Apply {
 	}
 	
 	/**
-	 * 申请要调的部门
-	 * @return
-	 */
-	@Column(length = 20, nullable = false)
-	public String getApplyDepartment() {
-		return applyDepartment;
-	}
-	
-	public void setApplyDepartment(String applyDepartment) {
-		this.applyDepartment = applyDepartment;
-	}
-	
-	/**
 	 * 申请要调的岗位
 	 * @return
 	 */
-	@Column(length = 20, nullable = false)
-	public String getApplyPost() {
-		return applyPost;
+	@Column(nullable = false)
+	public int getApplyPost() {
+		return applyPostId;
 	}
 	
-	public void setApplyPost(String applyPost) {
-		this.applyPost = applyPost;
+	public void setApplyPost(int applyPostId) {
+		this.applyPostId = applyPostId;
 	}
 	
 	@Override

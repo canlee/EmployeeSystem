@@ -7,6 +7,7 @@
 <script type="text/javascript" src="../../js/jquery/jquery.form.js"></script>
 <script type="text/javascript" src="../../js/jquery/jquery.js"></script>
 <script type="text/javascript" src="../../js/public/dateSelect.js"></script>
+<script type="text/javascript" src="../../js/employee/insertEmployee.js"></script>
 <STYLE type=text/css> 
 body
 {
@@ -57,22 +58,22 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
     vAlign=top align=center>
           <DIV>
-          	<form action="insertEmployee">
+          	<form action="insertEmployee" id="insertForm">
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
       style="WIDTH: 70%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
       border=1>
               <TBODY>
                 <TR>
                   <TD class=gridViewHeader>员工号</TD>
-                  <TD class=gridViewItem><input type="text" name="empId"/></TD>
+                  <TD class=gridViewItem><input type="text" name="empId" id="empId" /><span id="empIds" style="color: red;font-size: 8px;display:none">用户名不能为空</span></TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>姓名</TD>
-                  <TD class=gridViewItem><input type="text" name="empName"/></TD>
+                  <TD class=gridViewItem><input type="text" name="empName" id="empName"/><span id="empNames" style="color: red;font-size: 8px">f</span></TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>密码</TD>
-                  <TD class=gridViewItem><input type="text" name="password"/></TD>
+                  <TD class=gridViewItem><input type="text" name="password" id="password""/><span id="passwords" style="color: red;font-size: 8px"></span></TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>性别</TD>
@@ -104,7 +105,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 <TR>
                   <TD class=gridViewHeader>工资</TD>
                   <TD class=gridViewItem>
-                  	<input type="text" name="salary"/>
+                  	<input type="text" name="salary" id="salary"/><span id="salarys" style="color: red;font-size: 8px"></span>
                   </TD>
                 </TR>
                 <TR>
@@ -120,11 +121,12 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 <TR>
                   <TD class=gridViewHeader>职位</TD>
                   <TD class=gridViewItem>
-                  	<select name="post">
+                  	<select name="post" id="post">
                   		<option value="1"></option>
                   		<option value="2">普通员工</option>
                   		<option value="3">部长</option>
                   	</select>
+                  	<span id="posts" style="color: red;font-size: 8px"></span>
                   </TD>
                 </TR>
                 <TR>

@@ -107,6 +107,15 @@
 			</result>
 		</action>
 		
+		<action name="applyChangeDep" class="com.icss.employeeSystem.action.Authority.ApplyChangeDepAction" method="apply">
+			<result name="success">
+				/success.html
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>		
+		
 	</package>
 
 </struts> 
