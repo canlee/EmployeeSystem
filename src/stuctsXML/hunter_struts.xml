@@ -7,7 +7,7 @@
     <!-- 全局 -->
 	<package name="hunter" extends="struts-default">
 		<action name="login" class="com.icss.employeeSystem.action.login.LoginAction" method="login">
-			<result name="success" type="redirect">
+			<result name="success">
 				/index.html
 			</result>
 			<result name="fail" type="redirect">
@@ -17,7 +17,7 @@
 		
 		
 		<action name="insertEmployee" class="com.icss.employeeSystem.action.Employee.InsertEmployeeAction" method="insert">
-			<result name="success" type="dispatcher">
+			<result name="success">
 				/page/AuthorityMgr.files/AddAuthority.html
 			</result>
 			<result name="fail" type="redirect">
@@ -36,8 +36,44 @@
 		</action>	
 		
 		<action name="queryIndividualInfo" class="com.icss.employeeSystem.action.Employee.QueryIndividualInfo" method="query">
-			<result name="success" type="dispatcher">
-				/page/EmployeeMgr.files/QueryIndividualInfo.html
+			<result name="success">
+				/page/EmployeeMgr.files/QueryIndividualInfo.jsp
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>	
+		
+		<action name="queryEmployee" class="com.icss.employeeSystem.action.Employee.QueryEmployeeAction" method="query">
+			<result name="success">
+				/page/EmployeeMgr.files/QueryEmployee.jsp
+			</result>
+			<result name="individual">
+				/page/EmployeeMgr.files/QueryIndividualInfo.jsp
+			</result>
+			<result name="update">
+				/page/EmployeeMgr.files/UpdateIndividualInfo.jsp
+			</result>
+			<result name="updateOthers">
+				/page/EmployeeMgr.files/UpdateEmployee.jsp
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>
+
+		<action name="updateEmployee" class="com.icss.employeeSystem.action.Employee.UpdateEmployeeAction" method="update">
+			<result name="success">
+				/index.html
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>	
+		
+		<action name="updatePwd" class="com.icss.employeeSystem.action.Employee.UpdateEmployeeAction" method="updatePwd">
+			<result name="success">
+				/index.html
 			</result>
 			<result name="fail" type="redirect">
 				/fail.html

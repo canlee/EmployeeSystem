@@ -35,7 +35,6 @@ public class QueryIndividualInfo extends ActionSupport{
 			}
 			Employee emp = (Employee)employeeService.get(Employee.class, getEmpId());
 			ac.put("emp", emp);
-			System.out.println("+++++++ASFDSADFASDF++++++++++++++");
 			return "success";
 		} catch (Exception e) {
 			// TODO: handle exception

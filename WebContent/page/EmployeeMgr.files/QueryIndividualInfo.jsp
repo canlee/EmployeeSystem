@@ -1,12 +1,14 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@page import="com.icss.employeeSystem.model.po.Employee"%>
+<%@ page language="java" contentType="text/html; charset=GB18030"
+    pageEncoding="GB18030"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <HTML>
 <HEAD>
-<TITLE>Update Page</TITLE>
+<TITLE>Query Individual Infomation Page</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
 <LINK href="../../css/page.css" type=text/css rel=stylesheet>
-<script type="text/javascript" src="../../js/jquery/jquery.form.js"></script>
-<script type="text/javascript" src="../../js/jquery/jquery.js"></script>
-<script type="text/javascript" src="../../js/public/dateSelect.js"></script>
 <STYLE type=text/css> 
 body
 {
@@ -27,8 +29,9 @@ body
 .buttonBlue {
 	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BACKGROUND-IMAGE: url(../../images/bg_button_blue.gif); BORDER-LEFT: 0px; WIDTH: 78px; COLOR: white; BORDER-BOTTOM: 0px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 21px
 }
-.gridViewBtn {
-	BORDER-RIGHT: #bad6ec 1px solid; BORDER-TOP: #bad6ec 1px solid; BORDER-LEFT: #bad6ec 1px solid; LINE-HEIGHT: 32px; BORDER-BOTTOM: #bad6ec 1px solid;
+.myAuthority span {
+	margin-left: 5px;
+	margin-right: 5px;
 }
 </STYLE>
 <META content="MSHTML 6.00.2900.5848" name=GENERATOR>
@@ -45,7 +48,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">‰øÆÊîπÂëòÂ∑•‰ø°ÊÅØ </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">∏ˆ»À–≈œ¢≤È—Ø </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -57,75 +60,67 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
     vAlign=top align=center>
           <DIV>
-          	<form action="../AuthorityMgr.files/AddAuthority.html">
+          <%
+          	List<Map<String,Object>> employeeList = (List<Map<String,Object>>)request.getAttribute("employeeList");
+          %>
+          	<form>
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
       style="WIDTH: 70%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
       border=1>
               <TBODY>
                 <TR>
-                  <TD class=gridViewHeader>ÂëòÂ∑•Âè∑</TD>
-                  <TD class=gridViewItem><input type="text" name="id" value="201031000101"/></TD>
+                  <TD class=gridViewHeader>‘±π§∫≈</TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("empId") %></TD>
                 </TR>
                 <TR>
-                  <TD class=gridViewHeader>ÂßìÂêç</TD>
-                  <TD class=gridViewItem><input type="text" name="name" value="hunter"/></TD>
+                  <TD class=gridViewHeader>–’√˚</TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("empName") %></TD>
                 </TR>
                 <TR>
-                  <TD class=gridViewHeader>ÊÄßÂà´</TD>
-                  <TD class=gridViewItem>
-                  		<input type="radio" name="sex" value="male" checked="checked"/>Áî∑
-                  		<input type="radio" name="sex" value="female"/>Â•≥
-                  </TD>
+                  <TD class=gridViewHeader>–‘±</TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("sex") %></TD>
                 </TR>
                 <TR>
-                  <TD class=gridViewHeader>ËÅîÁ≥ªÁîµËØù</TD>
-                  <TD class=gridViewItem><input type="text" name="id" value="110"/></TD>
+                  <TD class=gridViewHeader>¡™œµµÁª∞</TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("phone") %></TD>
                 </TR>
                 <TR>
-                  <TD class=gridViewHeader>ÁîµÂ≠êÈÇÆ‰ª∂</TD>
-                  <TD class=gridViewItem><input type="text" name="id" value="123456@163.com"/></TD>
+                  <TD class=gridViewHeader>µÁ◊”” º˛</TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("email") %></TD>
                 </TR>
                 <TR>
-                  <TD class=gridViewHeader>‰ΩèÂùÄ</TD>
-                  <TD class=gridViewItem><input type="text" name="id" value="Âåó‰∫¨Â∏Ç"/></TD>
+                  <TD class=gridViewHeader>◊°÷∑</TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("address") %></TD>
                 </TR> 
                 <TR>
-                  <TD class=gridViewHeader>ÁîüÊó•(Âπ¥-Êúà-Êó•)</TD>
-                  <TD class=gridViewItem>
-                  	<select id="year" name="year"></select>Âπ¥
-                  	<select id="month" name="month"></select>Êúà
-                  	<select id="day" name="day"></select>Êó•
+                  <TD class=gridViewHeader>…˙»’(ƒÍ-‘¬-»’)</TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("birthday") %></TD>
+                </TR>
+                <TR>
+                  <TD class=gridViewHeader>π§◊ </TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("salary") %></TD>
+                </TR>
+                <TR>
+                  <TD class=gridViewHeader>≤ø√≈</TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("postId") %></TD>
+                </TR>
+                <TR>
+                  <TD class=gridViewHeader>÷∞Œª</TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("depId") %></TD>
+                </TR>    
+                <TR height="50px">
+                  <TD class=gridViewHeader style="background-color: #ECF5FF; background-image: none;">»®œﬁ</TD>
+                  <TD class="gridViewItem myAuthority">
+                  <%
+                  	List<Map<String,Integer>> authorityList = (List<Map<String,Integer>>)request.getAttribute("authorityList");
+                  	for(int i=0;i<authorityList.size();++i){
+                  %>
+                  <span><%=authorityList.get(i).get("authorityName")%></span>
+                  <%
+                  	}
+                  %>
                   </TD>
-                </TR>
-                <TR>
-                  <TD class=gridViewHeader>Â∑•ËµÑ</TD>
-                  <TD class=gridViewItem><input type="text" name="id" value="99999999"/></TD>
-                </TR>
-                <TR>
-                  <TD class=gridViewHeader>ÈÉ®Èó®</TD>
-                  <TD class=gridViewItem>
-                  	<select name="department">
-                  		<option value="ÊäÄÊúØÈÉ®">ÊäÄÊúØÈÉ®</option>
-                  		<option value="‰∫∫‰∫ãÈÉ®">‰∫∫‰∫ãÈÉ®</option>
-                  		<option value="ÂÆ£‰º†ÈÉ®">ÂÆ£‰º†ÈÉ®</option>
-                  	</select>
-                  </TD>
-                </TR>
-                <TR>
-                  <TD class=gridViewHeader>ËÅå‰Ωç</TD>
-                  <TD class=gridViewItem>
-                  	<select name="post">
-                  		<option value="ÊôÆÈÄöÂëòÂ∑•">ÊôÆÈÄöÂëòÂ∑•</option>
-                  		<option value="ÈÉ®Èïø">ÈÉ®Èïø</option>
-                  	</select>
-                  </TD>
-                </TR>
-                <TR>
-                	<TD class="gridViewBtn" colspan="2" align="right">
-                		<input class="buttonBlue" type="submit" value="Êèê‰∫§"/>
-                		<input class="buttonBlue" type="reset" value="ÈáçÁΩÆ"/>
-                	</TD>
-                </TR>                                                                      
+                </TR>                                                       
               </TBODY>
             </TABLE>
             </form>
@@ -144,10 +139,5 @@ style="BACKGROUND-IMAGE: url(../../images/main_rf.gif)"></TD>
     </TBODY>
   </TABLE>
 </DIV>
-<SCRIPT type=text/javascript>
-//<![CDATA[
-Sys.Application.initialize();
-//]]>
-</SCRIPT>
 </BODY>
 </HTML>

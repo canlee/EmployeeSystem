@@ -57,18 +57,18 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
     vAlign=top align=center>
           <DIV>
-          	<form action="../AuthorityMgr.files/AddAuthority.html">
+          	<form action="insertEmployee">
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
       style="WIDTH: 70%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
       border=1>
               <TBODY>
                 <TR>
                   <TD class=gridViewHeader>员工号</TD>
-                  <TD class=gridViewItem><input type="text" name="id"/></TD>
+                  <TD class=gridViewItem><input type="text" name="empId"/></TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>姓名</TD>
-                  <TD class=gridViewItem><input type="text" name="name"/></TD>
+                  <TD class=gridViewItem><input type="text" name="empName"/></TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>密码</TD>
@@ -77,21 +77,21 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 <TR>
                   <TD class=gridViewHeader>性别</TD>
                   <TD class=gridViewItem>
-                  		<input type="radio" name="sex" value="male" checked="checked"/>男
-                  		<input type="radio" name="sex" value="female"/>女
+                  		<input type="radio" name="sex" value="1"/>男
+                  		<input type="radio" name="sex" value="0"/>女
                   </TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>联系电话</TD>
-                  <TD class=gridViewItem><input type="text" name="id"/></TD>
+                  <TD class=gridViewItem><input type="text" name="phone"/></TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>电子邮件</TD>
-                  <TD class=gridViewItem><input type="text" name="id"/></TD>
+                  <TD class=gridViewItem><input type="text" name="email"/></TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>住址</TD>
-                  <TD class=gridViewItem><input type="text" name="id"/></TD>
+                  <TD class=gridViewItem><input type="text" name="address"/></TD>
                 </TR> 
                 <TR>
                   <TD class=gridViewHeader>生日(年-月-日)</TD>
@@ -104,7 +104,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 <TR>
                   <TD class=gridViewHeader>工资</TD>
                   <TD class=gridViewItem>
-                  	<input type="text" name="id"/>
+                  	<input type="text" name="salary"/>
                   </TD>
                 </TR>
                 <TR>
@@ -121,9 +121,9 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                   <TD class=gridViewHeader>职位</TD>
                   <TD class=gridViewItem>
                   	<select name="post">
-                  		<option value=""></option>
-                  		<option value="普通员工">普通员工</option>
-                  		<option value="部长">部长</option>
+                  		<option value="1"></option>
+                  		<option value="2">普通员工</option>
+                  		<option value="3">部长</option>
                   	</select>
                   </TD>
                 </TR>

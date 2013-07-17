@@ -1,5 +1,7 @@
 package com.icss.employeeSystem.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,5 +27,9 @@ public class EOAService {
 	
 	public void insert(String empId,String authId){
 		EOArepository.insert(empId, authId);
+	}
+	
+	public List<?> queryForList(final String sql, final List<?> paras){
+		return EOArepository.queryForList(sql, paras);
 	}
 }
