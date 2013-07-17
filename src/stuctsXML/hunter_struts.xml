@@ -7,7 +7,7 @@
     <!-- 全局 -->
 	<package name="hunter" extends="struts-default">
 		<action name="login" class="com.icss.employeeSystem.action.login.LoginAction" method="login">
-			<result name="success">
+			<result name="success" type="redirect">
 				/index.html
 			</result>
 			<result name="fail" type="redirect">

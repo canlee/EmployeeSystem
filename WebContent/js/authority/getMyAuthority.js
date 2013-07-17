@@ -51,7 +51,7 @@ function setAuthority(authIds) {
 		case 8:
 		case 9:
 			if(fun7 == null && fun8 == null) {
-				fun7 = new TreeNode('查询部门', 'DepartmentMgr.files/department_query.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+				fun7 = new TreeNode('查询部门', 'DepartmentMgr.files/queryDep', 'tree_node.gif', null, 'tree_node.gif', null);
 				fun5.add(fun7);
 				fun8 = new TreeNode('修改部门', 'DepartmentMgr.files/department_update.htm', 'tree_node.gif', null, 'tree_node.gif', null);
 				fun5.add(fun8);

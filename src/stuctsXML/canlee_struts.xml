@@ -23,9 +23,22 @@
 		<action name="insertDep" 
 			class="com.icss.employeeSystem.action.department.DepartmentAction" 
 			method="insert">
-			<result name="success" type="chain">
-				addDep
+			<result name="success" type="redirect">
+				/page/DepartmentMgr.files/addDep
 			</result>
+		</action>
+		
+		<action name="queryDep"
+			class="com.icss.employeeSystem.action.department.DepartmentAction"
+			method="queryDepartment">
+			<result name="success">
+				/page/DepartmentMgr.files/department_query.jsp
+			</result>	
+		</action>
+		
+		<action name="queryDetailDep" 
+			class="com.icss.employeeSystem.action.department.DepartmentAction" 
+			method="queryDetailDepartment">
 		</action>
 		
 	</package>
