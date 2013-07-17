@@ -83,6 +83,11 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
 	}
 	
 	@Override
+	public void delete(Department dep) {
+		baseDao.delete(dep);
+	}
+	
+	@Override
 	public Department getById(int depId) {
 		return (Department) baseDao.get(Department.class, depId);
 	}

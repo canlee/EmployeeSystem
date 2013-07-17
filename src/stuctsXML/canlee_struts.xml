@@ -57,6 +57,14 @@
 			</result>
 		</action>
 		
+		<action name="deleteDep" 
+			class="com.icss.employeeSystem.action.department.DepartmentAction" 
+			method="delete">
+			<result name="success" type="redirect">
+				/page/DepartmenMgr.files/getUpdateDep
+			</result>
+		</action>
+		
 	</package>
 
 </struts> 

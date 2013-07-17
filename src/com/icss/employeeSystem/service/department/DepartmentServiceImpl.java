@@ -63,6 +63,11 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return departmentRepository.update(dep);
 	}
 	
+	@Override
+	public void delete(Department dep) {
+		departmentRepository.delete(dep);
+	}
+	
 	public void setDepartmentRepository(
 			DepartmentRepository departmentRepository) {
 		this.departmentRepository = departmentRepository;

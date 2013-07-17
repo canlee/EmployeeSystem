@@ -17,12 +17,24 @@ $(document).ready(function() {
 		var depName = $("#depName").attr("value");
 		if(value != "") {
 			if(!hasDepartmen(depName)) {
+				$("#form_update_department").attr("action", "updateDep");
 				$("#form_update_department").submit();
 			}
 			else {
 				if(getDepartmentById(value) != depName) {
 					$(".tips").css("display", "block");
 				}
+			}
+		}
+	});
+	
+	$("#btn_delete").click(function() {
+		var depId = $("select[name='depId']").attr("value");
+		if(depId != "") {
+			var depName = getDepartmentById(depId);
+			if(confirm("确定删除 " + depName + "？")) {
+				$("#form_update_department").attr("action", "deleteDep");
+				$("#form_update_department").submit();
 			}
 		}
 	});

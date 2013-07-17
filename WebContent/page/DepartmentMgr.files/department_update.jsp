@@ -95,7 +95,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
 	            </TABLE>
 	          </form>
 	          <div align="center" id="btn_ok">
-	          	<button class="buttonBlue" style="margin: 10px 30px 10px 10px;">删除部门</button>
+	          	<button id="btn_delete" class="buttonBlue" style="margin: 10px 30px 10px 10px;">删除部门</button>
 	          	<button id="btn_update" class="buttonBlue" style="margin: 10px 10px 10px 30px;">确定修改</button>
 	          </div>
 	          <div class="tips">已经存在该部门名称</div>

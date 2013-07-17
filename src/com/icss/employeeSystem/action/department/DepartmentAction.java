@@ -93,6 +93,21 @@ public class DepartmentAction extends BaseAction {
 		return "success";
 	}
 	
+	public String delete() {
+		HttpServletRequest req = getRequest();
+		int id = Integer.parseInt(req.getParameter("depId"));
+		Department dep = new Department();
+		dep.setDepName("");
+		dep.setDepId(id);
+		try {
+			departmentService.delete(dep);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "fail";
+		}
+		return "success";
+	}
+	
 	public void setDepartmentService(DepartmentService departmentService) {
 		this.departmentService = departmentService;
 	}

@@ -33,4 +33,6 @@ public interface DepartmentRepository {
 
 	public boolean update(Department dep);
 	
+	public void delete(Department dep);
+	
 }

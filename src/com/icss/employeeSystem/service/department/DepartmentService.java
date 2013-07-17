@@ -34,4 +34,6 @@ public interface DepartmentService {
 	 */
 	public boolean update(Department dep);
 	
+	public void delete(Department dep);
+	
 }
