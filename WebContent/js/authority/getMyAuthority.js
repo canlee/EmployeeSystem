@@ -80,12 +80,12 @@ function setAuthority(authIds) {
 			break;
 			
 		case 17:
-			var fun15 = new TreeNode('申请加薪', 'AuthorityMgr.files/ApplyForSalaryIncrease.html', 'tree_node.gif', null, 'tree_node.gif', null);
+			var fun15 = new TreeNode('申请加薪', 'AuthorityMgr.files/ApplyForSalaryIncrease.jsp', 'tree_node.gif', null, 'tree_node.gif', null);
 			fun13.add(fun15);
 			break;
 
 		case 18:
-			var fun151 = new TreeNode('申请调部门', 'AuthorityMgr.files/ApplyForChangeDep.html', 'tree_node.gif', null, 'tree_node.gif', null);
+			var fun151 = new TreeNode('申请调部门', 'AuthorityMgr.files/ApplyForChangeDep.jsp', 'tree_node.gif', null, 'tree_node.gif', null);
 			fun13.add(fun151);
 			break;
 			

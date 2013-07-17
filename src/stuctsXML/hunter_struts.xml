@@ -97,6 +97,16 @@
 				/fail.html
 			</result>
 		</action>
+		
+		<action name="applySalaryIncrease" class="com.icss.employeeSystem.action.Authority.ApplySalaryIncreaseAction" method="apply">
+			<result name="success">
+				/success.html
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>
+		
 	</package>
 
 </struts> 
