@@ -138,11 +138,11 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 </TR> 
                 <TR>
                   <th class=gridViewHeaderMax>想调到的部门</th>
-                  <TD class=gridViewItem><%=applyList.get(0).get("applyDepartment") %></TD>
+                  <TD class=gridViewItem><%=applyList.get(0).get("applyDepName") %></TD>
                 </TR>  
                 <TR>
                   <th class=gridViewHeaderMax>想调到的岗位</th>
-                  <TD class=gridViewItem><%=applyList.get(0).get("applyPost") %></TD>
+                  <TD class=gridViewItem><%=applyList.get(0).get("applyPostName") %></TD>
                 </TR> 
                 <TR>
                   <th class=gridViewHeaderMax>申请时间</th>

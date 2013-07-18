@@ -145,13 +145,13 @@
 				/page/AuthorityMgr.files/all_apply_changeDep.jsp
 			</result>			
 			<result name="vholiday">
-				/page/AuthorityMgr.files/VerifyHoliday.html
+				/page/AuthorityMgr.files/VerifyHoliday.jsp
 			</result>
 			<result name="vsalary">
-				/page/AuthorityMgr.files/VerifySalaryIncrease.html
+				/page/AuthorityMgr.files/VerifySalaryIncrease.jsp
 			</result>
 			<result name="vdep">
-				/page/AuthorityMgr.files/VerifyChangeDep.html
+				/page/AuthorityMgr.files/VerifyChangeDep.jsp
 			</result>						
 			<result name="fail" type="redirect">
 				/fail.html

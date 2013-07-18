@@ -6,8 +6,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import com.icss.employeeSystem.model.po.Department;
+import com.icss.employeeSystem.model.po.Post;
 import com.icss.employeeSystem.service.authority.ApplyService;
 import com.icss.employeeSystem.util.ApplyComparator;
+import com.icss.framework.base.dao.BaseDaoImpl;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -20,7 +23,16 @@ public class QueryApplyAction extends ActionSupport{
 	private String target;
 	private String applyId = "%";
 	private ApplyService applyService;
+	private BaseDaoImpl baseDao;
 	
+	public BaseDaoImpl getBaseDao() {
+		return baseDao;
+	}
+
+	public void setBaseDao(BaseDaoImpl baseDao) {
+		this.baseDao = baseDao;
+	}
+
 	public String getApplyId() {
 		return applyId;
 	}
@@ -132,7 +144,13 @@ public class QueryApplyAction extends ActionSupport{
 			ApplyList.addAll(SalaryList);
 		}
 		if(DepList!=null){
-			for(int i=0;i<DepList.size();++i)DepList.get(i).put("type", "2");
+			for(int i=0;i<DepList.size();++i){
+				DepList.get(i).put("type", "2");
+				Post post = (Post)baseDao.get(Post.class, (Integer)DepList.get(i).get("applyPost"));
+				Department dep =(Department)baseDao.get(Department.class, post.getDepId());
+				DepList.get(i).put("applyPostName", post.getPostName());
+				DepList.get(i).put("applyDepName", dep.getDepName());
+			}
 			ApplyList.addAll(DepList);
 		}
 		

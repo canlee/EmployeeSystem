@@ -50,7 +50,7 @@ public class ApplyChangeDepAction extends ActionSupport{
 			ApplyChangeDep acd = new ApplyChangeDep();
 			acd.setEmpId(empId);
 			acd.setDescription(reason);
-			acd.setApplyPost(Integer.parseInt(post));
+			acd.setApplyPostId(Integer.parseInt(post));
 			acd.setStatus("0");
 			Date now = new Date();
 			acd.setApplyTime(now);

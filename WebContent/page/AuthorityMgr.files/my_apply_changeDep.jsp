@@ -122,11 +122,11 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 </TR>
                 <TR>
                   <TH class=gridViewHeaderMax>目标部门</TH>
-                  <TD class=gridViewItem><%=applyList.get(0).get("applyDepartment") %></TD>
+                  <TD class=gridViewItem><%=applyList.get(0).get("applyDepName") %></TD>
                 </TR>
                 <TR>
                   <TH class=gridViewHeaderMax>目标岗位</TH>
-                  <TD class=gridViewItem><%=applyList.get(0).get("applyPost") %></TD>
+                  <TD class=gridViewItem><%=applyList.get(0).get("applyPostName") %></TD>
                 </TR>
                 <TR>
                   <TH class=gridViewHeaderMax style="background-color: #ECF5FF; background-image: none;">申请原因</TH>
