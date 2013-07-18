@@ -10,6 +10,7 @@
 <script type="text/javascript" src="../../js/jquery/jquery.form.js"></script>
 <script type="text/javascript" src="../../js/jquery/jquery.js"></script>
 <script type="text/javascript" src="../../js/department/updateDepartment.js"></script>
+<script type="text/javascript" src="../../js/public/toast.js"></script>
 <LINK href="../../css/page.css" type=text/css rel=stylesheet>
 <STYLE type=text/css> 
 {
@@ -115,4 +116,29 @@ style="BACKGROUND-IMAGE: url(../../images/main_rf.gif)"></TD>
   </TABLE>
 </DIV>
 </BODY>
+<%
+	String result = (String) request.getParameter("result");
+	if(result != null) {
+		if(result.equals("update_success")) {
+%>
+			<script type="text/javascript">Toast("修改部门成功！", 2000);</script>
+<%
+		}
+		else if(result.equals("update_fail")) {
+%>
+			<script type="text/javascript">Toast("修改部门失败！", 2000);</script>
+<%
+		}
+		else if(result.equals("delete_success")) {
+%>
+			<script type="text/javascript">Toast("删除部门成功！", 2000);</script>
+<%
+		}
+		else if(result.equals("delete_fail")) {
+%>
+			<script type="text/javascript">Toast("删除部门失败！", 2000);</script>
+<%
+		}
+	}
+%>
 </html>

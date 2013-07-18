@@ -11,6 +11,7 @@
 <script type="text/javascript" src="../../js/jquery/jquery.form.js"></script>
 <script type="text/javascript" src="../../js/jquery/jquery.js"></script>
 <script type="text/javascript" src="../../js/department/addDepartment.js"></script>
+<script type="text/javascript" src="../../js/public/toast.js"></script>
 <STYLE type=text/css> 
 {
 	FONT-SIZE: 12px
@@ -112,4 +113,21 @@ style="BACKGROUND-IMAGE: url(../../images/main_rf.gif)"></TD>
   </TABLE>
 </DIV>
 </BODY>
+<%
+	String result = (String) request.getParameter("result");
+	if(result != null && result.equals("success")) {
+%>
+		<script type="text/javascript">
+			Toast("添加部门成功！", 2000);
+		</script>
+<%
+	}
+	else if(result != null && result.equals("fail")) {
+%>
+		<script type="text/javascript">
+			Toast("添加部门失败！", 2000);
+		</script>
+<%
+	}
+%>
 </html>

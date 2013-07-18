@@ -24,7 +24,10 @@
 			class="com.icss.employeeSystem.action.department.DepartmentAction" 
 			method="insert">
 			<result name="success" type="redirect">
-				/page/DepartmentMgr.files/addDep
+				/page/DepartmentMgr.files/addDep?result=success
+			</result>
+			<result name="fail" type="redirect">
+				/page/DepartmentMgr.files/addDep?result=fail
 			</result>
 		</action>
 		
@@ -53,7 +56,10 @@
 			class="com.icss.employeeSystem.action.department.DepartmentAction" 
 			method="update">
 			<result name="success" type="redirect">
-				/page/DepartmenMgr.files/getUpdateDep
+				/page/DepartmenMgr.files/getUpdateDep?result=update_success
+			</result>
+			<result name="fail" type="redirect">
+				/page/DepartmenMgr.files/getUpdateDep?result=update_fail
 			</result>
 		</action>
 		
@@ -61,7 +67,10 @@
 			class="com.icss.employeeSystem.action.department.DepartmentAction" 
 			method="delete">
 			<result name="success" type="redirect">
-				/page/DepartmenMgr.files/getUpdateDep
+				/page/DepartmenMgr.files/getUpdateDep?result=delete_success
+			</result>
+			<result name="fail" type="redirect">
+				/page/DepartmenMgr.files/getUpdateDep?result=delete_fail
 			</result>
 		</action>
 		

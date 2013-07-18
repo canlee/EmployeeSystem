@@ -22,8 +22,9 @@ public class DepartmentAction extends BaseAction {
 	private DepartmentService departmentService;
 	
 	public String addDepartment() {
+		HttpServletRequest req = getRequest();
 		List<Department> deps = departmentService.getAllDepartment();
-		getRequest().setAttribute("departments", deps);
+		req.setAttribute("departments", deps);
 		return "success";
 	}
 	
