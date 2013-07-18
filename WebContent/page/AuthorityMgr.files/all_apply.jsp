@@ -1,4 +1,8 @@
-ï»¿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=GB18030"
+    pageEncoding="GB18030"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
 <TITLE>Untitled Page</TITLE>
@@ -38,7 +42,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">æ‰€æœ‰å®¡æ‰¹ </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">ËùÓÐÉóÅú </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -50,23 +54,28 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
     vAlign=top align=middle>
           <DIV>
-          	<form action="">
+          <%
+          	List<Map<String,Object>> applyList = (List<Map<String,Object>>)request.getAttribute("ApplyList");
+          %>          
+          	<form action="queryApply">
+          		<input style="display:none" name="target" value="showall"/>
 	          	<div align="center" style="margin: 10px;">
-	          		ç”³è¯·ç±»åž‹ï¼š
-	          		<select name="applyType">
-	          			<option value=""></option>
-	          			<option value="holiday">è¯·å‡</option>
-	          			<option value="salaryIncrease">ç”³è¯·åŠ è–ª</option>
-	          			<option value="changeDep">ç”³è¯·è°ƒéƒ¨é—¨</option>
+	          		Ô±¹¤ºÅ<input type="text" name="empId"/>
+	          		ÉêÇëÀàÐÍ£º
+	          		<select name="type">
+	          			<option value="-1"></option>
+	          			<option value="0">Çë¼Ù</option>
+	          			<option value="1">ÉêÇë¼ÓÐ½</option>
+	          			<option value="2">ÉêÇëµ÷²¿ÃÅ</option>
 	          		</select>
-	          		ç”³è¯·çŠ¶æ€ï¼š
-	          		<select name="applyStatus">
-	          			<option value=""></option>
-	          			<option value="0">æ­£åœ¨å®¡æ‰¹</option>
-	          			<option value="1">é€šè¿‡å®¡æ‰¹</option>
-	          			<option value="2">æ‹’ç»å®¡æ‰¹</option>
+	          		ÉêÇë×´Ì¬£º
+	          		<select name="status">
+	          			<option value="%"></option>
+	          			<option value="0">µÈ´ýÉóÅú</option>
+	          			<option value="1">Í¨¹ýÉóÅú</option>
+	          			<option value="2">¾Ü¾øÉóÅú</option>
 	          		</select>
-	          		<input class="buttonBlue" type="submit" value="æŸ¥è¯¢">
+	          		<input class="buttonBlue" type="submit" value="²éÑ¯">
 	          	</div>
         	</form>
 	          <form action="">
@@ -75,41 +84,75 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
 	      border=1>
 	              <TBODY>
 	                <TR>
-	                  <TH class=gridViewHeader scope=col>ç”³è¯·ç±»åž‹</TH>
-	                  <th class="gridViewHeader" scope="col">ç”³è¯·äººå‘˜</th>
-	                  <th class="gridViewHeader" scope="col">ç”³è¯·æ—¶é—´</th>
-	                  <th class="gridViewHeader" scope="col">ç”³è¯·çŠ¶æ€</th>
-	                  <th class="gridViewHeader" scope="col">æŸ¥çœ‹è¯¦æƒ…</th>
+	                  <TH class=gridViewHeader scope=col>ÉêÇëÀàÐÍ</TH>
+	                  <th class="gridViewHeader" scope="col">ÉêÇëÈËºÅ</th>
+	                  <th class="gridViewHeader" scope="col">ÉêÇëÈËÃû</th>
+	                  <th class="gridViewHeader" scope="col">ÉêÇëÊ±¼ä</th>
+	                  <th class="gridViewHeader" scope="col">ÉêÇë×´Ì¬</th>
+	                  <th class="gridViewHeader" scope="col">²é¿´ÏêÇé</th>
 	                </TR>
+	              <%
+	              	for(int i=0;i<applyList.size();++i){
+              			String type = (String)applyList.get(i).get("type");
+              			int flag = Integer.parseInt(type);
+              			switch(flag){
+      						case 0:{
+      							type = "Çë¼Ù";
+      							break;
+      						}
+      						case 1:{
+      							type = "ÉêÇë¼ÓÐ½";
+      							break;
+      						}
+      						case 2:{
+      							type = "ÉêÇëµ÷²¿ÃÅ";
+      							break;
+      						}
+      						default:{
+      							type = "";
+      							break;
+      						}
+      					}
+              			String status = (String)applyList.get(i).get("status");
+              			int sta = Integer.parseInt(status);
+              			switch(sta){
+      						case 0:{
+      							status = "µÈ´ýÉóÅú";
+      							break;
+      						}
+      						case 1:{
+      							status = "Í¨¹ýÉêÇë";
+      							break;
+      						}
+      						case 2:{
+      							status = "¾Ü¾øÉêÇë";
+      							break;
+      						}
+      						default:{
+      							status = "";
+      							break;
+      						}
+      					}
+	              %>
 	                <TR>
-	                  <td class=gridViewItem scope=col>è¯·å‡</td>
-	                  <td class=gridViewItem scope=col>å°ç§˜1</td>
-	                  <td class="gridViewItem">2013/7/7</td>
-	                  <td class="gridViewItem">ç­‰å¾…å®¡æ‰¹</td>
-	                  <td class="gridViewItem"><a class="cmdField" href="all_apply_holiday.html">æŸ¥è¯¢è¯¦æƒ…</a></td>
+	                  <td class=gridViewItem scope=col><%=type %></td>
+	                  <td class=gridViewItem scope=col><%=applyList.get(i).get("empId") %></td>
+	                  <td class=gridViewItem scope=col><%=applyList.get(i).get("empName") %></td>
+	                  <td class="gridViewItem"><%=applyList.get(i).get("applyTime") %></td>
+	                  <td class="gridViewItem"><%=status %></td>
+	                  <td class="gridViewItem"><a class="cmdField" href="all_apply_holiday.html">²éÑ¯ÏêÇé</a></td>
 	                </TR>
-	                <TR>
-	                  <td class=gridViewItem scope=col>ç”³è¯·åŠ è–ª</td>
-	                  <td class=gridViewItem scope=col>å°ç§˜2</td>
-	                  <td class="gridViewItem">2013/7/7</td>
-	                  <td class="gridViewItem">é€šè¿‡å®¡æ‰¹</td>
-	                  <td class="gridViewItem"><a class="cmdField" href="all_apply_salaryIncrease.html">æŸ¥è¯¢è¯¦æƒ…</a></td>
-	                </TR>
-	                <TR>
-	                  <td class=gridViewItem scope=col>è¯·å‡</td>
-	                  <td class=gridViewItem scope=col>å°ç§˜3</td>
-	                  <td class="gridViewItem">2013/7/7</td>
-	                  <td class="gridViewItem">æ‹’ç»å®¡æ‰¹</td>
-	                  <td class="gridViewItem"><a class="cmdField" href="all_apply_changeDep.html">æŸ¥è¯¢è¯¦æƒ…</a></td>
-	                </TR>
+	              <%
+	              	}
+	              %>
 	              </TBODY>
 	            </TABLE>
 	            <div class="selectPage" align="right">
-            	<a href="">ä¸Šä¸€é¡µ</a>
+            	<a href="">ÉÏÒ»Ò³</a>
             	<select name="page">
             		<option value="1">1</option>
             	</select>
-            	<a href="">ä¸‹ä¸€é¡µ</a>
+            	<a href="">ÏÂÒ»Ò³</a>
             </div>
 	          </form>
           </DIV>

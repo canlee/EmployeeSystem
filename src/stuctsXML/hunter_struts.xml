@@ -116,6 +116,21 @@
 			</result>
 		</action>		
 		
+		<action name="queryApply" class="com.icss.employeeSystem.action.Authority.QueryApplyAction" method="query">
+			<result name="verify">
+				/page/AuthorityMgr.files/VerifyApply.jsp
+			</result>
+			<result name="show">
+				/page/AuthorityMgr.files/my_apply.jsp
+			</result>
+			<result name="showall">
+				/page/AuthorityMgr.files/all_apply.jsp
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>		
+		
 	</package>
 
 </struts> 

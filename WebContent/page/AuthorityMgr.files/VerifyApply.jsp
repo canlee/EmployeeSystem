@@ -1,3 +1,7 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=GB18030"
+    pageEncoding="GB18030"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
@@ -39,7 +43,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">å®¡æ‰¹ç”³è¯· </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">ÉóÅúÉêÇë </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -51,68 +55,79 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
     vAlign=top align=center>
           <DIV>
-          	<form>
-          		å‘˜å·¥å·<input type="text" name="id"/>
-          		ç”³è¯·ç±»åž‹<select name="department">
-          			<option value=""></option>
-          			<option value="">è¯·å‡</option>
-          			<option value="">åŠ è–ª</option>
-          			<option value="">è°ƒéƒ¨é—¨</option>
+          <%
+          	List<Map<String,Object>> applyList = (List<Map<String,Object>>)request.getAttribute("ApplyList");
+          %>
+          	<form action="queryApply">
+          		<input style="display:none" name="target" value="verify"/>
+          		Ô±¹¤ºÅ<input type="text" name="empId"/>
+          		ÉêÇëÀàÐÍ<select name="type">
+          			<option value="-1"></option>
+          			<option value="0">Çë¼Ù</option>
+          			<option value="1">ÉêÇë¼ÓÐ½</option>
+          			<option value="2">ÉêÇëµ÷²¿ÃÅ</option>
           		</select>
-          		éƒ¨é—¨<select name="post">
-          			<option value=""></option>
-          			<option value="">æŠ€æœ¯éƒ¨</option>
-          			<option value="">äººäº‹éƒ¨</option>
-          			<option value="">å®£ä¼ éƒ¨</option>
+          		²¿ÃÅ<select name="department">
+          			<option value="%"></option>
+          			<option value="¼¼Êõ²¿">¼¼Êõ²¿</option>
+          			<option value="ÈËÊÂ²¿">ÈËÊÂ²¿</option>
+          			<option value="Ðû´«²¿">Ðû´«²¿</option>
           		</select>
-          		<input type="submit" value="æŸ¥è¯¢">
+          		<input type="submit" value="²éÑ¯">
           	</form>
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
       style="WIDTH: 100%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
       border=1>
               <TBODY>
               	<TR>
-                  <TH class=gridViewHeader scope=col>å‘˜å·¥å·</TH>
-                  <TH class=gridViewHeader scope=col>å§“å</TH>
-                  <TH class=gridViewHeader scope=col>ç±»åž‹</TH>
-                  <TH class=gridviewHeader scope=col>æŸ¥çœ‹è¯¦æƒ…</TH>
+              	  <TH class=gridViewHeader scope=col>ÉêÇëÀàÐÍ</TH>
+                  <TH class=gridViewHeader scope=col>ÉêÇëÈËºÅ</TH>
+                  <TH class=gridViewHeader scope=col>ÉêÇëÈËÃû</TH>
+                  <TH class=gridViewHeader scope=col>ÉêÇëÊ±¼ä</TH>
+                  <TH class=gridviewHeader scope=col>²é¿´ÏêÇé</TH>
                 </TR>
-                <TR>
-                  <TD class=gridViewItem>007</TD>
-                  <TD class=gridViewItem>Ben</TD>
-                  <TD class=gridViewItem>è¯·å‡</TD>
+                <%
+                	for(int i=0;i<applyList.size();++i){
+                		String type = (String)applyList.get(i).get("type");
+                		int flag = Integer.parseInt(type);
+                		switch(flag){
+        					case 0:{
+        						type = "Çë¼Ù";
+        						break;
+        					}
+        					case 1:{
+        						type = "ÉêÇë¼ÓÐ½";
+        						break;
+        					}
+        					case 2:{
+        						type = "ÉêÇëµ÷²¿ÃÅ";
+        						break;
+        					}
+        					default:{
+        						type = "";
+        						break;
+        					}
+        				}
+                %>
+                  <TR>
+                  <TD class=gridViewItem><%=type %></TD>                  
+                  <TD class=gridViewItem><%=applyList.get(i).get("empId") %></TD>
+                  <TD class=gridViewItem><%=applyList.get(i).get("empName") %></TD>
+                  <TD class=gridViewItem><%=applyList.get(i).get("applyTime") %></TD>
                   <TD class=gridViewItem><A class=cmdField 
-            href="VerifyHoliday.html">æŸ¥çœ‹è¯¦æƒ…</A></TD>
+            href="VerifyHoliday.html">²é¿´ÏêÇé</A></TD>
                 </TR>
-                <TR>
-                  <TD class=gridViewItem>001</TD>
-                  <TD class=gridViewItem>Jack</TD>
-                  <TD class=gridViewItem>ç”³è¯·åŠ è–ª</TD>
-                  <TD class=gridViewItem><A class=cmdField 
-            href="VerifySalaryIncrease.html">æŸ¥çœ‹è¯¦æƒ…</A></TD>
-                </TR>
-                <TR>
-                  <TD class=gridViewItem>002</TD>
-                  <TD class=gridViewItem>Ann</TD>
-                  <TD class=gridViewItem>ç”³è¯·è°ƒéƒ¨é—¨</TD>
-                  <TD class=gridViewItem><A class=cmdField 
-            href="VerifyChangeDep.html">æŸ¥çœ‹è¯¦æƒ…</A></TD>
-                </TR>
-                <TR>
-                  <TD class=gridViewItem>003</TD>
-                  <TD class=gridViewItem>Tom</TD>
-                  <TD class=gridViewItem>è¯·å‡</TD>
-                  <TD class=gridViewItem><A class=cmdField 
-            href="VerifyHoliday.html">æŸ¥çœ‹è¯¦æƒ…</A></TD>
-                </TR>                                                         
+                <%
+                	}
+                %>                        
               </TBODY>	
             </TABLE>
             <div class="selectPage" align="right">
-            	<a href="">ä¸Šä¸€é¡µ</a>
+            	<a href="">ÉÏÒ»Ò³</a>
             	<select name="page">
             		<option value="1">1</option>
             	</select>
-            	<a href="">ä¸‹ä¸€é¡µ</a>
+            	<a href="">ÏÂÒ»Ò³</a>
             </div>
           </DIV>
         </TD>
