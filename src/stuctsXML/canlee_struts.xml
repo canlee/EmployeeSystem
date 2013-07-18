@@ -124,7 +124,7 @@
 			</result>
 		</action>
 		
-		<action name="update" 
+		<action name="updatePost" 
 			class="com.icss.employeeSystem.action.post.PostAction" 
 			method="update">
 			<result name="success" type="redirect">
@@ -135,7 +135,7 @@
 			</result>
 		</action>
 		
-		<action name="delete" 
+		<action name="deletePost" 
 			class="com.icss.employeeSystem.action.post.PostAction" 
 			method="delete">
 			<result name="success" type="redirect">
@@ -144,6 +144,11 @@
 			<result name="fail" type="redirect">
 				/page/PostMgr.files/updatePostPage?result=delete_fail
 			</result>
+		</action>
+		
+		<action name="getAllDep" 
+			class="com.icss.employeeSystem.action.department.DepartmentAction" 
+			method="getAllDepartment">
 		</action>
 		
 	</package>

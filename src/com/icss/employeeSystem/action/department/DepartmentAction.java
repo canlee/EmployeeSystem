@@ -21,6 +21,19 @@ public class DepartmentAction extends BaseAction {
 	
 	private DepartmentService departmentService;
 	
+	public void getAllDepartment() {
+		List<Department> deps = departmentService.getAllDepartment();
+		try {
+			PrintWriter out = getWriter();
+			JsonUtil.sendJson(out, "departments", deps);
+			out.flush();
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public String addDepartment() {
 		HttpServletRequest req = getRequest();
 		List<Department> deps = departmentService.getAllDepartment();

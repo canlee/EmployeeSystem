@@ -48,7 +48,7 @@ $(document).ready(function() {
 			if(postId != "") {
 				var depId = $("select[name='depId']").attr("value");
 				if(!hasPostByDep(depId, postName))  {
-					$("#form_update_post").attr("action", "update");
+					$("#form_update_post").attr("action", "updatePost");
 					$("#form_update_post").submit();
 				}
 				else {
@@ -67,7 +67,7 @@ $(document).ready(function() {
 			var depName = getDepartmentById(depId);
 			var postName = getPostById(depId, postId);
 			if(confirm("确定删除 " + depName + " 下的 " + postName + " 岗位?")) {
-				$("#form_update_post").attr("action", "delete");
+				$("#form_update_post").attr("action", "deletePost");
 				$("#form_update_post").submit();
 			}
 		}
