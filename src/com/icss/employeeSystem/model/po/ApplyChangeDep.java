@@ -43,11 +43,11 @@ public class ApplyChangeDep extends Apply {
 	 * @return
 	 */
 	@Column(nullable = false)
-	public int getApplyPostId() {
+	public int getApplyPost() {
 		return applyPostId;
 	}
 	
-	public void setApplyPostId(int applyPostId) {
+	public void setApplyPost(int applyPostId) {
 		this.applyPostId = applyPostId;
 	}
 	

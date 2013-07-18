@@ -156,7 +156,16 @@
 			<result name="fail" type="redirect">
 				/fail.html
 			</result>
-		</action>		
+		</action>	
+		
+		<action name="verifyApply" class="com.icss.employeeSystem.action.Authority.VerifyApplyAction" method="verify">
+			<result name="success">
+				/success.html
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>	
 		
 	</package>
 

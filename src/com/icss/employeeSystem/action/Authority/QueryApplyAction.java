@@ -107,24 +107,20 @@ public class QueryApplyAction extends ActionSupport{
 			switch(flag){
 				case 0:{
 					HolidayList = queryHolidayApply();
-					System.out.println(flag);
 					break;
 				}
 				case 1:{
 					SalaryList = querySalaryIncreaseApply();
-					System.out.println(flag);
 					break;
 				}
 				case 2:{
 					DepList = queryChangeDepApply();
-					System.out.println(flag);
 					break;
 				}
 				default:{
 					HolidayList = queryHolidayApply();
 					SalaryList = querySalaryIncreaseApply();
 					DepList = queryChangeDepApply();
-					System.out.println(flag);
 					break;
 				}
 			}
@@ -146,10 +142,17 @@ public class QueryApplyAction extends ActionSupport{
 		if(DepList!=null){
 			for(int i=0;i<DepList.size();++i){
 				DepList.get(i).put("type", "2");
-				Post post = (Post)baseDao.get(Post.class, (Integer)DepList.get(i).get("applyPost"));
-				Department dep =(Department)baseDao.get(Department.class, post.getDepId());
-				DepList.get(i).put("applyPostName", post.getPostName());
-				DepList.get(i).put("applyDepName", dep.getDepName());
+				try {
+					Post post = (Post)baseDao.get(Post.class, (Integer)DepList.get(i).get("applyPost"));
+					Department dep =(Department)baseDao.get(Department.class, post.getDepId());
+					DepList.get(i).put("applyPostName", post.getPostName());
+					DepList.get(i).put("applyDepName", dep.getDepName());					
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();					
+					return "fail";
+				}
+
 			}
 			ApplyList.addAll(DepList);
 		}

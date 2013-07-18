@@ -153,11 +153,11 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                   <TD class=gridViewItem><%=applyList.get(0).get("description") %></TD>
                 </TR>     
                 <TR>
-                	<TD class="gridViewItem" colspan="2" align="right ">
+                	<TD class="gridViewItem" colspan="2" align="right">
                 	<A class=cmdField 
-            href="VerifyHoliday.html">Õ®π˝…Í«Î</A>
+            href="verifyApply?type=<%=flag%>&empId=<%=applyList.get(0).get("empId") %>&status=1&applyId=<%=applyList.get(0).get("applyHolidayId") %>">Õ®π˝…Í«Î</A>
             		<A class=cmdField 
-            href="VerifyHoliday.html">æ‹æ¯…Í«Î</A>
+            href="verifyApply?type=<%=flag%>&status=2&applyId=<%=applyList.get(0).get("applyHolidayId") %>">æ‹æ¯…Í«Î</A>
             		</TD>          
                 </TR>                                                         
               </TBODY>
