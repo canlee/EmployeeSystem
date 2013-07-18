@@ -74,6 +74,30 @@
 			</result>
 		</action>
 		
+		<action name="insertPostPage" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="getInsertPostPage">
+			<result name="success">
+				/page/PostMgr.files/post_insert.jsp
+			</result>
+		</action>
+		
+		<action name="getPostsByDep" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="getPostsByDep">
+		</action>
+		
+		<action name="insertPost" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="insert">
+			<result name="success" type="redirect">
+				/page/PostMgr.files/insertPostPage?result=success
+			</result>
+			<result name="fail" type="redirect">
+				/page/PostMgr.files/insertPostPage?result=fail
+			</result>
+		</action>
+		
 	</package>
 
 </struts> 

@@ -65,7 +65,7 @@ function setAuthority(authIds) {
 			break;
 			
 		case 10:
-			var fun10 = new TreeNode('增加岗位', 'PostMgr.files/post_insert.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+			var fun10 = new TreeNode('增加岗位', 'PostMgr.files/insertPostPage', 'tree_node.gif', null, 'tree_node.gif', null);
 			fun9.add(fun10);
 			break;
 			
