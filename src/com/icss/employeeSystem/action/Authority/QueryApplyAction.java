@@ -16,10 +16,19 @@ public class QueryApplyAction extends ActionSupport{
 	private String empId = "%";
 	private String status = "%";
 	private String type = "-1";
-	private String deppartment = "%";
+	private String department = "%";
 	private String target;
+	private String applyId = "%";
 	private ApplyService applyService;
 	
+	public String getApplyId() {
+		return applyId;
+	}
+
+	public void setApplyId(String applyId) {
+		this.applyId = applyId;
+	}
+
 	public String getStatus() {
 		return status;
 	}
@@ -44,12 +53,12 @@ public class QueryApplyAction extends ActionSupport{
 		this.type = type;
 	}
 
-	public String getDeppartment() {
-		return deppartment;
+	public String getDepartment() {
+		return department;
 	}
 
-	public void setDeppartment(String deppartment) {
-		this.deppartment = deppartment;
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 
 	public void setApplyService(ApplyService applyService) {
@@ -75,6 +84,7 @@ public class QueryApplyAction extends ActionSupport{
 	public String query(){
 		ActionContext ac = ActionContext.getContext();
 		if(empId.equals(""))empId = "%";
+		if(target.equals("verify"))status = "0";
 		List<Map<String, Object>> HolidayList = null;
 		List<Map<String, Object>> SalaryList = null;
 		List<Map<String, Object>> DepList = null;
@@ -134,11 +144,13 @@ public class QueryApplyAction extends ActionSupport{
 	
 	public List<Map<String, Object>> queryHolidayApply(){
 		String sql = "select * from applyholiday,employee,post,department where employee.empId = applyholiday.empId and employee.postId = post.postId " +
-				"and post.depId = department.depId and employee.empId like ? and department.depName like ? and applyholiday.status like ? ";
+				"and post.depId = department.depId and employee.empId like ? and department.depName like ? and applyholiday.status like ? and " +
+				"applyHoliday.applyHolidayId like ?";
 		List<String> param = new ArrayList<String>();
 		param.add(empId);
-		param.add(deppartment);
+		param.add(department);
 		param.add(status);
+		param.add(applyId);
 		try {
 			return (List<Map<String, Object>>)applyService.queryForList(sql, param);
 		} catch (Exception e) {
@@ -150,11 +162,13 @@ public class QueryApplyAction extends ActionSupport{
 	
 	public List<Map<String, Object>> queryChangeDepApply(){
 		String sql = "select * from applychangedep,employee,post,department where employee.empId = applychangedep.empId and employee.postId = post.postId " +
-				"and post.depId = department.depId and employee.empId like ? and department.depName like ? and applychangedep.status like ? ";
+				"and post.depId = department.depId and employee.empId like ? and department.depName like ? and applychangedep.status like ? and " +
+				"applychangedep.applyDepId like ?";
 		List<String> param = new ArrayList<String>();
 		param.add(empId);
-		param.add(deppartment);
+		param.add(department);
 		param.add(status);
+		param.add(applyId);
 		try {
 			return (List<Map<String, Object>>)applyService.queryForList(sql, param);
 		} catch (Exception e) {
@@ -166,11 +180,13 @@ public class QueryApplyAction extends ActionSupport{
 	
 	public List<Map<String, Object>> querySalaryIncreaseApply(){
 		String sql = "select * from applysalaryincrease,employee,post,department where employee.empId = applysalaryincrease.empId and employee.postId = post.postId " +
-				"and post.depId = department.depId and employee.empId like ? and department.depName like ? and applysalaryincrease.status like ? ";
+				"and post.depId = department.depId and employee.empId like ? and department.depName like ? and applysalaryincrease.status like ? and " +
+				"applysalaryincrease.applySalaryId like ?";
 		List<String> param = new ArrayList<String>();
 		param.add(empId);
-		param.add(deppartment);
+		param.add(department);
 		param.add(status);
+		param.add(applyId);
 		try {
 			return (List<Map<String, Object>>)applyService.queryForList(sql, param);
 		} catch (Exception e) {

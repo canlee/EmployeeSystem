@@ -91,22 +91,32 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
 	              <%
 	              	for(int i=0;i<applyList.size();++i){
               			String type = (String)applyList.get(i).get("type");
+              			String applyId;
+              			String target;
               			int flag = Integer.parseInt(type);
               			switch(flag){
       						case 0:{
       							type = "请假";
+      							applyId = Integer.toString((Integer)applyList.get(i).get("applyHolidayId"));
+      							target = "iholiday";
       							break;
       						}
       						case 1:{
       							type = "申请加薪";
+      							applyId = Integer.toString((Integer)applyList.get(i).get("applySalaryId"));
+      							target = "isalary";
       							break;
       						}
       						case 2:{
       							type = "申请调部门";
+      							applyId = Integer.toString((Integer)applyList.get(i).get("applyDepId"));
+      							target = "idep";
       							break;
       						}
       						default:{
       							type = "";
+      							applyId = "";
+      							target = "";
       							break;
       						}
       					}
@@ -135,7 +145,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
 	                  <td class=gridViewItem scope=col><%=type %></td>
 	                  <td class="gridViewItem"><%=applyList.get(i).get("applyTime") %></td>
 	                  <td class="gridViewItem"><%=status %></td>
-	                  <td class="gridViewItem"><a class="cmdField" href="my_apply_holiday.html">查询详情</a></td>
+	                  <td class="gridViewItem"><a class="cmdField" href="queryApply?type=<%=flag%>&target=<%=target%>&applyId=<%=applyId %>">查询详情</a></td>
 	                </TR>
 	              <%
 	              	}

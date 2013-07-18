@@ -90,21 +90,31 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 	for(int i=0;i<applyList.size();++i){
                 		String type = (String)applyList.get(i).get("type");
                 		int flag = Integer.parseInt(type);
+              			String applyId;
+              			String target;
                 		switch(flag){
         					case 0:{
         						type = "请假";
+        						applyId = Integer.toString((Integer)applyList.get(i).get("applyHolidayId"));
+      							target = "vholiday";
         						break;
         					}
         					case 1:{
         						type = "申请加薪";
+        						applyId = Integer.toString((Integer)applyList.get(i).get("applySalaryId"));
+      							target = "vsalary";
         						break;
         					}
         					case 2:{
         						type = "申请调部门";
+        						applyId = Integer.toString((Integer)applyList.get(i).get("applyDepId"));
+      							target = "vdep";
         						break;
         					}
         					default:{
         						type = "";
+        						applyId = "";
+      							target = "";
         						break;
         					}
         				}
@@ -115,7 +125,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                   <TD class=gridViewItem><%=applyList.get(i).get("empName") %></TD>
                   <TD class=gridViewItem><%=applyList.get(i).get("applyTime") %></TD>
                   <TD class=gridViewItem><A class=cmdField 
-            href="VerifyHoliday.html">查看详情</A></TD>
+            href="queryApply?type=<%=flag%>&target=<%=target%>&applyId=<%=applyId %>">查看详情</A></TD>
                 </TR>
                 <%
                 	}
