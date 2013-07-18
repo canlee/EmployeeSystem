@@ -32,7 +32,6 @@ public class QueryAuthorityAction extends ActionSupport{
 	}
 	
 	public String query(){
-		System.out.println(empId);
 		ActionContext ac = ActionContext.getContext();
 		String sql = "select authorityId from employee_authority,Authority where employee_authority.authId = Authority.authorityId and employee_authority.empId = "+empId;
 		try {
