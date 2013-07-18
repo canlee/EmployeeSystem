@@ -25,4 +25,8 @@ public interface PostService {
 	 */
 	public PostDetailInfoVo getDetailPost(int postId);
 	
+	public boolean update(Post post);
+	
+	public void delete(Post post);
+	
 }

@@ -74,7 +74,7 @@ function setAuthority(authIds) {
 			if(fun11 == null && fun12 == null) {
 				fun11 = new TreeNode('查询岗位', 'PostMgr.files/queryPostPage', 'tree_node.gif', null, 'tree_node.gif', null);
 				fun9.add(fun11);
-				fun12 = new TreeNode('修改岗位', 'PostMgr.files/post_update.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+				fun12 = new TreeNode('修改岗位', 'PostMgr.files/updatePostPage', 'tree_node.gif', null, 'tree_node.gif', null);
 				fun9.add(fun12);
 			}
 			break;

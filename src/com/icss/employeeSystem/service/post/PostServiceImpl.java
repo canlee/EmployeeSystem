@@ -13,6 +13,7 @@ import com.icss.employeeSystem.model.vo.DepPostsVo;
 import com.icss.employeeSystem.model.vo.EmpPostInfoVo;
 import com.icss.employeeSystem.model.vo.PostDetailInfoVo;
 import com.icss.employeeSystem.model.vo.PostVo;
+import com.icss.employeeSystem.repository.employee.EmployeeRepository;
 import com.icss.employeeSystem.repository.post.PostRepository;
 
 @Component("postService")
@@ -20,6 +21,9 @@ public class PostServiceImpl implements PostService {
 
 	@Autowired
 	private PostRepository postRepository;
+	
+	@Autowired
+	private EmployeeRepository employeeRepository;
 	
 	@Override
 	public DepPostsVo getPostsByDep(int depId) {
@@ -73,8 +77,23 @@ public class PostServiceImpl implements PostService {
 		postRepository.insert(post);
 	}
 	
+	@Override
+	public boolean update(Post post) {
+		return postRepository.update(post);
+	}
+	
+	@Override
+	public void delete(Post post) {
+		postRepository.delete(post);
+		employeeRepository.deleteByPost(post.getPostId());
+	}
+	
 	public void setPostRepository(PostRepository postRepository) {
 		this.postRepository = postRepository;
+	}
+	
+	public void setEmployeeRepository(EmployeeRepository employeeRepository) {
+		this.employeeRepository = employeeRepository;
 	}
 
 }

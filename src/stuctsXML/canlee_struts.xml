@@ -116,6 +116,36 @@
 			method="query">
 		</action>
 		
+		<action name="updatePostPage" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="getUpdatePostPage">
+			<result name="success">
+				/page/PostMgr.files/post_update.jsp
+			</result>
+		</action>
+		
+		<action name="update" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="update">
+			<result name="success" type="redirect">
+				/page/PostMgr.files/updatePostPage?result=update_success
+			</result>
+			<result name="fail" type="redirect">
+				/page/PostMgr.files/updatePostPage?result=update_fail
+			</result>
+		</action>
+		
+		<action name="delete" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="delete">
+			<result name="success" type="redirect">
+				/page/PostMgr.files/updatePostPage?result=delete_success
+			</result>
+			<result name="fail" type="redirect">
+				/page/PostMgr.files/updatePostPage?result=delete_fail
+			</result>
+		</action>
+		
 	</package>
 
 </struts> 

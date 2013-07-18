@@ -25,4 +25,8 @@ public interface PostRepository {
 	 */
 	public List<Employee> getAllEmployees(int postId);
 	
+	public boolean update(Post post);
+	
+	public void delete(Post post);
+	
 }

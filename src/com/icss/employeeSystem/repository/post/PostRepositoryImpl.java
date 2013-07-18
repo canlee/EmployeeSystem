@@ -61,6 +61,26 @@ public class PostRepositoryImpl implements PostRepository {
 		return emps;
 	}
 	
+	@Override
+	public boolean update(Post post) {
+		try {
+			baseDao.update(post);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	@Override
+	public void delete(Post post) {
+		try {
+			baseDao.delete(post);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void setBaseDao(BaseDao baseDao) {
 		this.baseDao = baseDao;
 	}

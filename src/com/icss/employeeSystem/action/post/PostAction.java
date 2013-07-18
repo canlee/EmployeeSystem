@@ -99,6 +99,51 @@ public class PostAction extends BaseAction {
 		}
 	}
 	
+	public String getUpdatePostPage() {
+		List<Department> deps = departmentService.getAllDepartment();
+		getRequest().setAttribute("departments", deps);
+		return "success";
+	}
+	
+	public String update() {
+		HttpServletRequest req = getRequest();
+		int postId;
+		int depId;
+		try {
+			postId = Integer.parseInt(req.getParameter("postId"));
+			depId = Integer.parseInt(req.getParameter("depId"));
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "fail";
+		}
+		String postName = req.getParameter("postName");
+		Post post = new Post();
+		post.setDepId(depId);
+		post.setPostId(postId);
+		post.setPostName(postName);
+		if(postService.update(post)) {
+			return "success";
+		}
+		return "fail";
+	}
+	
+	public String delete() {
+		try {
+			HttpServletRequest req = getRequest();
+			int postId = Integer.parseInt(req.getParameter("postId"));
+			int depId = Integer.parseInt(req.getParameter("depId"));
+			Post p = new Post();
+			p.setPostId(postId);
+			p.setDepId(depId);
+			p.setPostName("");
+			postService.delete(p);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "fail";
+		}
+		return "success";
+	}
+	
 	public void setDepartmentService(DepartmentService departmentService) {
 		this.departmentService = departmentService;
 	}
