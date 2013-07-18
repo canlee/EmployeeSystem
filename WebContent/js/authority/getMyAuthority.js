@@ -106,9 +106,9 @@ function setAuthority(authIds) {
 		case 21:
 		case 22:
 			if(fun152 == null && fun_allApply == null) {
-				fun152 = new TreeNode('审批申请', 'AuthorityMgr.files/VerifyApply.html', 'tree_node.gif', null, 'tree_node.gif', null);
+				fun152 = new TreeNode('审批申请', 'AuthorityMgr.files/queryApply?target=verify', 'tree_node.gif', null, 'tree_node.gif', null);
 				fun13.add(fun152);
-				fun_allApply = new TreeNode('所有审批', 'AuthorityMgr.files/all_apply.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+				fun_allApply = new TreeNode('所有审批', 'AuthorityMgr.files/queryApply?target=showall', 'tree_node.gif', null, 'tree_node.gif', null);
 				fun13.add(fun_allApply);
 			}
 			break;
@@ -123,7 +123,7 @@ function setAuthority(authIds) {
 	var fun_update_myinfo = new TreeNode('个人信息修改', 'EmployeeMgr.files/queryEmployee?target=update', 'tree_node.gif', null, 'tree_node.gif', null);
 	fun1.add(fun_update_myinfo);
 	
-	var fun_myApply = new TreeNode('我的申请', 'AuthorityMgr.files/my_apply.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+	var fun_myApply = new TreeNode('我的申请', 'AuthorityMgr.files/queryApply?target=show', 'tree_node.gif', null, 'tree_node.gif', null);
 	fun13.add(fun_myApply);
 	
 	root.add(fun1);

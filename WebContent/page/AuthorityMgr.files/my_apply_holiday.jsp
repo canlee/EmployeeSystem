@@ -1,7 +1,11 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=GB18030"
+    pageEncoding="GB18030"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
-<TITLE>Verify Apply Page</TITLE>
+<TITLE>Verify Holiday Page</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
 <LINK href="../../css/page.css" type=text/css rel=stylesheet>
 <STYLE type=text/css> 
@@ -16,7 +20,7 @@ body
 	text-align: center; BORDER-RIGHT: #bad6ec 1px solid; BORDER-TOP: #bad6ec 1px solid; BACKGROUND-IMAGE: url(../../images/bg_th.gif); BORDER-LEFT: #bad6ec 1px solid; LINE-HEIGHT: 27px; BORDER-BOTTOM: #bad6ec 1px solid
 }
 .gridViewItem {
-	BORDER-RIGHT: #bad6ec 1px solid; BORDER-TOP: #bad6ec 1px solid; BORDER-LEFT: #bad6ec 1px solid; LINE-HEIGHT: 32px; BORDER-BOTTOM: #bad6ec 1px solid; TEXT-ALIGN: center
+	BORDER-RIGHT: #bad6ec 1px solid; BORDER-TOP: #bad6ec 1px solid; BORDER-LEFT: #bad6ec 1px solid; LINE-HEIGHT: 32px; BORDER-BOTTOM: #bad6ec 1px solid; TEXT-ALIGN: center;
 }
 .cmdField {
 	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BACKGROUND-IMAGE: url(../../images/bg_rectbtn.png); OVERFLOW: hidden; BORDER-LEFT: 0px; WIDTH: 67px; COLOR: #364c6d; LINE-HEIGHT: 27px; BORDER-BOTTOM: 0px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 27px; BACKGROUND-COLOR: transparent; TEXT-DECORATION: none
@@ -39,7 +43,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">审批申请 </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">�ҵ����� </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -52,68 +56,81 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
     vAlign=top align=center>
           <DIV>
           	<form>
-          		员工号<input type="text" name="id"/>
-          		申请类型<select name="department">
-          			<option value=""></option>
-          			<option value="">请假</option>
-          			<option value="">加薪</option>
-          			<option value="">调部门</option>
-          		</select>
-          		部门<select name="post">
-          			<option value=""></option>
-          			<option value="">技术部</option>
-          			<option value="">人事部</option>
-          			<option value="">宣传部</option>
-          		</select>
-          		<input type="submit" value="查询">
-          	</form>
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
-      style="WIDTH: 100%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
+      style="WIDTH: 70%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
       border=1>
+          	  <%
+          		List<Map<String,Object>> applyList = (List<Map<String,Object>>)request.getAttribute("ApplyList");
+          		String type = (String)applyList.get(0).get("type");
+  				int flag = Integer.parseInt(type);
+  				switch(flag){
+						case 0:{
+							type = "���";
+							break;
+						}
+						case 1:{
+							type = "�����н";
+							break;
+						}
+						case 2:{
+							type = "���������";
+							break;
+						}
+						default:{
+							type = "";
+							break;
+						}
+					}
+  				String status = (String)applyList.get(0).get("status");
+  				int sta = Integer.parseInt(status);
+  				switch(sta){
+						case 0:{
+							status = "�ȴ�����";
+							break;
+						}
+						case 1:{
+							status = "ͨ������";
+							break;
+						}
+						case 2:{
+							status = "�ܾ�����";
+							break;
+						}
+						default:{
+							status = "";
+							break;
+						}
+				}
+            
+         	  %>
               <TBODY>
-              	<TR>
-                  <TH class=gridViewHeader scope=col>员工号</TH>
-                  <TH class=gridViewHeader scope=col>姓名</TH>
-                  <TH class=gridViewHeader scope=col>类型</TH>
-                  <TH class=gridviewHeader scope=col>查看详情</TH>
+                <TR>
+                  <TH class=gridViewHeaderMax>��������</TH>
+                  <TD class=gridViewItem><%=type %></TD>
                 </TR>
                 <TR>
-                  <TD class=gridViewItem>007</TD>
-                  <TD class=gridViewItem>Ben</TD>
-                  <TD class=gridViewItem>请假</TD>
-                  <TD class=gridViewItem><A class=cmdField 
-            href="VerifyHoliday.html">查看详情</A></TD>
+                  <TH class=gridViewHeaderMax>����ʱ��</TH>
+                  <TD class=gridViewItem><%=applyList.get(0).get("applyTime") %></TD>
                 </TR>
                 <TR>
-                  <TD class=gridViewItem>001</TD>
-                  <TD class=gridViewItem>Jack</TD>
-                  <TD class=gridViewItem>申请加薪</TD>
-                  <TD class=gridViewItem><A class=cmdField 
-            href="VerifySalaryIncrease.html">查看详情</A></TD>
+                  <TH class=gridViewHeaderMax>���ڳ���</TH>
+                  <TD class=gridViewItem><%=applyList.get(0).get("holidayDays") %></TD>
                 </TR>
                 <TR>
-                  <TD class=gridViewItem>002</TD>
-                  <TD class=gridViewItem>Ann</TD>
-                  <TD class=gridViewItem>申请调部门</TD>
-                  <TD class=gridViewItem><A class=cmdField 
-            href="VerifyChangeDep.html">查看详情</A></TD>
+                  <TH class=gridViewHeaderMax>��ʼ����</TH>
+                  <TD class=gridViewItem><%=applyList.get(0).get("startTime") %></TD>
                 </TR>
                 <TR>
-                  <TD class=gridViewItem>003</TD>
-                  <TD class=gridViewItem>Tom</TD>
-                  <TD class=gridViewItem>请假</TD>
-                  <TD class=gridViewItem><A class=cmdField 
-            href="VerifyHoliday.html">查看详情</A></TD>
-                </TR>                                                         
-              </TBODY>	
+                  <TH class=gridViewHeaderMax style="background-color: #ECF5FF; background-image: none;">���ԭ��</TH>
+                  <TD class=gridViewItem><%=applyList.get(0).get("description") %></TD>
+                </TR>
+                <tr>
+                	<th class=gridViewHeaderMax>����״̬</th>
+                	<TD class=gridViewItem><%=status %></TD>
+                </tr>
+              </TBODY>
             </TABLE>
-            <div class="selectPage" align="right">
-            	<a href="">上一页</a>
-            	<select name="page">
-            		<option value="1">1</option>
-            	</select>
-            	<a href="">下一页</a>
-            </div>
+            </form>
           </DIV>
         </TD>
         <TD style="BACKGROUND-IMAGE: url(../../images/main_rs.gif)"></TD>
