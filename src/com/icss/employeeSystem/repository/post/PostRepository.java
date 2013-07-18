@@ -29,4 +29,10 @@ public interface PostRepository {
 	
 	public void delete(Post post);
 	
+	/**
+	 * 删除指定部门下的所有岗位
+	 * @param depId
+	 */
+	public void deleteByDep(int depId);
+	
 }

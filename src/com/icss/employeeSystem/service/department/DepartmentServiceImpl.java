@@ -11,6 +11,7 @@ import com.icss.employeeSystem.model.po.Employee;
 import com.icss.employeeSystem.model.vo.DepartmentInfoVo;
 import com.icss.employeeSystem.model.vo.EmpDepInfoVo;
 import com.icss.employeeSystem.repository.department.DepartmentRepository;
+import com.icss.employeeSystem.repository.employee.EmployeeRepository;
 import com.icss.employeeSystem.repository.post.PostRepository;
 
 @Component("departmentService")
@@ -21,6 +22,9 @@ public class DepartmentServiceImpl implements DepartmentService {
 	
 	@Autowired
 	private PostRepository postRepository;
+	
+	@Autowired
+	private EmployeeRepository employeeRepository;
 	
 	@Override
 	public List<Department> getAllDepartment() {
@@ -65,6 +69,8 @@ public class DepartmentServiceImpl implements DepartmentService {
 	
 	@Override
 	public void delete(Department dep) {
+		employeeRepository.deleteByDep(dep.getDepId());
+		postRepository.deleteByDep(dep.getDepId());
 		departmentRepository.delete(dep);
 	}
 	
@@ -75,6 +81,10 @@ public class DepartmentServiceImpl implements DepartmentService {
 	
 	public void setPostRepository(PostRepository postRepository) {
 		this.postRepository = postRepository;
+	}
+	
+	public void setEmployeeRepository(EmployeeRepository employeeRepository) {
+		this.employeeRepository = employeeRepository;
 	}
 
 }

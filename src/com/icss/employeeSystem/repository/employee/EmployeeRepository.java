@@ -8,4 +8,10 @@ public interface EmployeeRepository {
 	 */
 	public void deleteByPost(int postId);
 	
+	/**
+	 * 删除指定部门下的所有人员
+	 * @param depId
+	 */
+	public void deleteByDep(int depId);
+	
 }

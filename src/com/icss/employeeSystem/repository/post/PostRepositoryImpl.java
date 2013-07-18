@@ -81,6 +81,12 @@ public class PostRepositoryImpl implements PostRepository {
 		}
 	}
 	
+	@Override
+	public void deleteByDep(int depId) {
+		String sql = "DELETE FROM post WHERE depId=" + depId + ";";
+		baseDao.execute(sql);
+	}
+	
 	public void setBaseDao(BaseDao baseDao) {
 		this.baseDao = baseDao;
 	}

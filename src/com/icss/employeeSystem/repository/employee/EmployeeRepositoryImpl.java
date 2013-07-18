@@ -17,6 +17,14 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 		baseDao.execute(sql);
 	}
 	
+	@Override
+	public void deleteByDep(int depId) {
+		String sql = 
+				"DELETE FROM employee WHERE postId IN " +
+				"(SELECT postId FROM post WHERE depId=" + depId + ");";
+		baseDao.execute(sql);
+	}
+	
 	public void setBaseDao(BaseDao baseDao) {
 		this.baseDao = baseDao;
 	}
