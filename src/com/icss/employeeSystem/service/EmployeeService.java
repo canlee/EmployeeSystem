@@ -34,6 +34,10 @@ public class EmployeeService {
 		baseDao.update(obj);
 	}
 	
+	public void delete(Object obj){
+		baseDao.delete(obj);
+	}
+	
 	public List<?> queryForList(final String sql, final List<?> paras){
 		return baseDao.queryForList(sql, paras);
 	}

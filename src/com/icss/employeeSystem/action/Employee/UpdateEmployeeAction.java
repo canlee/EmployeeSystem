@@ -150,6 +150,7 @@ public class UpdateEmployeeAction extends ActionSupport{
 			if(post!=null){
 				emp.setPostId(Integer.parseInt(post));
 			}
+			Date date = new Date(Integer.parseInt(year)-1900, Integer.parseInt(month), Integer.parseInt(day));
 			emp.setEmpName(empName);
 			emp.setSex(sex);
 			emp.setEmail(email);
@@ -172,7 +173,7 @@ public class UpdateEmployeeAction extends ActionSupport{
 		setEmpId(((EmployeeVo)ac.getSession().get("employee")).getEmpID());			
 		Employee emp = (Employee)employeeService.get(Employee.class, empId);
 		emp.setPassword(password);
-		employeeService.save(emp);
+		employeeService.update(emp);
 		return "success";
 	}
 }

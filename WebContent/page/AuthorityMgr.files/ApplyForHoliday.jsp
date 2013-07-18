@@ -1,10 +1,16 @@
+<%@page import="com.icss.employeeSystem.model.vo.EmployeeVo"%>
+<%@ page language="java" contentType="text/html; charset=GB18030"
+    pageEncoding="GB18030"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
-<TITLE>Apply For Salary Increase Page</TITLE>
+<TITLE>Apply For Holiday Page</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
 <LINK href="../../css/public.css" type=text/css rel=stylesheet>
 <LINK href="../../css/page.css" type=text/css rel=stylesheet>
+<script type="text/javascript" src="../../js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../js/public/holidaySelect.js"></script>
 <STYLE type=text/css> 
 body
 {
@@ -40,7 +46,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">鐢宠鍔犺柂 </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">请假 </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -52,23 +58,32 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
     vAlign=top align=center>
           <DIV>
-          	<form action="../AuthorityMgr.files/AddAuthority.html">
+          	<form action="applyHoliday">
+          	<input style="display: none" name="empId" value="<%=((EmployeeVo)session.getAttribute("employee")).getEmpID() %>" />
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
       style="WIDTH: 70%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
       border=1>
               <TBODY>
                 <TR>
-                  <TH class=gridViewHeader>钖按</TH>
-                  <TD class=gridViewItem><input type="text" name="length"/></TD>
+                  <TH class=gridViewHeader>假期长度</TH>
+                  <TD class=gridViewItem><input type="text" name="holidayLength"/></TD>
                 </TR>
                 <TR>
-                  <TH class=gridViewHeader style="background-color: #ECF5FF; background-image: none;">鍘熷洜</TH>
+                  <TH class=gridViewHeader>起始日期(年-月-日)</TH>
+                  <TD class=gridViewItem>
+                  	<select id="holidayYear" name="holidayYear"></select>年
+                  	<select id="holidayMonth" name="holidayMonth"></select>月
+                  	<select id="holidayDay" name="holidayDay"></select>日
+                  </TD>
+                </TR>
+                <TR>
+                  <TH class=gridViewHeader style="background-color: #ECF5FF; background-image: none;">原因</TH>
                   <TD class=gridViewItem><textarea name="reason" cols="50" rows="15"></textarea></TD>
                 </TR>
                 <TR>
                 	<TD class="gridViewBtn" colspan="2" align="right">
-                		<input class="buttonBlue" type="submit" value="鎻愪氦"/>
-                		<input class="buttonBlue" type="reset" value="閲嶇疆"/>
+                		<input class="buttonBlue" type="submit" value="提交"/>
+                		<input class="buttonBlue" type="reset" value="重置"/>
                 	</TD>
                 </TR>                                                                      
               </TBODY>

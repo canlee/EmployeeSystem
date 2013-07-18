@@ -29,6 +29,10 @@ public class EOAService {
 		EOArepository.insert(empId, authId);
 	}
 	
+	public void deleteWithEmpId(String empId){
+		EOArepository.deleteWithEmpId(empId);
+	}
+	
 	public List<?> queryForList(final String sql, final List<?> paras){
 		return EOArepository.queryForList(sql, paras);
 	}

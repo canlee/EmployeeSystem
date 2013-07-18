@@ -28,16 +28,7 @@
 			
 		<action name="addAuthority" class="com.icss.employeeSystem.action.Authority.AddAuthority" method="add">
 			<result name="success" type="redirect">
-				/index.html
-			</result>
-			<result name="fail" type="redirect">
-				/fail.html
-			</result>
-		</action>	
-		
-		<action name="queryIndividualInfo" class="com.icss.employeeSystem.action.Employee.QueryIndividualInfo" method="query">
-			<result name="success">
-				/page/EmployeeMgr.files/QueryIndividualInfo.jsp
+				/success.html
 			</result>
 			<result name="fail" type="redirect">
 				/fail.html
@@ -64,7 +55,7 @@
 
 		<action name="updateEmployee" class="com.icss.employeeSystem.action.Employee.UpdateEmployeeAction" method="update">
 			<result name="success">
-				/index.html
+				/success.html
 			</result>
 			<result name="fail" type="redirect">
 				/fail.html
@@ -72,8 +63,8 @@
 		</action>	
 		
 		<action name="updatePwd" class="com.icss.employeeSystem.action.Employee.UpdateEmployeeAction" method="updatePwd">
-			<result name="success">
-				/index.html
+			<result name="success">	
+				/success.html
 			</result>
 			<result name="fail" type="redirect">
 				/fail.html
@@ -88,6 +79,43 @@
 				/fail.html
 			</result>
 		</action>
+		
+		<action name="deleteEmployee" class="com.icss.employeeSystem.action.Employee.DeleteEmployeeAction" method="delete">
+			<result name="success">
+				/success.html
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>
+		
+		<action name="applyHoliday" class="com.icss.employeeSystem.action.Authority.ApplyHolidayAction" method="apply">
+			<result name="success">
+				/success.html
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>
+		
+		<action name="applySalaryIncrease" class="com.icss.employeeSystem.action.Authority.ApplySalaryIncreaseAction" method="apply">
+			<result name="success">
+				/success.html
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>
+		
+		<action name="applyChangeDep" class="com.icss.employeeSystem.action.Authority.ApplyChangeDepAction" method="apply">
+			<result name="success">
+				/success.html
+			</result>
+			<result name="fail" type="redirect">
+				/fail.html
+			</result>
+		</action>		
+		
 	</package>
 
 </struts> 

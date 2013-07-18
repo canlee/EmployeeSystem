@@ -12,7 +12,7 @@
 <STYLE type=text/css> 
 body
 {
-	FONT-SIZE: 5px
+	FONT-SIZE: 12px
 }
 .gridView {
 	BORDER-RIGHT: #bad6ec 1px; BORDER-TOP: #bad6ec 1px; BORDER-LEFT: #bad6ec 1px; COLOR: #566984; BORDER-BOTTOM: #bad6ec 1px; FONT-FAMILY: Courier New
@@ -62,6 +62,16 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           <DIV>
           <%
           	List<Map<String,Object>> employeeList = (List<Map<String,Object>>)request.getAttribute("employeeList");
+         	String sex = (String)employeeList.get(0).get("sex");
+         	if(sex==null){
+         		sex = "null";
+         	}
+         	else if(sex.equals("1")){
+         		sex = "男"; 
+         	}
+         	else{
+         		sex = "女"; 
+         	}
           %>
           	<form>
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
@@ -78,7 +88,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>性别</TD>
-                  <TD class=gridViewItem><%=employeeList.get(0).get("sex") %></TD>
+                  <TD class=gridViewItem><%=sex %></TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>联系电话</TD>

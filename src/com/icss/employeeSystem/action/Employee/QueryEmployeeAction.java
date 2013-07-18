@@ -70,7 +70,6 @@ public class QueryEmployeeAction extends ActionSupport{
 	}
 
 	public String query(){
-		System.out.println(target);
 		ActionContext ac = ActionContext.getContext();	
 		if(empId.equals("")){
 			if(target.equals("individual")||target.equals("update")){
@@ -79,9 +78,7 @@ public class QueryEmployeeAction extends ActionSupport{
 			else{
 				empId = "%";
 			}
-		}
-		System.out.println(empId);
-		
+		}		
 		String sql = "select * from Employee,Post,Department where Employee.postId=Post.postId and Post.depId=Department.depId and " +
 				"Employee.empId like ? and Employee.postId like ? and Post.depId like ?";
 		List<Map<String, Object>> employeeList = new ArrayList<Map<String,Object>>();
@@ -111,7 +108,6 @@ public class QueryEmployeeAction extends ActionSupport{
 				return "fail";
 			}
 		}
-		System.out.println(employeeList.get(0).get("address"));
 		return target;
 	}
 }

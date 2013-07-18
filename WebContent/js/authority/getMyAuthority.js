@@ -37,7 +37,7 @@ function setAuthority(authIds) {
 		case 4:
 		case 5:
 			if(fun3 == null) {
-				fun3 = new TreeNode('查询员工信息', 'queryEmployee?target=success', 'tree_node.gif', null, 'tree_node.gif', null);
+				fun3 = new TreeNode('查询员工信息', 'EmployeeMgr.files/queryEmployee?target=success', 'tree_node.gif', null, 'tree_node.gif', null);
 				fun1.add(fun3);
 			}
 			break;
@@ -87,17 +87,17 @@ function setAuthority(authIds) {
 			break;
 			
 		case 16:
-			var fun14 = new TreeNode('请假', 'AuthorityMgr.files/ApplyForHoliday.html', 'tree_node.gif', null, 'tree_node.gif', null);
+			var fun14 = new TreeNode('请假', 'AuthorityMgr.files/ApplyForHoliday.jsp', 'tree_node.gif', null, 'tree_node.gif', null);
 			fun13.add(fun14);
 			break;
 			
 		case 17:
-			var fun15 = new TreeNode('申请加薪', 'AuthorityMgr.files/ApplyForSalaryIncrease.html', 'tree_node.gif', null, 'tree_node.gif', null);
+			var fun15 = new TreeNode('申请加薪', 'AuthorityMgr.files/ApplyForSalaryIncrease.jsp', 'tree_node.gif', null, 'tree_node.gif', null);
 			fun13.add(fun15);
 			break;
 
 		case 18:
-			var fun151 = new TreeNode('申请调部门', 'AuthorityMgr.files/ApplyForChangeDep.html', 'tree_node.gif', null, 'tree_node.gif', null);
+			var fun151 = new TreeNode('申请调部门', 'AuthorityMgr.files/ApplyForChangeDep.jsp', 'tree_node.gif', null, 'tree_node.gif', null);
 			fun13.add(fun151);
 			break;
 			
@@ -118,9 +118,9 @@ function setAuthority(authIds) {
 		}
 	});
 	
-	var fun4 = new TreeNode('个人信息查询', 'queryEmployee?target=individual', 'tree_node.gif', null, 'tree_node.gif', null);
+	var fun4 = new TreeNode('个人信息查询', 'EmployeeMgr.files/queryEmployee?target=individual', 'tree_node.gif', null, 'tree_node.gif', null);
 	fun1.add(fun4);
-	var fun_update_myinfo = new TreeNode('个人信息修改', 'queryEmployee?target=update', 'tree_node.gif', null, 'tree_node.gif', null);
+	var fun_update_myinfo = new TreeNode('个人信息修改', 'EmployeeMgr.files/queryEmployee?target=update', 'tree_node.gif', null, 'tree_node.gif', null);
 	fun1.add(fun_update_myinfo);
 	
 	var fun_myApply = new TreeNode('我的申请', 'AuthorityMgr.files/my_apply.htm', 'tree_node.gif', null, 'tree_node.gif', null);
