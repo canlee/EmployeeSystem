@@ -127,22 +127,22 @@
 				/page/AuthorityMgr.files/all_apply.jsp
 			</result>
 			<result name="iholiday">
-				/page/AuthorityMgr.files/my_apply_holiday.html
+				/page/AuthorityMgr.files/my_apply_holiday.jsp
 			</result>
 			<result name="isalary">
-				/page/AuthorityMgr.files/my_apply_salaryIncrease.html
+				/page/AuthorityMgr.files/my_apply_salaryIncrease.jsp
 			</result>
 			<result name="idep">
-				/page/AuthorityMgr.files/my_apply_changeDep.html
+				/page/AuthorityMgr.files/my_apply_changeDep.jsp
 			</result>	
 			<result name="aholiday">
-				/page/AuthorityMgr.files/all_apply_holiday.html
+				/page/AuthorityMgr.files/all_apply_holiday.jsp
 			</result>
 			<result name="asalary">
-				/page/AuthorityMgr.files/all_apply_salaryIncrease.html
+				/page/AuthorityMgr.files/all_apply_salaryIncrease.jsp
 			</result>
 			<result name="adep">
-				/page/AuthorityMgr.files/all_apply_changeDep.html
+				/page/AuthorityMgr.files/all_apply_changeDep.jsp
 			</result>			
 			<result name="vholiday">
 				/page/AuthorityMgr.files/VerifyHoliday.html

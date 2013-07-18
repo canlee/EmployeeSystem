@@ -1,7 +1,11 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=GB18030"
+    pageEncoding="GB18030"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
-<TITLE>Verify Salary Increase Page</TITLE>
+<TITLE>Verify Holiday Page</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
 <LINK href="../../css/page.css" type=text/css rel=stylesheet>
 <STYLE type=text/css> 
@@ -39,7 +43,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">æ‰€æœ‰å®¡æ‰¹ </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">ÎÒµÄÉêÇë</SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -56,46 +60,74 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="WIDTH: 70%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
       border=1>
               <TBODY>
+              <%
+          		List<Map<String,Object>> applyList = (List<Map<String,Object>>)request.getAttribute("ApplyList");
+          		String type = (String)applyList.get(0).get("type");
+  				int flag = Integer.parseInt(type);
+  				switch(flag){
+						case 0:{
+							type = "Çë¼Ù";
+							break;
+						}
+						case 1:{
+							type = "ÉêÇë¼ÓÐ½";
+							break;
+						}
+						case 2:{
+							type = "ÉêÇëµ÷²¿ÃÅ";
+							break;
+						}
+						default:{
+							type = "";
+							break;
+						}
+					}
+  				String status = (String)applyList.get(0).get("status");
+  				int sta = Integer.parseInt(status);
+  				switch(sta){
+						case 0:{
+							status = "µÈ´ýÉóÅú";
+							break;
+						}
+						case 1:{
+							status = "Í¨¹ýÉêÇë";
+							break;
+						}
+						case 2:{
+							status = "¾Ü¾øÉêÇë";
+							break;
+						}
+						default:{
+							status = "";
+							break;
+						}
+				}
+            
+         	  %>
                 <TR>
-                  <TH class=gridViewHeaderMax>å‘˜å·¥å·</TH>
-                  <TD class=gridViewItem>002</TD>
+                  <TH class=gridViewHeaderMax>ÉêÇëÀàÐÍ</TH>
+                  <TD class=gridViewItem><%=type %></TD>
                 </TR>
                 <TR>
-                  <th class=gridViewHeaderMax>å§“å</th>
-                  <TD class=gridViewItem>Ben</TD>
+                  <TH class=gridViewHeaderMax>ÉêÇëÊ±¼ä</TH>
+                  <TD class=gridViewItem><%=applyList.get(0).get("applyTime") %></TD>
                 </TR>
                 <TR>
-                  <th class=gridViewHeaderMax>æ€§åˆ«</th>
-                  <TD class=gridViewItem>ç”·</TD>
+                  <TH class=gridViewHeaderMax>Ô­±¾¹¤×Ê</TH>
+                  <TD class=gridViewItem><%=applyList.get(0).get("salary") %></TD>
                 </TR>
                 <TR>
-                  <th class=gridViewHeaderMax>å·¥èµ„</th>
-                  <TD class=gridViewItem>8000</TD>
+                  <TH class=gridViewHeaderMax>Ä¿±ê¹¤×Ê</TH>
+                  <TD class=gridViewItem><%=applyList.get(0).get("applySalary") %></TD>
                 </TR>
                 <TR>
-                  <th class=gridViewHeaderMax>éƒ¨é—¨</th>
-                  <TD class=gridViewItem>å®£ä¼ éƒ¨</TD>
+                  <TH class=gridViewHeaderMax style="background-color: #ECF5FF; background-image: none;">ÉêÇëÔ­Òò</TH>
+                  <TD class=gridViewItem><%=applyList.get(0).get("description") %></TD>
                 </TR>
-                <TR>
-                  <th class=gridViewHeaderMax>èŒä½</th>
-                  <TD class=gridViewItem>æ™®é€šå‘˜å·¥</TD>
-                </TR> 
-                <TR>
-                  <th class=gridViewHeaderMax>ç”³è¯·è–ªæ°´</th>
-                  <TD class=gridViewItem>10000</TD>
-                </TR>  
-                <TR>
-                  <th class=gridViewHeaderMax>ç”³è¯·æ—¶é—´</th>
-                  <TD class=gridViewItem>2013-7-6</TD>
-                </TR> 
-                <TR>
-                  <th class=gridViewHeaderMax style="background-color: #ECF5FF; background-image: none;">åŽŸå› </th>
-                  <TD class=gridViewItem>éœ€è¦å…»å®¶</TD>
-                </TR>      
-                <TR>
-               	  <th class=gridViewHeaderMax>å®¡æ‰¹çŠ¶æ€</th>
-                  <TD class=gridViewItem>é€šè¿‡å®¡æ‰¹</TD>
-                </TR>                                                     
+                <tr>
+                	<th class=gridViewHeaderMax>ÉóÅú×´Ì¬</th>
+                	<TD class=gridViewItem><%=status %></TD>
+                </tr>
               </TBODY>
             </TABLE>
             </form>
