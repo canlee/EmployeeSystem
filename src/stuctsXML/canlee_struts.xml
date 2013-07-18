@@ -98,6 +98,24 @@
 			</result>
 		</action>
 		
+		<action name="queryPostPage" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="getQueryPostPage">
+			<result name="success">
+				/page/PostMgr.files/post_query.jsp
+			</result>
+		</action>
+		
+		<action name="queryPostsByDep" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="queryPostsByDep">
+		</action>
+		
+		<action name="queryPost" 
+			class="com.icss.employeeSystem.action.post.PostAction"  
+			method="query">
+		</action>
+		
 	</package>
 
 </struts> 

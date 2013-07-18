@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import com.icss.employeeSystem.action.BaseAction;
 import com.icss.employeeSystem.model.po.Department;
 import com.icss.employeeSystem.model.po.Post;
+import com.icss.employeeSystem.model.vo.DepPostsInfoVo;
 import com.icss.employeeSystem.model.vo.DepPostsVo;
+import com.icss.employeeSystem.model.vo.PostDetailInfoVo;
 import com.icss.employeeSystem.service.department.DepartmentService;
 import com.icss.employeeSystem.service.post.PostService;
 import com.icss.employeeSystem.util.JsonUtil;
@@ -62,6 +64,39 @@ public class PostAction extends BaseAction {
 			return "fail";
 		}
 		return "success";
+	}
+	
+	public String getQueryPostPage() {
+		List<Department> deps = departmentService.getAllDepartment();
+		getRequest().setAttribute("departments", deps);
+		return "success";
+	}
+	
+	public void queryPostsByDep() {
+		try {
+			int depId = Integer.parseInt(getRequest().getParameter("depId"));
+			DepPostsInfoVo dpiv = postService.getPostsInfoByDep(depId);
+			PrintWriter out = getWriter();
+			JsonUtil.sendJson(out, "posts", dpiv);
+			out.flush();
+			out.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void query() {
+		HttpServletRequest req = getRequest();
+		try {
+			int postId = Integer.parseInt(req.getParameter("postId"));
+			PostDetailInfoVo pdiv = postService.getDetailPost(postId);
+			PrintWriter out = getWriter();
+			JsonUtil.sendJson(out, "postInfo", pdiv);
+			out.flush();
+			out.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void setDepartmentService(DepartmentService departmentService) {

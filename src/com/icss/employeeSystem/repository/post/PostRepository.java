@@ -2,6 +2,7 @@ package com.icss.employeeSystem.repository.post;
 
 import java.util.List;
 
+import com.icss.employeeSystem.model.po.Employee;
 import com.icss.employeeSystem.model.po.Post;
 
 public interface PostRepository {
@@ -16,5 +17,12 @@ public interface PostRepository {
 	public List<Post> getPostsByDep(int depId);
 	
 	public void insert(Post post);
+	
+	/**
+	 * 根据岗位的id获取该岗位的所有人员
+	 * @param postId
+	 * @return
+	 */
+	public List<Employee> getAllEmployees(int postId);
 	
 }

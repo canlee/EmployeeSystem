@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.icss.employeeSystem.model.po.Employee;
 import com.icss.employeeSystem.model.po.Post;
 import com.icss.framework.base.dao.BaseDao;
 
@@ -42,6 +43,22 @@ public class PostRepositoryImpl implements PostRepository {
 	@Override
 	public void insert(Post post) {
 		baseDao.save(post);
+	}
+	
+	@Override
+	public List<Employee> getAllEmployees(int postId) {
+		String sql = "SELECT empId FROM employee WHERE postId=" + postId + ";";
+		@SuppressWarnings("unchecked")
+		List<Map<String, String>> result = 
+				(List<Map<String,String>>) baseDao.queryForList(
+						sql, new ArrayList<Object>());
+		List<Employee> emps = new ArrayList<Employee>();
+		for(Map<String, String> map : result) {
+			String empId = map.get("empId");
+			Employee e = (Employee) baseDao.get(Employee.class, empId);
+			emps.add(e);
+		}
+		return emps;
 	}
 	
 	public void setBaseDao(BaseDao baseDao) {

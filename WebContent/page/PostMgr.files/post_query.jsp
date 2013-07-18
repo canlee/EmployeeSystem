@@ -1,3 +1,4 @@
+<%@page import="net.sf.json.JSONArray"%>
 <%@page import="com.icss.employeeSystem.model.po.Department"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -8,7 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="../../js/jquery/jquery.form.js"></script>
 <script type="text/javascript" src="../../js/jquery/jquery.js"></script>
-<script type="text/javascript" src="../../js/department/queryDepartment.js"></script>
+<script type="text/javascript" src="../../js/post/queryPost.js"></script>
+<script type="text/javascript" src="../../js/public/toast.js"></script>
 <LINK href="../../css/page.css" type=text/css rel=stylesheet>
 <STYLE type=text/css> 
 {
@@ -32,7 +34,9 @@
 </STYLE>
 <%
 	List<Department> deps = (List<Department>) request.getAttribute("departments");
+	JSONArray json = JSONArray.fromObject(deps);
 %>
+<script type="text/javascript">saveDeps(<%=json.toString() %>);</script>
 </head>
 <BODY 
 style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif); BACKGROUND-REPEAT: repeat-x">
@@ -46,7 +50,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">查询部门 </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">查询岗位 </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -58,44 +62,45 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
     vAlign=top align=middle>
           <DIV>
-          	<div align="center" style="padding: 10px;">
+          	<div align="center">
           		<span>选择部门：</span>
-          		<select name="department" size="1" style="margin-left: 10px; margin-right: 10px;">
+          		<select name="depId" size="1" style="margin: 10px; width: 100px;">
           			<option value=""></option>
           			<%
           				if(deps != null) {
           					for(Department dep : deps) {
           			%>
           						<option value="<%=dep.getDepId() %>"><%=dep.getDepName() %></option>
-          			<%		}
+          			<%
+          					}
           				}
           			%>
           		</select>
-          		<button class="buttonBlue" id="btn_query">查询</button>
+          		<br>
+          		<span>选择岗位：</span>
+          		<select name="postId" size="1" style="margin: 10px; width: 100px;">
+          			<option value=""></option>
+          		</select>
+          		<br>
+          		<button id="btn_query" class="buttonBlue" style="margin-bottom: 10px;">查询</button>
           	</div>
-	          <form action="" id="form_query_department">
-	            <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
-	      style="WIDTH: 100%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
-	      border=1>
-	              <TBODY id="table_dep">
-	                <TR>
-	                  <TH class=gridViewHeader scope=col style="width: 50%;">部门名称</TH>
-	                  <td class="gridViewItem" id="department_name"></td>
-	                </TR>
-	                <TR>
-	                  <TH class=gridViewHeader scope=col>部门人数</TH>
-	                  <td class="gridViewItem" id="employee_count"></td>
-	                </TR>
-	                <TR>
-	                  <TH class=gridViewHeader scope=col colspan="2">部门人员</TH>
-	                </TR>
-	                <TR>
-	                  <TH class=gridViewHeader scope=col>姓名</TH>
-	                  <th class="gridViewHeader">岗位</th>
-	                </TR>
-	              </TBODY>
-	            </TABLE>
-	          </form>
+            <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
+      style="WIDTH: 100%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
+      border=1>
+              <TBODY id="postInfo">
+                <TR>
+                  <TH class=gridViewHeader scope=col style="width: 50%;">岗位名称</TH>
+                  <td class="gridViewItem" id="postName"></td>
+                </TR>
+                <TR>
+                  <TH class=gridViewHeader scope=col>岗位人数</TH>
+                  <td class="gridViewItem" id="employeeCount"></td>
+                </TR>
+                <TR>
+                  <TH class=gridViewHeader scope=col colspan="2">岗位人员</TH>
+                </TR>
+              </TBODY>
+            </TABLE>
           </DIV>
         </TD>
         <TD style="BACKGROUND-IMAGE: url(../../images/main_rs.gif)"></TD>
