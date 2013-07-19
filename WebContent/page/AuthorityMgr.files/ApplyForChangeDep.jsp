@@ -6,6 +6,9 @@
 <HEAD>
 <TITLE>Apply For Change Department Page</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
+<script type="text/javascript" src="../../js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../js/authority/applyChangeDep.js"></script>
 <LINK href="../../css/public.css" type=text/css rel=stylesheet>
 <LINK href="../../css/page.css" type=text/css rel=stylesheet>
 <STYLE type=text/css> 
@@ -65,7 +68,6 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                   <TH class=gridViewHeader>想调到的部门</TH>
                   <TD class=gridViewItem>
                   	<select size="1" name="department">
-                  		<option value="">秘书部</option>
                   	</select>
                   </TD>
                 </TR>
@@ -73,7 +75,6 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                   <TH class=gridViewHeader>想调到的岗位</TH>
                   <TD class=gridViewItem>
                   	<select size="1" name="post">
-                  		<option value="1">员工</option>
                   	</select>
                   </TD>
                 </TR>

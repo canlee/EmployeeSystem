@@ -11,6 +11,7 @@
 <script type="text/javascript" src="../../js/jquery/jquery.form.js"></script>
 <script type="text/javascript" src="../../js/jquery/jquery.js"></script>
 <script type="text/javascript" src="../../js/public/dateSelect.js"></script>
+<script type="text/javascript" src="../../js/employee/updateEmployee.js"></script>
 <STYLE type=text/css> 
 body
 {
@@ -64,6 +65,8 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           <%
           	List<Map<String,Object>> employeeList = (List<Map<String,Object>>)request.getAttribute("employeeList");
           %>
+          	<script type="text/javascript">setMyDepId(<%=employeeList.get(0).get("depId") %>);</script>
+          	<script type="text/javascript">setMyPostId(<%=employeeList.get(0).get("postId") %>);</script>
           	<form action="updateEmployee" method="post">
           	<input style="display:none" name="empId" value="<%=employeeList.get(0).get("empId") %>">
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
@@ -131,9 +134,6 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                   <TD class=gridViewHeader>部门</TD>
                   <TD class=gridViewItem>
                   	<select name="department">
-                  		<option value="1">技术部</option>
-                  		<option value="2">人事部</option>
-                  		<option value="2">宣传部</option>
                   	</select>
                   </TD>
                 </TR>
@@ -141,8 +141,6 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                   <TD class=gridViewHeader>职位</TD>
                   <TD class=gridViewItem>
                   	<select name="post">
-                  		<option value="1">普通员工</option>
-                  		<option value="2">部长</option>
                   	</select>
                   </TD>
                 </TR>
