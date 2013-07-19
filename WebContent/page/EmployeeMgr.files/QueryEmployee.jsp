@@ -156,41 +156,47 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
             href="queryEmployee?empId=<%=employeeList.get(i).get("empId") %>&target=individual">查询详情</A></TD>
                   <TD class=gridViewItem>
                   	<%
-                  		if(hasUpdateInfo) {
-                  			if(hasUpdateAllInfo) {
+                  		if(!((String) employeeList.get(i).get("empId")).equals(myInfo.getEmpID())) {
+	                  		if(hasUpdateInfo) {
+    	              			if(hasUpdateAllInfo) {
                   	%>
-			                  	<A class="cmdField" 
-			            		href="queryEmployee?empId=<%=employeeList.get(i).get("empId") %>&target=updateOthers">个人资料</A>
+				                  	<A class="cmdField" 
+				            		href="queryEmployee?empId=<%=employeeList.get(i).get("empId") %>&target=updateOthers">个人资料</A>
                  	<%
-                  			}
-                  			else {
-                  				if(myInfo.getDepId() == (Integer) employeeList.get(i).get("depId")) {
-                  	%>
-                  					<A class="cmdField" 
-			            		href="queryEmployee?empId=<%=employeeList.get(i).get("empId") %>&target=updateOthers">个人资料</A>
+                	  			}
+                  				else {
+                  					if(myInfo.getDepId() == (Integer) employeeList.get(i).get("depId")) {
+                  	%>	
+                  						<A class="cmdField" 
+			            			href="queryEmployee?empId=<%=employeeList.get(i).get("empId") %>&target=updateOthers">个人资料</A>
                   	<%
+                  					}
                   				}
                   			}
-                  		}
                   	%>
             		<%
-            			if(hasUpdateAuth) {
+            				if(hasUpdateAuth) {
             		%>
-		            		<A class="cmdField"  
-		            		href="queryAuthority?empId=<%=employeeList.get(i).get("empId") %>">权限</A>
+		            			<A class="cmdField"  
+		            			href="queryAuthority?empId=<%=employeeList.get(i).get("empId") %>">权限</A>
             		<%
-            			}
+            				}
+                  		}
             		%>
             	  </TD>
             	  <%
             	  	if(hasDelete) {
             	  %>
-	                  <TD class=gridViewItem><A class=cmdField 
-	            id=ctl00_ContentPlaceHolder2_GridView1_ctl03_LinkButton1 
-	            onclick="return confirm('确定删除？');" 
-	            href="deleteEmployee?empId=<%=employeeList.get(i).get("empId") %>">删除</A> </TD>
-            	  
+	                  <TD class=gridViewItem>
+	                  <%
+	                  	if(!((String) employeeList.get(i).get("empId")).equals(myInfo.getEmpID())) { 
+	                  %>
+		                  <A class=cmdField 
+		            id=ctl00_ContentPlaceHolder2_GridView1_ctl03_LinkButton1 
+		            onclick="return confirm('确定删除？');" 
+		            href="deleteEmployee?empId=<%=employeeList.get(i).get("empId") %>">删除</A> </TD>
             	  <%
+	                  	}
             	  	}
             	  %>
                 </TR>
