@@ -1,7 +1,7 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@page import="com.icss.employeeSystem.model.po.Employee"%>
-<%@ page language="java" contentType="text/html; charset=GB18030"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="GB18030"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
@@ -92,19 +92,19 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>联系电话</TD>
-                  <TD class=gridViewItem><%=employeeList.get(0).get("phone")==null?employeeList.get(0).get("phone"):"" %></TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("phone")!=null?employeeList.get(0).get("phone"):"" %></TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>电子邮件</TD>
-                  <TD class=gridViewItem><%=employeeList.get(0).get("email")==null?employeeList.get(0).get("email"):"" %></TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("email")!=null?employeeList.get(0).get("email"):"" %></TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>住址</TD>
-                  <TD class=gridViewItem><%=employeeList.get(0).get("address")==null?employeeList.get(0).get("address"):"" %></TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("address")!=null?employeeList.get(0).get("address"):"" %></TD>
                 </TR> 
                 <TR>
                   <TD class=gridViewHeader>生日(年-月-日)</TD>
-                  <TD class=gridViewItem><%=employeeList.get(0).get("birthday")==null?employeeList.get(0).get("birthday"):"" %></TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("birthday")!=null?employeeList.get(0).get("birthday"):"" %></TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>工资</TD>

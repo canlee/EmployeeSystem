@@ -1,7 +1,7 @@
 <%@page import="java.util.Date"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=GB18030"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="GB18030"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>

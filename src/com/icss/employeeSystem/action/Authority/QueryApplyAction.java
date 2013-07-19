@@ -166,6 +166,14 @@ public class QueryApplyAction extends ActionSupport{
 	}
 	
 	public List<Map<String, Object>> queryHolidayApply(){
+		ActionContext ac = ActionContext.getContext();
+		List<Integer> authIds = (List<Integer>)ac.getSession().get("authIds");
+		if(!authIds.contains(19)){
+			department = ((EmployeeVo)ac.getSession().get("employee")).getDepName();
+		}
+		if((!authIds.contains(19)&&!authIds.contains(20))&&!target.equals("show")){
+			return null;
+		}
 		String sql = "select * from applyholiday,employee,post,department where employee.empId = applyholiday.empId and employee.postId = post.postId " +
 				"and post.depId = department.depId and employee.empId like ? and department.depName like ? and applyholiday.status like ? and " +
 				"applyHoliday.applyHolidayId like ?";
@@ -184,6 +192,11 @@ public class QueryApplyAction extends ActionSupport{
 	}
 	
 	public List<Map<String, Object>> queryChangeDepApply(){
+		ActionContext ac = ActionContext.getContext();
+		List<Integer> authIds = (List<Integer>)ac.getSession().get("authIds");
+		if(!authIds.contains(22)&&!target.equals("show")){
+			return null;
+		}
 		String sql = "select * from applychangedep,employee,post,department where employee.empId = applychangedep.empId and employee.postId = post.postId " +
 				"and post.depId = department.depId and employee.empId like ? and department.depName like ? and applychangedep.status like ? and " +
 				"applychangedep.applyDepId like ?";
@@ -202,6 +215,11 @@ public class QueryApplyAction extends ActionSupport{
 	}
 	
 	public List<Map<String, Object>> querySalaryIncreaseApply(){
+		ActionContext ac = ActionContext.getContext();
+		List<Integer> authIds = (List<Integer>)ac.getSession().get("authIds");
+		if(!authIds.contains(21)&&!target.equals("show")){
+			return null;
+		}
 		String sql = "select * from applysalaryincrease,employee,post,department where employee.empId = applysalaryincrease.empId and employee.postId = post.postId " +
 				"and post.depId = department.depId and employee.empId like ? and department.depName like ? and applysalaryincrease.status like ? and " +
 				"applysalaryincrease.applySalaryId like ?";

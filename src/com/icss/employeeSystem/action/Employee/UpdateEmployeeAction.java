@@ -23,7 +23,16 @@ public class UpdateEmployeeAction extends ActionSupport{
 	private String month;
 	private String day;
 	private String salary;
+	private String oldPassword;
 	private EmployeeService employeeService;
+	
+	public String getOldPassword() {
+		return oldPassword;
+	}
+
+	public void setOldPassword(String oldPassword) {
+		this.oldPassword = oldPassword;
+	}
 	
 	public String getEmpName() {
 		return empName;
@@ -144,6 +153,7 @@ public class UpdateEmployeeAction extends ActionSupport{
 				setEmpId(((EmployeeVo)ac.getSession().get("employee")).getEmpID());				
 			}
 			Employee emp = (Employee)employeeService.get(Employee.class, empId);
+			System.out.println(emp.getEmpName());
 			if(salary!=null){
 				emp.setSalary(Double.parseDouble(salary));
 			}
@@ -172,8 +182,12 @@ public class UpdateEmployeeAction extends ActionSupport{
 		ActionContext ac = ActionContext.getContext();
 		setEmpId(((EmployeeVo)ac.getSession().get("employee")).getEmpID());			
 		Employee emp = (Employee)employeeService.get(Employee.class, empId);
-		emp.setPassword(password);
-		employeeService.update(emp);
-		return "success";
+		String pwd = emp.getPassword();
+		if(pwd.equals(password)){
+			emp.setPassword(password);
+			employeeService.update(emp);
+			return "success";
+		}
+		return "fail";		
 	}
 }
