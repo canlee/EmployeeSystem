@@ -11,7 +11,7 @@
 				/index.html
 			</result>
 			<result name="fail" type="redirect">
-				/fail.html
+				/index.html
 			</result>
 		</action>
 		

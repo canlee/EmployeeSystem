@@ -145,7 +145,7 @@ public class QueryApplyAction extends ActionSupport{
 			for(int i=0;i<DepList.size();++i){
 				DepList.get(i).put("type", "2");
 				try {
-					Post post = (Post)baseDao.get(Post.class, (Integer)DepList.get(i).get("applyPost"));
+					Post post = (Post)baseDao.get(Post.class, (Integer)DepList.get(i).get("applyPostId"));
 					Department dep =(Department)baseDao.get(Department.class, post.getDepId());
 					DepList.get(i).put("applyPostName", post.getPostName());
 					DepList.get(i).put("applyDepName", dep.getDepName());					
