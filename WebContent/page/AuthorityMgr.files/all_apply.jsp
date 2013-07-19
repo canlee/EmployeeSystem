@@ -57,7 +57,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           <%
           	List<Map<String,Object>> applyList = (List<Map<String,Object>>)request.getAttribute("ApplyList");
           %>          
-          	<form action="queryApply">
+          	<form action="queryApply" method="post">
           		<input style="display:none" name="target" value="showall"/>
 	          	<div align="center" style="margin: 10px;">
 	          		Ô±¹¤ºÅ<input type="text" name="empId"/>

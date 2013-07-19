@@ -64,7 +64,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           	List<Map<String,Object>> employeeList = (List<Map<String,Object>>)request.getAttribute("employeeList");
          	String sex = (String)employeeList.get(0).get("sex");
          	if(sex==null){
-         		sex = "null";
+         		sex = "";
          	}
          	else if(sex.equals("1")){
          		sex = "男"; 
@@ -92,19 +92,19 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>联系电话</TD>
-                  <TD class=gridViewItem><%=employeeList.get(0).get("phone") %></TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("phone")==null?employeeList.get(0).get("phone"):"" %></TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>电子邮件</TD>
-                  <TD class=gridViewItem><%=employeeList.get(0).get("email") %></TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("email")==null?employeeList.get(0).get("email"):"" %></TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>住址</TD>
-                  <TD class=gridViewItem><%=employeeList.get(0).get("address") %></TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("address")==null?employeeList.get(0).get("address"):"" %></TD>
                 </TR> 
                 <TR>
                   <TD class=gridViewHeader>生日(年-月-日)</TD>
-                  <TD class=gridViewItem><%=employeeList.get(0).get("birthday") %></TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("birthday")==null?employeeList.get(0).get("birthday"):"" %></TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>工资</TD>

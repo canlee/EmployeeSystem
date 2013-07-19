@@ -58,8 +58,8 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           <%
           	List<Map<String,Object>> applyList = (List<Map<String,Object>>)request.getAttribute("ApplyList");
           %>
-          	<form action="queryApply">
-          		<input style="display:none" name="target" value="verify"/>
+          	<form action="queryApply" method="post">
+          		<input style="display:none" name="target" value="verify" />
           		员工号<input type="text" name="empId"/>
           		申请类型<select name="type">
           			<option value="-1"></option>
@@ -67,13 +67,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           			<option value="1">申请加薪</option>
           			<option value="2">申请调部门</option>
           		</select>
-          		部门<select name="department">
-          			<option value="%"></option>
-          			<option value="技术部">技术部</option>
-          			<option value="人事部">人事部</option>
-          			<option value="宣传部">宣传部</option>
-          		</select>
-          		<input type="submit" value="查询">
+          		<input type="submit" value="查询" class="buttonBlue">
           	</form>
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
       style="WIDTH: 100%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 

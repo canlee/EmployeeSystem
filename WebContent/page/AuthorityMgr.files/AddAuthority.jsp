@@ -87,7 +87,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           			flag[i] = "";
           	}
           %>
-          	<form action="addAuthority">
+          	<form action="addAuthority" method="post">
           	<input style="display:none" name="empId" value="<%=request.getAttribute("empId")%>"/>
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1
       style="WIDTH: 90%; BORDER-COLLAPSE: collapse" cellSpacing=5 rules=all 

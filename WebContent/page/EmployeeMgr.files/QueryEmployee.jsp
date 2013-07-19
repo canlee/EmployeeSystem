@@ -58,7 +58,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
     vAlign=top align=center>
           <DIV>
-          	<form action="queryEmployee">
+          	<form action="queryEmployee" method="post">
           	<input style="display:none" name=target value="success">
           		员工号<input type="text" name="empId"/>
           		部门<select name="depId">
