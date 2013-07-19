@@ -20,6 +20,7 @@ public class QueryEmployeeAction extends ActionSupport{
 	private String depId = "%";
 	private String postId = "%";
 	private String target;
+	private String depName = "%";
 
 	public String getTarget() {
 		return target;
@@ -71,6 +72,10 @@ public class QueryEmployeeAction extends ActionSupport{
 
 	public String query(){
 		ActionContext ac = ActionContext.getContext();	
+		List<Integer> authIds = (List<Integer>)ac.getSession().get("authIds");
+		if(!authIds.contains(5)){
+			depName = ((EmployeeVo)ac.getSession().get("employee")).getDepName();
+		}
 		if(empId.equals("")){
 			if(target.equals("individual")||target.equals("update")){
 				empId = ((EmployeeVo)ac.getSession().get("employee")).getEmpID();
@@ -80,12 +85,13 @@ public class QueryEmployeeAction extends ActionSupport{
 			}
 		}		
 		String sql = "select * from Employee,Post,Department where Employee.postId=Post.postId and Post.depId=Department.depId and " +
-				"Employee.empId like ? and Employee.postId like ? and Post.depId like ?";
+				"Employee.empId like ? and Employee.postId like ? and Post.depId like ? and Department.depName like ?";
 		List<Map<String, Object>> employeeList = new ArrayList<Map<String,Object>>();
 		List<String> param = new ArrayList<String>();
 		param.add(empId);
 		param.add(postId);
 		param.add(depId);
+		param.add(depName);
 		try {
 			employeeList = (List<Map<String, Object>>)employeeService.queryForList(sql, param);
 			ac.put("employeeList", employeeList);
