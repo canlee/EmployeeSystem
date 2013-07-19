@@ -7,7 +7,7 @@
 	<package name="app-default" extends="struts-default">
 	
     </package>
-    <!-- 全局 -->
+    <!-- 全局 --> 
 	<package name="global" extends="app-default" namespace="/">
 		<default-action-ref name="index" />
 		
