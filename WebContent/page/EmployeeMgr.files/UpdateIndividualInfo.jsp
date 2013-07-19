@@ -68,7 +68,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           	List<Map<String,Object>> employeeList = (List<Map<String,Object>>)request.getAttribute("employeeList");
           	Date date = (Date)employeeList.get(0).get("birthday");
           %>
-          	<form action="updateEmployee">
+          	<form action="updateEmployee" method="post">
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
       style="WIDTH: 70%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
       border=1>

@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.icss.employeeSystem.model.po.Department;
 import com.icss.employeeSystem.model.po.Post;
+import com.icss.employeeSystem.model.vo.EmployeeVo;
 import com.icss.employeeSystem.service.authority.ApplyService;
 import com.icss.employeeSystem.util.ApplyComparator;
 import com.icss.framework.base.dao.BaseDaoImpl;
@@ -95,6 +96,7 @@ public class QueryApplyAction extends ActionSupport{
 	
 	public String query(){
 		ActionContext ac = ActionContext.getContext();
+		if(target.equals("show"))empId = ((EmployeeVo)ac.getSession().get("employee")).getEmpID();
 		if(empId.equals(""))empId = "%";
 		if(target.equals("verify"))status = "0";
 		List<Map<String, Object>> HolidayList = null;

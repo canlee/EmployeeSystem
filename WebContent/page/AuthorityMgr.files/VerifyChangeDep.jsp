@@ -150,7 +150,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 </TR> 
                 <TR>
                   <th class=gridViewHeaderMax style="background-color: #ECF5FF; background-image: none;">‘≠“Ú</th>
-                  <TD class=gridViewItem><%=applyList.get(0).get("description") %></TD>
+                  <TD class=gridViewItem><%=applyList.get(0).get("description")==null?applyList.get(0).get("description"):"" %></TD>
                 </TR>           
                 <TR>
                 	<TD class="gridViewItem" colspan="2" align="right">

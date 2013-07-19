@@ -64,7 +64,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           <%
           	List<Map<String,Object>> employeeList = (List<Map<String,Object>>)request.getAttribute("employeeList");
           %>
-          	<form action="updateEmployee?empId=<%=employeeList.get(0).get("empId") %>">
+          	<form action="updateEmployee?empId=<%=employeeList.get(0).get("empId") %>" method="post">
           	<input style="display:none" name="empId" value="<%=employeeList.get(0).get("empId") %>">
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
       style="WIDTH: 70%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
