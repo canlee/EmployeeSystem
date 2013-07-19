@@ -13,7 +13,7 @@
 <LINK href="../../css/employee/update.css" type=text/css rel=stylesheet>
 <script type="text/javascript" src="../../js/jquery/jquery.form.js"></script>
 <script type="text/javascript" src="../../js/jquery/jquery.js"></script>
-<script type="text/javascript" src="../../js/public/dateSelect.js"></script>
+<script type="text/javascript" src="../../js/employee/updatePwd.js"></script>
 <STYLE type=text/css> 
 body
 {
@@ -64,7 +64,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
     vAlign=top align=center>
           <DIV>
-          	<form action="updatePwd">
+          	<form id="form_updatePwd" action="updatePwd" method="post">
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
       style="WIDTH: 70%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
       border=1>
@@ -74,7 +74,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                   <TD class=gridViewItem>
                   	<div class="float_left pwd">
 	                  	<input type="password" name="oldPassword" maxlength="16"/>
-	                  	<span class="error_tips">请输入原密码</span>
+	                  	<span id="oldPwdTips" class="error_tips">请输入原密码</span>
 	                  	<div class="clear"></div>
                   	</div>
                   </TD>
@@ -84,7 +84,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                   <TD class=gridViewItem>
                   	<div class="float_left pwd">
 	                  	<input type="password" name="password" maxlength="16"/>
-	                  	<span class="error_tips">请输入原密码</span>
+	                  	<span id="pwdTips" class="error_tips">请输入新密码</span>
 	                  	<div class="clear"></div>
                   	</div>
                   </TD>
@@ -94,14 +94,16 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                   <TD class=gridViewItem>
                   	<div class="float_left pwd">
 	                  	<input type="password" name="confirmPassword" maxlength="16"/>
-	                  	<span class="error_tips">请输入原密码</span>
+	                  	<span id="confirmPwdTips" class="error_tips">两次输入密码不相同</span>
 	                  	<div class="clear"></div>
                   	</div>
                   </TD>
                 </TR>  
                 <TR>
-                	<TD colspan="2" align="right">
-                		<input class="buttonBlue" type="submit" value="提交"/>
+                	<TD class="gridViewItem" colspan="2">
+                		<div align="right">
+                			<input id="btn_submit" class="buttonBlue" type="button" value="提交"/>
+                		</div>
                 	</TD>
                 </TR>                                                                   
               </TBODY>

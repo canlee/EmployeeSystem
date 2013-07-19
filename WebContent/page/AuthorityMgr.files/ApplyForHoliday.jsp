@@ -11,6 +11,7 @@
 <script type="text/javascript" src="../../js/jquery/jquery.form.js"></script>
 <script type="text/javascript" src="../../js/jquery/jquery.js"></script>
 <script type="text/javascript" src="../../js/public/holidaySelect.js"></script>
+<script type="text/javascript" src="../../js/authority/applyHoliday.js"></script>
 <STYLE type=text/css> 
 body
 {
@@ -58,7 +59,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
     vAlign=top align=center>
           <DIV>
-          	<form action="applyHoliday">
+          	<form id="form_applyHoliday" action="applyHoliday" method="post">
           	<input style="display: none" name="empId" value="<%=((EmployeeVo)session.getAttribute("employee")).getEmpID() %>" />
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
       style="WIDTH: 70%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
@@ -66,7 +67,12 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
               <TBODY>
                 <TR>
                   <TH class=gridViewHeader>假期长度</TH>
-                  <TD class=gridViewItem><input type="text" name="holidayLength"/></TD>
+                  <TD class=gridViewItem>
+                  	<div class="float_left" style="margin-left: 165px; _margin-left: 90px;">
+	                  	<input type="text" name="holidayLength"/>
+	                  	<span class="tips">请输入整数</span>
+                  	</div>
+                  </TD>
                 </TR>
                 <TR>
                   <TH class=gridViewHeader>起始日期(年-月-日)</TH>
@@ -82,7 +88,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 </TR>
                 <TR>
                 	<TD class="gridViewBtn" colspan="2" align="right">
-                		<input class="buttonBlue" type="submit" value="提交"/>
+                		<input id="btn_submit" class="buttonBlue" type="button" value="提交"/>
                 		<input class="buttonBlue" type="reset" value="重置"/>
                 	</TD>
                 </TR>                                                                      
