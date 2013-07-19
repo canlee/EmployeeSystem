@@ -122,7 +122,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 </TR>
                 <TR>
                   <TH class=gridViewHeaderMax style="background-color: #ECF5FF; background-image: none;">请假原因</TH>
-                  <TD class=gridViewItem><%=applyList.get(0).get("description")==null?applyList.get(0).get("description"):"" %></TD>
+                  <TD class=gridViewItem><%=applyList.get(0).get("description")!=null?applyList.get(0).get("description"):"" %></TD>
                 </TR>
                 <tr>
                 	<th class=gridViewHeaderMax>审批状态</th>
