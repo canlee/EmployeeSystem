@@ -1,7 +1,7 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=GB18030"
-    pageEncoding="GB18030"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
@@ -61,7 +61,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">����Ȩ�� </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">添加权限 </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -93,59 +93,59 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="WIDTH: 90%; BORDER-COLLAPSE: collapse" cellSpacing=5 rules=all 
       border=1	 cellpadding="5px">
               <TBODY>
-                <TR><TH class="gridViewHeader" colspan="2" style="background-color: #D2E9FF;">ѡ�����Ȩ��</TH></TR>     
+                <TR><TH class="gridViewHeader" colspan="2" style="background-color: #D2E9FF;">选择赋予的权限</TH></TR>     
                 <TR>
-                	<TD class="gridViewHeader" style="background-color: #ECF5FF;">Ա������ģ��</TD>
+                	<TD class="gridViewHeader" style="background-color: #ECF5FF;">员工管理模块</TD>
                 	<TD class="authority_choose">
                 		<ul>
-		                	<li><input class="authority" type="checkbox" name="authority" value="1" <%=flag[1] %>/>����Ա��</li>
-		                	<li><input class="authority" type="checkbox" name="authority" value="2" <%=flag[2] %>/>ɾ��Ա��</li>
-		                	<li><input class="authority" type="checkbox" name="authority" value="3" <%=flag[3] %>/>�޸�����Ա����Ϣ</li>
-		                	<li><input class="authority" type="checkbox" name="authority" value="4" <%=flag[4] %>/>�޸��Լ�����Ա����Ϣ</li>
-		   					<li><input class="authority" type="checkbox" name="authority" value="5" <%=flag[5] %>/>��ѯ����Ա����Ϣ</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="1" <%=flag[1] %>/>增加员工</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="2" <%=flag[2] %>/>删除员工</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="3" <%=flag[3] %>/>修改所有员工信息</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="4" <%=flag[4] %>/>修改自己部门员工信息</li>
+		   					<li><input class="authority" type="checkbox" name="authority" value="5" <%=flag[5] %>/>查询所有员工信息</li>
 	   					</ul>
    					</TD>
                 </TR> 
                 <TR>
-                <TD class="gridViewHeader">���Ź���ģ��</TD>
+                <TD class="gridViewHeader">部门管理模块</TD>
                     <TD class="authority_choose">
                     	<ul>
-		                    <li><input class="authority" type="checkbox" name="authority" value="6" <%=flag[6] %>/>���Ӳ���</li>
-		                	<li><input class="authority" type="checkbox" name="authority" value="7" <%=flag[7] %>/>ɾ������</li>
-		                	<li><input class="authority" type="checkbox" name="authority" value="8" <%=flag[8] %>/>�޸Ĳ���</li>
-		               		<li><input class="authority" type="checkbox" name="authority" value="9" <%=flag[9] %>/>��ѯ����</li>
+		                    <li><input class="authority" type="checkbox" name="authority" value="6" <%=flag[6] %>/>增加部门</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="7" <%=flag[7] %>/>删除部门</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="8" <%=flag[8] %>/>修改部门</li>
+		               		<li><input class="authority" type="checkbox" name="authority" value="9" <%=flag[9] %>/>查询部门</li>
 	               		</ul>
                		</TD>               	
                 </TR>
                 <TR>
-                	<TD class="gridViewHeader"  style="background-color: #ECF5FF;">��λ����ģ��</TD>
+                	<TD class="gridViewHeader"  style="background-color: #ECF5FF;">岗位管理模块</TD>
                 	<TD class="authority_choose">
                 		<ul>
-		                	<li><input class="authority" type="checkbox" name="authority" value="10" <%=flag[10] %>/>���Ӹ�λ</li>
-		                	<li><input class="authority" type="checkbox" name="authority" value="11" <%=flag[11] %>/>ɾ����λ</li>
-		                	<li><input class="authority" type="checkbox" name="authority" value="12" <%=flag[12] %>/>�޸ĸ�λ</li> 
-		                	<li><input class="authority" type="checkbox" name="authority" value="13" <%=flag[13] %>/>��ѯ��λ</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="10" <%=flag[10] %>/>增加岗位</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="11" <%=flag[11] %>/>删除岗位</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="12" <%=flag[12] %>/>修改岗位</li> 
+		                	<li><input class="authority" type="checkbox" name="authority" value="13" <%=flag[13] %>/>查询岗位</li>
 		            	</ul>
 		            </TD>        
                 </TR> 
                 <TR>
-                	<TD class="gridViewHeader">Ȩ�޹���ģ��</TD>
+                	<TD class="gridViewHeader">权限管理模块</TD>
                		<TD class="authority_choose">
                			<ul>
-		               		<li><input class="authority" type="checkbox" name="authority" value="14"  <%=flag[14] %>/>�޸�Ȩ��</li>
-		                	<li><input class="authority" type="checkbox" name="authority" value="15"  <%=flag[15] %>/>��ѯȨ��</li>
-		                	<li><input class="authority" type="checkbox" name="authority" value="16"  <%=flag[16] %>/>�������</li>
-		                	<li><input class="authority" type="checkbox" name="authority" value="17"  <%=flag[17] %>/>�����н</li>
-		                	<li><input class="authority" type="checkbox" name="authority" value="18" <%=flag[18] %>/>���������</li>
-		                	<li><input class="authority" type="checkbox" name="authority" value="19" <%=flag[19] %>/>��������Ա���ݼ�</li>
-		                	<li><input class="authority" type="checkbox" name="authority" value="20" <%=flag[20] %>/>�����Լ��������</li>
-		                	<li><input class="authority" type="checkbox" name="authority" value="21" <%=flag[21] %>/>������н����</li>
-		                	<li><input class="authority" type="checkbox" name="authority" value="22" <%=flag[22] %>/>��������������</li>
+		               		<li><input class="authority" type="checkbox" name="authority" value="14"  <%=flag[14] %>/>修改权限</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="15"  <%=flag[15] %>/>查询权限</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="16"  <%=flag[16] %>/>申请请假</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="17"  <%=flag[17] %>/>申请加薪</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="18" <%=flag[18] %>/>申请调部门</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="19" <%=flag[19] %>/>审批所有员工休假</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="20" <%=flag[20] %>/>审批自己部门请假</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="21" <%=flag[21] %>/>审批加薪申请</li>
+		                	<li><input class="authority" type="checkbox" name="authority" value="22" <%=flag[22] %>/>审批调部门申请</li>
                 		</ul>
                 	</TD>
                 </TR>  
                 <TR><TD class="authority_choose"  colspan="2" align="right">
-                	<input class="buttonBlue" type="submit" value="�ύ"/>
+                	<input class="buttonBlue" type="submit" value="提交"/>
             	</TD></TR>              
               </TBODY>
             </TABLE>

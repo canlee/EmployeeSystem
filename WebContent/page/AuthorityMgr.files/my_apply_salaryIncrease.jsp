@@ -1,7 +1,7 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="GB18030"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
@@ -43,7 +43,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">ÎÒµÄÉêÇë</SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">æˆ‘çš„ç”³è¯·</SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -66,15 +66,15 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
   				int flag = Integer.parseInt(type);
   				switch(flag){
 						case 0:{
-							type = "Çë¼Ù";
+							type = "è¯·å‡";
 							break;
 						}
 						case 1:{
-							type = "ÉêÇë¼ÓÐ½";
+							type = "ç”³è¯·åŠ è–ª";
 							break;
 						}
 						case 2:{
-							type = "ÉêÇëµ÷²¿ÃÅ";
+							type = "ç”³è¯·è°ƒéƒ¨é—¨";
 							break;
 						}
 						default:{
@@ -86,15 +86,15 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
   				int sta = Integer.parseInt(status);
   				switch(sta){
 						case 0:{
-							status = "µÈ´ýÉóÅú";
+							status = "ç­‰å¾…å®¡æ‰¹";
 							break;
 						}
 						case 1:{
-							status = "Í¨¹ýÉêÇë";
+							status = "é€šè¿‡ç”³è¯·";
 							break;
 						}
 						case 2:{
-							status = "¾Ü¾øÉêÇë";
+							status = "æ‹’ç»ç”³è¯·";
 							break;
 						}
 						default:{
@@ -105,27 +105,27 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
             
          	  %>
                 <TR>
-                  <TH class=gridViewHeaderMax>ÉêÇëÀàÐÍ</TH>
+                  <TH class=gridViewHeaderMax>ç”³è¯·ç±»åž‹</TH>
                   <TD class=gridViewItem><%=type %></TD>
                 </TR>
                 <TR>
-                  <TH class=gridViewHeaderMax>ÉêÇëÊ±¼ä</TH>
+                  <TH class=gridViewHeaderMax>ç”³è¯·æ—¶é—´</TH>
                   <TD class=gridViewItem><%=applyList.get(0).get("applyTime") %></TD>
                 </TR>
                 <TR>
-                  <TH class=gridViewHeaderMax>Ô­±¾¹¤×Ê</TH>
+                  <TH class=gridViewHeaderMax>åŽŸæœ¬å·¥èµ„</TH>
                   <TD class=gridViewItem><%=applyList.get(0).get("salary") %></TD>
                 </TR>
                 <TR>
-                  <TH class=gridViewHeaderMax>Ä¿±ê¹¤×Ê</TH>
+                  <TH class=gridViewHeaderMax>ç›®æ ‡å·¥èµ„</TH>
                   <TD class=gridViewItem><%=applyList.get(0).get("applySalary") %></TD>
                 </TR>
                 <TR>
-                  <TH class=gridViewHeaderMax style="background-color: #ECF5FF; background-image: none;">ÉêÇëÔ­Òò</TH>
+                  <TH class=gridViewHeaderMax style="background-color: #ECF5FF; background-image: none;">ç”³è¯·åŽŸå› </TH>
                   <TD class=gridViewItem><%=applyList.get(0).get("description")==null?applyList.get(0).get("description"):"" %></TD>
                 </TR>
                 <tr>
-                	<th class=gridViewHeaderMax>ÉóÅú×´Ì¬</th>
+                	<th class=gridViewHeaderMax>å®¡æ‰¹çŠ¶æ€</th>
                 	<TD class=gridViewItem><%=status %></TD>
                 </tr>
               </TBODY>

@@ -1,7 +1,7 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="GB18030"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
@@ -42,7 +42,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">ÎÒµÄÉêÇë </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">æˆ‘çš„ç”³è¯· </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -60,21 +60,21 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           	<form action="queryApply" method="post">
           		<input style="display:none" name="target" value="show"/>
 	          	<div align="center" style="margin: 10px;">
-	          		ÉêÇëÀàÐÍ£º
+	          		ç”³è¯·ç±»åž‹ï¼š
 	          		<select name="type">
 	          			<option value="-1"></option>
-	          			<option value="0">Çë¼Ù</option>
-	          			<option value="1">ÉêÇë¼ÓÐ½</option>
-	          			<option value="2">ÉêÇëµ÷²¿ÃÅ</option>
+	          			<option value="0">è¯·å‡</option>
+	          			<option value="1">ç”³è¯·åŠ è–ª</option>
+	          			<option value="2">ç”³è¯·è°ƒéƒ¨é—¨</option>
 	          		</select>
-	          		ÉêÇë×´Ì¬£º
+	          		ç”³è¯·çŠ¶æ€ï¼š
 	          		<select name="status">
 	          			<option value="%"></option>
-	          			<option value="0">µÈ´ýÉóÅú</option>
-	          			<option value="1">Í¨¹ýÉóÅú</option>
-	          			<option value="2">¾Ü¾øÉóÅú</option>
+	          			<option value="0">ç­‰å¾…å®¡æ‰¹</option>
+	          			<option value="1">é€šè¿‡å®¡æ‰¹</option>
+	          			<option value="2">æ‹’ç»å®¡æ‰¹</option>
 	          		</select>
-	          		<input class="buttonBlue" type="submit" value="²éÑ¯">
+	          		<input class="buttonBlue" type="submit" value="æŸ¥è¯¢">
 	          	</div>
         	</form>
 	          <form action="">
@@ -83,10 +83,10 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
 	      border=1>
 	              <TBODY>
 	                <TR>
-	                  <TH class=gridViewHeader scope=col>ÉêÇëÀàÐÍ</TH>
-	                  <th class="gridViewHeader" scope="col">ÉêÇëÊ±¼ä</th>
-	                  <th class="gridViewHeader" scope="col">ÉêÇë×´Ì¬</th>
-	                  <th class="gridViewHeader" scope="col">²é¿´ÏêÇé</th>
+	                  <TH class=gridViewHeader scope=col>ç”³è¯·ç±»åž‹</TH>
+	                  <th class="gridViewHeader" scope="col">ç”³è¯·æ—¶é—´</th>
+	                  <th class="gridViewHeader" scope="col">ç”³è¯·çŠ¶æ€</th>
+	                  <th class="gridViewHeader" scope="col">æŸ¥çœ‹è¯¦æƒ…</th>
 	                </TR>
 	              <%
 	              	for(int i=0;i<applyList.size();++i){
@@ -96,19 +96,19 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
               			int flag = Integer.parseInt(type);
               			switch(flag){
       						case 0:{
-      							type = "Çë¼Ù";
+      							type = "è¯·å‡";
       							applyId = Integer.toString((Integer)applyList.get(i).get("applyHolidayId"));
       							target = "iholiday";
       							break;
       						}
       						case 1:{
-      							type = "ÉêÇë¼ÓÐ½";
+      							type = "ç”³è¯·åŠ è–ª";
       							applyId = Integer.toString((Integer)applyList.get(i).get("applySalaryId"));
       							target = "isalary";
       							break;
       						}
       						case 2:{
-      							type = "ÉêÇëµ÷²¿ÃÅ";
+      							type = "ç”³è¯·è°ƒéƒ¨é—¨";
       							applyId = Integer.toString((Integer)applyList.get(i).get("applyDepId"));
       							target = "idep";
       							break;
@@ -124,15 +124,15 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
               			int sta = Integer.parseInt(status);
               			switch(sta){
       						case 0:{
-      							status = "µÈ´ýÉóÅú";
+      							status = "ç­‰å¾…å®¡æ‰¹";
       							break;
       						}
       						case 1:{
-      							status = "Í¨¹ýÉêÇë";
+      							status = "é€šè¿‡ç”³è¯·";
       							break;
       						}
       						case 2:{
-      							status = "¾Ü¾øÉêÇë";
+      							status = "æ‹’ç»ç”³è¯·";
       							break;
       						}
       						default:{
@@ -145,7 +145,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
 	                  <td class=gridViewItem scope=col><%=type %></td>
 	                  <td class="gridViewItem"><%=applyList.get(i).get("applyTime") %></td>
 	                  <td class="gridViewItem"><%=status %></td>
-	                  <td class="gridViewItem"><a class="cmdField" href="queryApply?type=<%=flag%>&target=<%=target%>&applyId=<%=applyId %>">²éÑ¯ÏêÇé</a></td>
+	                  <td class="gridViewItem"><a class="cmdField" href="queryApply?type=<%=flag%>&target=<%=target%>&applyId=<%=applyId %>">æŸ¥è¯¢è¯¦æƒ…</a></td>
 	                </TR>
 	              <%
 	              	}
@@ -153,11 +153,11 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
 	              </TBODY>
 	            </TABLE>
 	            <div class="selectPage" align="right">
-            	<a href="">ÉÏÒ»Ò³</a>
+            	<a href="">ä¸Šä¸€é¡µ</a>
             	<select name="page">
             		<option value="1">1</option>
             	</select>
-            	<a href="">ÏÂÒ»Ò³</a>
+            	<a href="">ä¸‹ä¸€é¡µ</a>
             </div>
 	          </form>
           </DIV>

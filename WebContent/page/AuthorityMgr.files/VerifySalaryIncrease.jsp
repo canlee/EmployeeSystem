@@ -1,7 +1,7 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="GB18030"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
@@ -43,7 +43,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">ÉóÅú¼ÓĞ½ </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">å®¡æ‰¹åŠ è–ª </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -64,20 +64,20 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           		String type = (String)applyList.get(0).get("type");
           		String sex = (String)applyList.get(0).get("sex");
           		if(sex==null)sex = "";
-          		else if(sex.equals("1"))sex = "ÄĞ";
-          		else sex = "Å®";
+          		else if(sex.equals("1"))sex = "ç”·";
+          		else sex = "å¥³";
   				int flag = Integer.parseInt(type);
   				switch(flag){
 						case 0:{
-							type = "Çë¼Ù";
+							type = "è¯·å‡";
 							break;
 						}
 						case 1:{
-							type = "ÉêÇë¼ÓĞ½";
+							type = "ç”³è¯·åŠ è–ª";
 							break;
 						}
 						case 2:{
-							type = "ÉêÇëµ÷²¿ÃÅ";
+							type = "ç”³è¯·è°ƒéƒ¨é—¨";
 							break;
 						}
 						default:{
@@ -89,15 +89,15 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
   				int sta = Integer.parseInt(status);
   				switch(sta){
 						case 0:{
-							status = "µÈ´ıÉóÅú";
+							status = "ç­‰å¾…å®¡æ‰¹";
 							break;
 						}
 						case 1:{
-							status = "Í¨¹ıÉêÇë";
+							status = "é€šè¿‡ç”³è¯·";
 							break;
 						}
 						case 2:{
-							status = "¾Ü¾øÉêÇë";
+							status = "æ‹’ç»ç”³è¯·";
 							break;
 						}
 						default:{
@@ -109,51 +109,51 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
          	  %>           
               <TBODY>
                 <TR>
-                  <th class=gridViewHeaderMax>ÉêÇëÀàĞÍ</th>
+                  <th class=gridViewHeaderMax>ç”³è¯·ç±»å‹</th>
                   <TD class=gridViewItem><%=type %></TD>
                 </TR>              
                 <TR>
-                  <TH class=gridViewHeaderMax>Ô±¹¤ºÅ</TH>
+                  <TH class=gridViewHeaderMax>å‘˜å·¥å·</TH>
                   <TD class=gridViewItem><%=applyList.get(0).get("empId") %></TD>
                 </TR>
                 <TR>
-                  <th class=gridViewHeaderMax>ĞÕÃû</th>
+                  <th class=gridViewHeaderMax>å§“å</th>
                   <TD class=gridViewItem><%=applyList.get(0).get("empName") %></TD>
                 </TR>
                 <TR>
-                  <th class=gridViewHeaderMax>ĞÔ±ğ</th>
+                  <th class=gridViewHeaderMax>æ€§åˆ«</th>
                   <TD class=gridViewItem><%=sex %></TD>
                 </TR>
                 <TR>
-                  <th class=gridViewHeaderMax>¹¤×Ê</th>
+                  <th class=gridViewHeaderMax>å·¥èµ„</th>
                   <TD class=gridViewItem><%=applyList.get(0).get("salary") %></TD>
                 </TR>
                 <TR>
-                  <th class=gridViewHeaderMax>²¿ÃÅ</th>
+                  <th class=gridViewHeaderMax>éƒ¨é—¨</th>
                   <TD class=gridViewItem><%=applyList.get(0).get("depName") %></TD>
                 </TR>
                 <TR>
-                  <th class=gridViewHeaderMax>Ö°Î»</th>
+                  <th class=gridViewHeaderMax>èŒä½</th>
                   <TD class=gridViewItem><%=applyList.get(0).get("postName") %></TD>
                 </TR> 
                 <TR>
-                  <th class=gridViewHeaderMax>ÉêÇëĞ½Ë®</th>
+                  <th class=gridViewHeaderMax>ç”³è¯·è–ªæ°´</th>
                   <TD class=gridViewItem><%=applyList.get(0).get("applySalary") %></TD>
                 </TR>  
                 <TR>
-                  <th class=gridViewHeaderMax>ÉêÇëÊ±¼ä</th>
+                  <th class=gridViewHeaderMax>ç”³è¯·æ—¶é—´</th>
                   <TD class=gridViewItem><%=applyList.get(0).get("applyTime") %></TD>
                 </TR> 
                 <TR>
-                  <th class=gridViewHeaderMax style="background-color: #ECF5FF; background-image: none;">Ô­Òò</th>
+                  <th class=gridViewHeaderMax style="background-color: #ECF5FF; background-image: none;">åŸå› </th>
                   <TD class=gridViewItem><%=applyList.get(0).get("description")==null?applyList.get(0).get("description"):"" %></TD>
                 </TR>      
                 <TR>
                 	<TD class="gridViewItem" colspan="2" align="right">
                 	<A class=cmdField 
-            href="verifyApply?type=<%=flag%>&empId=<%=applyList.get(0).get("empId") %>&status=1&salary=<%=applyList.get(0).get("applySalary") %>&applyId=<%=applyList.get(0).get("applySalaryId") %>">Í¨¹ıÉêÇë</A>
+            href="verifyApply?type=<%=flag%>&empId=<%=applyList.get(0).get("empId") %>&status=1&salary=<%=applyList.get(0).get("applySalary") %>&applyId=<%=applyList.get(0).get("applySalaryId") %>">é€šè¿‡ç”³è¯·</A>
             		<A class=cmdField 
-            href="verifyApply?type=<%=flag%>&status=2&applyId=<%=applyList.get(0).get("applySalaryId") %>">¾Ü¾øÉêÇë</A>
+            href="verifyApply?type=<%=flag%>&status=2&applyId=<%=applyList.get(0).get("applySalaryId") %>">æ‹’ç»ç”³è¯·</A>
             		</TD>          
                 </TR>                                                     
               </TBODY>
