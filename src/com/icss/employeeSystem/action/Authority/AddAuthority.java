@@ -59,8 +59,10 @@ public class AddAuthority {
 		ActionContext ac = ActionContext.getContext();
 		try {
 			EOAservice.deleteWithEmpId(empId);
-			for(int i=0;i<authority.length;++i){
-				EOAservice.insert(empId, authority[i]);
+			if(authority!=null){
+				for(int i=0;i<authority.length;++i){
+					EOAservice.insert(empId, authority[i]);
+				}
 			}
 			//String sql = "select authId from employee_authority where empId = "+empId;
 			//List<Map<String,Integer>> list = new ArrayList<Map<String,Integer>>();
