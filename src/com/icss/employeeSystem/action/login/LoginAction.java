@@ -49,6 +49,7 @@ public class LoginAction extends ActionSupport {
 				Post post = (Post)baseDao.get(Post.class, emp.getPostId());
 				Department dep = (Department)baseDao.get(Department.class, post.getDepId());				
 				empvo.setDepName(dep.getDepName());
+				empvo.setDepId(dep.getDepId());
 				ActionContext.getContext().getSession().put("employee", empvo);
 				
 				String sql = "select authId from employee_authority where empId = "+id;

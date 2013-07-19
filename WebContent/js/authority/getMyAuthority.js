@@ -25,8 +25,8 @@ function setAuthority(authIds) {
 	var fun152 = null;
 	var fun_allApply = null;
 	
-	$(authIds).each(function(i) {
-		switch (i) {
+	$(authIds).each(function(i, auth) {
+		switch (auth) {
 		case 1:
 			var fun2 = new TreeNode('添加员工', 'EmployeeMgr.files/InsertEmployee.html', 'tree_node.gif', null, 'tree_node.gif', null);
 			fun1.add(fun2);

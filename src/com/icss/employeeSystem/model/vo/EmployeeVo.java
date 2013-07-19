@@ -3,6 +3,7 @@ package com.icss.employeeSystem.model.vo;
 public class EmployeeVo {
 
 	private String empID;
+	private int depId;
 	private String empName;
 	private String depName;
 	
@@ -30,4 +31,12 @@ public class EmployeeVo {
 		this.empName = empName;
 	}
 
+	public int getDepId() {
+		return depId;
+	}
+
+	public void setDepId(int depId) {
+		this.depId = depId;
+	}
+	
 }
