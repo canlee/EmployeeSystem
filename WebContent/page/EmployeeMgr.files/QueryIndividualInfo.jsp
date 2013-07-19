@@ -112,11 +112,11 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>部门</TD>
-                  <TD class=gridViewItem><%=employeeList.get(0).get("postId") %></TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("postName") %></TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>职位</TD>
-                  <TD class=gridViewItem><%=employeeList.get(0).get("depId") %></TD>
+                  <TD class=gridViewItem><%=employeeList.get(0).get("depName") %></TD>
                 </TR>    
                 <TR height="50px">
                   <TD class=gridViewHeader style="background-color: #ECF5FF; background-image: none;">权限</TD>

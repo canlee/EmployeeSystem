@@ -35,6 +35,11 @@
 <%
 	List<Department> deps = (List<Department>) request.getAttribute("departments");
 	JSONArray json = JSONArray.fromObject(deps);
+	List<Integer> auths = (List<Integer>) session.getAttribute("authIds");
+	boolean hasUpdateAuth = false;
+	if(auths.contains(14)) {
+		hasUpdateAuth = true;
+	}
 %>
 <script type="text/javascript">saveDeps(<%=json.toString() %>);</script>
 </head>
@@ -96,10 +101,16 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
 	                  <TH class=gridViewHeader scope=col>岗位名称</TH>
 	                  <th class="gridViewItem"><input name="postName" type="text" value=""></th>
 	                </TR>
-	                <TR>
-	                  <TH class=gridViewHeader scope=col>岗位所有人员权限</TH>
-	                  <th class="gridViewItem"><a class="cmdField" href="../AuthorityMgr.files/AddAuthority.html">去看看</a></th>
-	                </TR>
+	                <%
+	                	if(hasUpdateAuth) {
+	                %>
+		                <TR>
+		                  <TH class=gridViewHeader scope=col>岗位所有人员权限</TH>
+		                  <th class="gridViewItem"><a class="cmdField" href="../AuthorityMgr.files/AddAuthority.html">去看看</a></th>
+		                </TR>
+	                <%
+	                	}
+	                %>
 	              </TBODY>
 	            </TABLE>
 	          </form>
