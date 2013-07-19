@@ -62,14 +62,14 @@ public class AddAuthority {
 			for(int i=0;i<authority.length;++i){
 				EOAservice.insert(empId, authority[i]);
 			}
-			String sql = "select authId from employee_authority where empId = "+empId;
-			List<Map<String,Integer>> list = new ArrayList<Map<String,Integer>>();
-			list = (List<Map<String,Integer>>)baseDao.queryForList(sql, list);
-			List<Integer> authIds = new ArrayList<Integer>();
-			for(int i=0;i<list.size();++i){
-				authIds.add(list.get(i).get("authId"));
-			}
-			ac.getSession().put("authIds", authIds);
+			//String sql = "select authId from employee_authority where empId = "+empId;
+			//List<Map<String,Integer>> list = new ArrayList<Map<String,Integer>>();
+			//list = (List<Map<String,Integer>>)baseDao.queryForList(sql, list);
+			//List<Integer> authIds = new ArrayList<Integer>();
+			//for(int i=0;i<list.size();++i){
+				//authIds.add(list.get(i).get("authId"));
+			//}
+			//ac.getSession().put("authIds", authIds);
 			return "success";
 		} catch (Exception e) {
 			// TODO: handle exception
