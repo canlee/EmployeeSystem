@@ -37,8 +37,12 @@
 	JSONArray json = JSONArray.fromObject(deps);
 	List<Integer> auths = (List<Integer>) session.getAttribute("authIds");
 	boolean hasUpdateAuth = false;
+	boolean hasDeletePost = false;
 	if(auths.contains(14)) {
 		hasUpdateAuth = true;
+	}
+	if(auths.contains(11)) {
+		hasDeletePost = true;
 	}
 %>
 <script type="text/javascript">saveDeps(<%=json.toString() %>);</script>
@@ -115,7 +119,13 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
 	            </TABLE>
 	          </form>
 	          <div align="center" id="btn_ok">
-	          	<button id="btn_delete" class="buttonBlue" style="margin: 10px 30px 10px 10px;">删除部门</button>
+	          <%
+	          	if(hasDeletePost) {
+	          %>
+	          		<button id="btn_delete" class="buttonBlue" style="margin: 10px 30px 10px 10px;">删除部门</button>
+	          <%
+	          	}
+	          %>
 	          	<button id="btn_update" class="buttonBlue" style="margin: 10px 10px 10px 30px;">确定修改</button>
 	          </div>
 	          <div class="tips"></div>

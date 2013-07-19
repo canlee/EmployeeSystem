@@ -155,7 +155,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 <TR>
                 	<TD class="gridViewItem" colspan="2" align="right">
                 	<A class=cmdField 
-            href="verifyApply?type=<%=flag%>&empId=<%=applyList.get(0).get("empId") %>&status=1&post=<%=applyList.get(0).get("applyPost") %>&applyId=<%=applyList.get(0).get("applyDepId") %>">通过申请</A>
+            href="verifyApply?type=<%=flag%>&empId=<%=applyList.get(0).get("empId") %>&status=1&post=<%=applyList.get(0).get("applyPostId") %>&applyId=<%=applyList.get(0).get("applyDepId") %>">通过申请</A>
             		<A class=cmdField 
             href="verifyApply?type=<%=flag%>&status=2&applyId=<%=applyList.get(0).get("applyDepId") %>">拒绝申请</A>
             		</TD>          
