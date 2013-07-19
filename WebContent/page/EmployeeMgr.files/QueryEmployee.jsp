@@ -1,3 +1,4 @@
+<%@page import="com.icss.employeeSystem.model.vo.EmployeeVo"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -34,6 +35,31 @@ body
 </STYLE>
 <META content="MSHTML 6.00.2900.5848" name=GENERATOR>
 </HEAD>
+<%
+	List<Integer> auths = (List<Integer>) session.getAttribute("authIds");
+	EmployeeVo myInfo = (EmployeeVo) session.getAttribute("employee");
+	boolean hasQueryAll = false;
+	boolean hasDelete = false;
+	boolean hasUpdateInfo = false;
+	boolean hasUpdateAllInfo = false;
+	boolean hasUpdateAuth = false;
+	if(auths.contains(5)) {
+		hasQueryAll = true;
+	}
+	if(auths.contains(2)) {
+		hasDelete = true;
+	}
+	if(auths.contains(3)) {
+		hasUpdateAllInfo = true;
+		hasUpdateInfo = true;
+	}
+	if(auths.contains(4)) {
+		hasUpdateInfo = true;
+	}
+	if(auths.contains(14)) {
+		hasUpdateAuth = true;
+	}
+%>
 <BODY 
 style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif); BACKGROUND-REPEAT: repeat-x">
 <DIV>
@@ -61,9 +87,23 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           	<form action="queryEmployee" method="post">
           	<input style="display:none" name=target value="success">
           		员工号<input type="text" name="empId"/>
-          		部门<select name="depId">
-          			<option value="%"></option>
-          		</select>
+          		<%
+          			if(hasQueryAll) {
+          		%>
+		          		部门<select name="depId">
+          					<option value="%"></option>
+		          		</select>
+          		<%
+          			}
+          			else {
+          		%>
+          				部门<select name="depId">
+          					<option value="<%=myInfo.getDepId() %>"><%=myInfo.getDepName() %></option>
+          				</select>
+          				<script type="text/javascript">noQueryAll(<%=myInfo.getDepId() %>);</script>
+          		<%
+          			}
+          		%>
           		职位<select name="postId">
           			<option value="%"></option>
           		</select>
@@ -81,8 +121,20 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                   <TH class=gridviewHeader scope=col>部门¨</TH>
                   <TH class=gridviewHeader scope=col>职位</TH>
                   <TH class=gridviewHeader scope=col>查看详情</TH>
-                  <TH class=gridviewHeader scope=col>修改</TH>
-                  <TH class=gridviewHeader scope=col>删除</TH>
+                  <%
+                  	if(hasUpdateInfo || hasUpdateAuth) {
+                  %>
+	                  <TH class=gridviewHeader scope=col>修改</TH>
+                  <%
+                  	}
+                  %>
+                  <%
+                  	if(hasDelete) {
+                  %>
+	                  <TH class=gridviewHeader scope=col>删除</TH>
+                  <%
+                  	}
+                  %>
                 </TR>
               <%
               	List<Map<String,Object>> employeeList = (List<Map<String,Object>>)request.getAttribute("employeeList");
@@ -103,15 +155,50 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                   <TD class=gridViewItem><A class=cmdField 
             href="queryEmployee?empId=<%=employeeList.get(i).get("empId") %>&target=individual">查询详情</A></TD>
                   <TD class=gridViewItem>
-                  	<A class="cmdField" 
-            		href="queryEmployee?empId=<%=employeeList.get(i).get("empId") %>&target=updateOthers">个人资料</A>
-            		<A class="cmdField"  
-            		href="queryAuthority?empId=<%=employeeList.get(i).get("empId") %>">权限</A>
+                  	<%
+                  		if(!((String) employeeList.get(i).get("empId")).equals(myInfo.getEmpID())) {
+	                  		if(hasUpdateInfo) {
+    	              			if(hasUpdateAllInfo) {
+                  	%>
+				                  	<A class="cmdField" 
+				            		href="queryEmployee?empId=<%=employeeList.get(i).get("empId") %>&target=updateOthers">个人资料</A>
+                 	<%
+                	  			}
+                  				else {
+                  					if(myInfo.getDepId() == (Integer) employeeList.get(i).get("depId")) {
+                  	%>	
+                  						<A class="cmdField" 
+			            			href="queryEmployee?empId=<%=employeeList.get(i).get("empId") %>&target=updateOthers">个人资料</A>
+                  	<%
+                  					}
+                  				}
+                  			}
+                  	%>
+            		<%
+            				if(hasUpdateAuth) {
+            		%>
+		            			<A class="cmdField"  
+		            			href="queryAuthority?empId=<%=employeeList.get(i).get("empId") %>">权限</A>
+            		<%
+            				}
+                  		}
+            		%>
             	  </TD>
-                  <TD class=gridViewItem><A class=cmdField 
-            id=ctl00_ContentPlaceHolder2_GridView1_ctl03_LinkButton1 
-            onclick="return confirm('确定删除？');" 
-            href="deleteEmployee?empId=<%=employeeList.get(i).get("empId") %>">删除</A> </TD>
+            	  <%
+            	  	if(hasDelete) {
+            	  %>
+	                  <TD class=gridViewItem>
+	                  <%
+	                  	if(!((String) employeeList.get(i).get("empId")).equals(myInfo.getEmpID())) { 
+	                  %>
+		                  <A class=cmdField 
+		            id=ctl00_ContentPlaceHolder2_GridView1_ctl03_LinkButton1 
+		            onclick="return confirm('确定删除？');" 
+		            href="deleteEmployee?empId=<%=employeeList.get(i).get("empId") %>">删除</A> </TD>
+            	  <%
+	                  	}
+            	  	}
+            	  %>
                 </TR>
               			
               <%

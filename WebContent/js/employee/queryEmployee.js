@@ -1,39 +1,58 @@
 var posts = [{"depId": "", "posts": []}];
 
+var hasQueryAll = null;
+
 $(document).ready(function() {
-	$.post(
-			"getAllDep", 
-			{}, 
-			function(result) {
-				setDepartment(result.departments);
-			}, 
-			'json'
-	);
+	if(hasQueryAll == null) {
+		$.post(
+				"getAllDep", 
+				{}, 
+				function(result) {
+					setDepartment(result.departments);
+				}, 
+				'json'
+		);
+	}
+	else {
+		$.post(
+				"queryPostsByDep", 
+				{
+					depId: hasQueryAll
+				}, 
+				function(result) {
+					addPosts(result.posts);
+					setPost(result.posts.posts);
+				}, 
+				'json'
+		);
+	}
 });
 
 $(document).ready(function() {
-	$("select[name='depId']").change(function() {
-		var depId = $("select[name='depId']").attr("value");
-		var posts = getPostByDep(depId);
-		if(depId != "") {
-			if(posts != null) {
-				setPost(posts);
+	if(hasQueryAll == null) {
+		$("select[name='depId']").change(function() {
+			var depId = $("select[name='depId']").attr("value");
+			var posts = getPostByDep(depId);
+			if(depId != "") {
+				if(posts != null) {
+					setPost(posts);
+				}
+				else {
+					$.post(
+							"queryPostsByDep", 
+							{
+								depId: depId
+							}, 
+							function(result) {
+								addPosts(result.posts);
+								setPost(result.posts.posts);
+							}, 
+							'json'
+					);
+				}
 			}
-			else {
-				$.post(
-						"queryPostsByDep", 
-						{
-							depId: depId
-						}, 
-						function(result) {
-							addPosts(result.posts);
-							setPost(result.posts.posts);
-						}, 
-						'json'
-				);
-			}
-		}
-	});
+		});
+	}
 });
 
 function getPostByDep(depId) {
@@ -63,4 +82,11 @@ function setPost(data) {
 
 function addPosts(data) {
 	posts[posts.length] = data;
+}
+
+/**
+ * 设置没有查询所有员工
+ */
+function noQueryAll(depId) {
+	hasQueryAll = depId;
 }
