@@ -1,6 +1,6 @@
 <%@page import="com.icss.employeeSystem.model.vo.EmployeeVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="GB18030"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
@@ -43,7 +43,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">ÉêÇëµ÷²¿ÃÅ </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">ç”³è¯·è°ƒéƒ¨é—¨ </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -62,29 +62,29 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       border=1>
               <TBODY>
                 <TR>
-                  <TH class=gridViewHeader>Ïëµ÷µ½µÄ²¿ÃÅ</TH>
+                  <TH class=gridViewHeader>æƒ³è°ƒåˆ°çš„éƒ¨é—¨</TH>
                   <TD class=gridViewItem>
                   	<select size="1" name="department">
-                  		<option value="">ÃØÊé²¿</option>
+                  		<option value="">ç§˜ä¹¦éƒ¨</option>
                   	</select>
                   </TD>
                 </TR>
                 <TR>
-                  <TH class=gridViewHeader>Ïëµ÷µ½µÄ¸ÚÎ»</TH>
+                  <TH class=gridViewHeader>æƒ³è°ƒåˆ°çš„å²—ä½</TH>
                   <TD class=gridViewItem>
                   	<select size="1" name="post">
-                  		<option value="1">Ô±¹¤</option>
+                  		<option value="1">å‘˜å·¥</option>
                   	</select>
                   </TD>
                 </TR>
                 <TR>
-                  <TH class=gridViewHeader style="background-color: #ECF5FF; background-image: none;">Ô­Òò</TH>
+                  <TH class=gridViewHeader style="background-color: #ECF5FF; background-image: none;">åŽŸå› </TH>
                   <TD class=gridViewItem><textarea name="reason" cols="50" rows="15"></textarea></TD>
                 </TR>
                 <TR>
                 	<TD class="gridViewBtn" colspan="2" align="right">
-                		<input class="buttonBlue" type="submit" value="Ìá½»"/>
-                		<input class="buttonBlue" type="reset" value="ÖØÖÃ"/>
+                		<input class="buttonBlue" type="submit" value="æäº¤"/>
+                		<input class="buttonBlue" type="reset" value="é‡ç½®"/>
                 	</TD>
                 </TR>                                                                      
               </TBODY>

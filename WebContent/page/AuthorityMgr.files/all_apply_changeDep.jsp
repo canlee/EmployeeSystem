@@ -1,7 +1,7 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=GB18030"
-    pageEncoding="GB18030"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
@@ -43,7 +43,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">ÉêÇëµ÷²¿ÃÅ </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">ç”³è¯·è°ƒéƒ¨é—¨ </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -64,20 +64,20 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           		String type = (String)applyList.get(0).get("type");
           		String sex = (String)applyList.get(0).get("sex");
           		if(sex==null)sex = "";
-          		else if(sex.equals("1"))sex = "ÄÐ";
-          		else sex = "Å®";
+          		else if(sex.equals("1"))sex = "ç”·";
+          		else sex = "å¥³";
   				int flag = Integer.parseInt(type);
   				switch(flag){
 						case 0:{
-							type = "Çë¼Ù";
+							type = "è¯·å‡";
 							break;
 						}
 						case 1:{
-							type = "ÉêÇë¼ÓÐ½";
+							type = "ç”³è¯·åŠ è–ª";
 							break;
 						}
 						case 2:{
-							type = "ÉêÇëµ÷²¿ÃÅ";
+							type = "ç”³è¯·è°ƒéƒ¨é—¨";
 							break;
 						}
 						default:{
@@ -89,15 +89,15 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
   				int sta = Integer.parseInt(status);
   				switch(sta){
 						case 0:{
-							status = "µÈ´ýÉóÅú";
+							status = "ç­‰å¾…å®¡æ‰¹";
 							break;
 						}
 						case 1:{
-							status = "Í¨¹ýÉêÇë";
+							status = "é€šè¿‡ç”³è¯·";
 							break;
 						}
 						case 2:{
-							status = "¾Ü¾øÉêÇë";
+							status = "æ‹’ç»ç”³è¯·";
 							break;
 						}
 						default:{
@@ -109,51 +109,51 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
          	  %>           
               <TBODY>
                 <TR>
-                  <th class=gridViewHeaderMax>ÉêÇëÀàÐÍ</th>
+                  <th class=gridViewHeaderMax>ç”³è¯·ç±»åž‹</th>
                   <TD class=gridViewItem><%=type %></TD>
                 </TR>              
                 <TR>
-                  <th class=gridViewHeaderMax>Ô±¹¤ºÅ</th>
+                  <th class=gridViewHeaderMax>å‘˜å·¥å·</th>
                   <TD class=gridViewItem><%=applyList.get(0).get("empId") %></TD>
                 </TR>
                 <TR>
-                  <th class=gridViewHeaderMax>ÐÕÃû</th>
+                  <th class=gridViewHeaderMax>å§“å</th>
                   <TD class=gridViewItem><%=applyList.get(0).get("empName") %></TD>
                 </TR>
                 <TR>
-                  <th class=gridViewHeaderMax>ÐÔ±ð</th>
+                  <th class=gridViewHeaderMax>æ€§åˆ«</th>
                   <TD class=gridViewItem><%=sex %></TD>
                 </TR>
                 <TR>
-                  <th class=gridViewHeaderMax>¹¤×Ê</th>
+                  <th class=gridViewHeaderMax>å·¥èµ„</th>
                   <TD class=gridViewItem><%=applyList.get(0).get("salary") %></TD>
                 </TR>
                 <TR>
-                  <th class=gridViewHeaderMax>²¿ÃÅ</th>
+                  <th class=gridViewHeaderMax>éƒ¨é—¨</th>
                   <TD class=gridViewItem><%=applyList.get(0).get("depName") %></TD>
                 </TR>
                 <TR>
-                  <th class=gridViewHeaderMax>Ö°Î»</th>
+                  <th class=gridViewHeaderMax>èŒä½</th>
                   <TD class=gridViewItem><%=applyList.get(0).get("postName") %></TD>
                 </TR> 
                 <TR>
-                  <th class=gridViewHeaderMax>Ïëµ÷µ½µÄ²¿ÃÅ</th>
+                  <th class=gridViewHeaderMax>æƒ³è°ƒåˆ°çš„éƒ¨é—¨</th>
                   <TD class=gridViewItem><%=applyList.get(0).get("applyDepName") %></TD>
                 </TR>  
                 <TR>
-                  <th class=gridViewHeaderMax>Ïëµ÷µ½µÄ¸ÚÎ»</th>
+                  <th class=gridViewHeaderMax>æƒ³è°ƒåˆ°çš„å²—ä½</th>
                   <TD class=gridViewItem><%=applyList.get(0).get("applyPostName") %></TD>
                 </TR> 
                 <TR>
-                  <th class=gridViewHeaderMax>ÉêÇëÊ±¼ä</th>
+                  <th class=gridViewHeaderMax>ç”³è¯·æ—¶é—´</th>
                   <TD class=gridViewItem><%=applyList.get(0).get("applyTime") %></TD>
                 </TR> 
                 <TR>
-                  <th class=gridViewHeaderMax style="background-color: #ECF5FF; background-image: none;">Ô­Òò</th>
+                  <th class=gridViewHeaderMax style="background-color: #ECF5FF; background-image: none;">åŽŸå› </th>
                   <TD class=gridViewItem><%=applyList.get(0).get("description")==null?applyList.get(0).get("description"):"" %></TD>
                 </TR>      
                 <TR>
-                	<th class=gridViewHeaderMax>ÉóÅú×´Ì¬</th>
+                	<th class=gridViewHeaderMax>å®¡æ‰¹çŠ¶æ€</th>
                 	<TD class=gridViewItem><%=status %></TD>
                 </TR>                                                     
               </TBODY>

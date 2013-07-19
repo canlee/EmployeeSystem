@@ -1,6 +1,6 @@
 <%@page import="com.icss.employeeSystem.model.vo.EmployeeVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="GB18030"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
@@ -43,7 +43,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">申请加薪 </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">鐢宠鍔犺柂 </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -62,17 +62,17 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       border=1>
               <TBODY>
                 <TR>
-                  <TH class=gridViewHeader>目标薪水</TH>
+                  <TH class=gridViewHeader>鐩爣钖按</TH>
                   <TD class=gridViewItem><input type="text" name="salary"/></TD>
                 </TR>
                 <TR>
-                  <TH class=gridViewHeader style="background-color: #ECF5FF; background-image: none;">原因</TH>
+                  <TH class=gridViewHeader style="background-color: #ECF5FF; background-image: none;">鍘熷洜</TH>
                   <TD class=gridViewItem><textarea name="reason" cols="50" rows="15"></textarea></TD>
                 </TR>
                 <TR>
                 	<TD class="gridViewBtn" colspan="2" align="right">
-                		<input class="buttonBlue" type="submit" value="提交"/>
-                		<input class="buttonBlue" type="reset" value="重置"/>
+                		<input class="buttonBlue" type="submit" value="鎻愪氦"/>
+                		<input class="buttonBlue" type="reset" value="閲嶇疆"/>
                 	</TD>
                 </TR>                                                                      
               </TBODY>

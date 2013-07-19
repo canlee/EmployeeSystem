@@ -1,6 +1,6 @@
 <%@page import="com.icss.employeeSystem.model.vo.EmployeeVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="GB18030"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
@@ -47,7 +47,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">Çë¼Ù </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">è¯·å‡ </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -66,30 +66,30 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       border=1>
               <TBODY>
                 <TR>
-                  <TH class=gridViewHeader>¼ÙÆÚ³¤¶È</TH>
+                  <TH class=gridViewHeader>å‡æœŸé•¿åº¦</TH>
                   <TD class=gridViewItem>
                   	<div class="float_left" style="margin-left: 165px; _margin-left: 90px;">
 	                  	<input type="text" name="holidayLength"/>
-	                  	<span class="tips">ÇëÊäÈëÕûÊý</span>
+	                  	<span class="tips">è¯·è¾“å…¥æ•´æ•°</span>
                   	</div>
                   </TD>
                 </TR>
                 <TR>
-                  <TH class=gridViewHeader>ÆðÊ¼ÈÕÆÚ(Äê-ÔÂ-ÈÕ)</TH>
+                  <TH class=gridViewHeader>èµ·å§‹æ—¥æœŸ(å¹´-æœˆ-æ—¥)</TH>
                   <TD class=gridViewItem>
-                  	<select id="holidayYear" name="holidayYear"></select>Äê
-                  	<select id="holidayMonth" name="holidayMonth"></select>ÔÂ
-                  	<select id="holidayDay" name="holidayDay"></select>ÈÕ
+                  	<select id="holidayYear" name="holidayYear"></select>å¹´
+                  	<select id="holidayMonth" name="holidayMonth"></select>æœˆ
+                  	<select id="holidayDay" name="holidayDay"></select>æ—¥
                   </TD>
                 </TR>
                 <TR>
-                  <TH class=gridViewHeader style="background-color: #ECF5FF; background-image: none;">Ô­Òò</TH>
+                  <TH class=gridViewHeader style="background-color: #ECF5FF; background-image: none;">åŽŸå› </TH>
                   <TD class=gridViewItem><textarea name="reason" cols="50" rows="15"></textarea></TD>
                 </TR>
                 <TR>
                 	<TD class="gridViewBtn" colspan="2" align="right">
-                		<input id="btn_submit" class="buttonBlue" type="button" value="Ìá½»"/>
-                		<input class="buttonBlue" type="reset" value="ÖØÖÃ"/>
+                		<input id="btn_submit" class="buttonBlue" type="button" value="æäº¤"/>
+                		<input class="buttonBlue" type="reset" value="é‡ç½®"/>
                 	</TD>
                 </TR>                                                                      
               </TBODY>
