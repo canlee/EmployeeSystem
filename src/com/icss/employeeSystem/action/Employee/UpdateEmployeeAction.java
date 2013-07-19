@@ -183,7 +183,7 @@ public class UpdateEmployeeAction extends ActionSupport{
 		setEmpId(((EmployeeVo)ac.getSession().get("employee")).getEmpID());			
 		Employee emp = (Employee)employeeService.get(Employee.class, empId);
 		String pwd = emp.getPassword();
-		if(pwd.equals(password)){
+		if(oldPassword.equals(pwd)){
 			emp.setPassword(password);
 			employeeService.update(emp);
 			return "success";
