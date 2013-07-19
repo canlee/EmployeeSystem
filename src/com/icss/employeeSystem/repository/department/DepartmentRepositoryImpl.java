@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Component;
 
 import com.icss.employeeSystem.model.po.Department;
+import com.icss.employeeSystem.model.po.Employee;
 import com.icss.framework.base.dao.BaseDao;
 
 @Component("departmentRepository")
@@ -51,6 +52,44 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
 			return dep;
 		}
 		return null;
+	}
+	
+	@Override
+	public List<Employee> getEmployeeInDepartment(int depId) {
+		String sql = 
+				"SELECT empId FROM employee WHERE postId in " +
+				"(SELECT postId FROM post WHERE depId=" + depId + ");";
+		@SuppressWarnings("unchecked")
+		List<Map<String, String>> result = 
+				(List<Map<String, String>>) baseDao.queryForList(
+						sql, new ArrayList<Object>());
+		List<Employee> emps = new ArrayList<Employee>();
+		for(Map<String, String> map : result) {
+			String id = map.get("empId");
+			emps.add((Employee) baseDao.get(Employee.class, id));
+		}
+		return emps;
+	}
+	
+	@Override
+	public boolean update(Department dep) {
+		try {
+			baseDao.update(dep);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	@Override
+	public void delete(Department dep) {
+		baseDao.delete(dep);
+	}
+	
+	@Override
+	public Department getById(int depId) {
+		return (Department) baseDao.get(Department.class, depId);
 	}
 	
 	public void setBaseDao(BaseDao baseDao) {

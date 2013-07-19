@@ -72,4 +72,9 @@ public class BaseDaoImpl implements BaseDao {
 		return jdbcDaoHelper.queryForList(sql, paras);
 	}
 
+	@Override
+	public void execute(String sql) throws DataAccessException {
+		jdbcDaoHelper.execute(sql);
+	}
+
 }

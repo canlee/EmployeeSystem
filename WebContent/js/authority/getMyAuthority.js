@@ -49,28 +49,40 @@ function setAuthority(authIds) {
 			
 		case 7:
 		case 8:
-		case 9:
 			if(fun7 == null && fun8 == null) {
-				fun7 = new TreeNode('查询部门', 'DepartmentMgr.files/department_query.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+				fun7 = new TreeNode('查询部门', 'DepartmentMgr.files/queryDep', 'tree_node.gif', null, 'tree_node.gif', null);
 				fun5.add(fun7);
-				fun8 = new TreeNode('修改部门', 'DepartmentMgr.files/department_update.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+				fun8 = new TreeNode('修改部门', 'DepartmentMgr.files/getUpdateDep', 'tree_node.gif', null, 'tree_node.gif', null);
 				fun5.add(fun8);
 			}
 			break;
-		
+			
+		case 9:
+			if(fun7 == null) {
+				fun7 = new TreeNode('查询部门', 'DepartmentMgr.files/queryDep', 'tree_node.gif', null, 'tree_node.gif', null);
+				fun5.add(fun7);
+			}
+			break;
+			
 		case 10:
-			var fun10 = new TreeNode('增加岗位', 'PostMgr.files/post_insert.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+			var fun10 = new TreeNode('增加岗位', 'PostMgr.files/insertPostPage', 'tree_node.gif', null, 'tree_node.gif', null);
 			fun9.add(fun10);
 			break;
 			
 		case 11:
 		case 12:
-		case 13:
 			if(fun11 == null && fun12 == null) {
-				fun11 = new TreeNode('查询岗位', 'PostMgr.files/post_query.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+				fun11 = new TreeNode('查询岗位', 'PostMgr.files/queryPostPage', 'tree_node.gif', null, 'tree_node.gif', null);
 				fun9.add(fun11);
-				fun12 = new TreeNode('修改岗位', 'PostMgr.files/post_update.htm', 'tree_node.gif', null, 'tree_node.gif', null);
+				fun12 = new TreeNode('修改岗位', 'PostMgr.files/updatePostPage', 'tree_node.gif', null, 'tree_node.gif', null);
 				fun9.add(fun12);
+			}
+			break;
+			
+		case 13:
+			if(fun11 == null) {
+				fun11 = new TreeNode('查询岗位', 'PostMgr.files/queryPostPage', 'tree_node.gif', null, 'tree_node.gif', null);
+				fun9.add(fun11);
 			}
 			break;
 			

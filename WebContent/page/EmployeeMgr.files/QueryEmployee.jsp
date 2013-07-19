@@ -2,11 +2,14 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
 <TITLE>Query Page</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
+<script type="text/javascript" src="../../js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../js/employee/queryEmployee.js"></script>
 <LINK href="../../css/page.css" type=text/css rel=stylesheet>
 <STYLE type=text/css> 
 body
@@ -60,14 +63,9 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
           		员工号<input type="text" name="empId"/>
           		部门<select name="depId">
           			<option value="%"></option>
-          			<option value="1">人事部</option>
-          			<option value="2">技术部</option>
-          			<option value="3">你妈</option>
           		</select>
           		职位<select name="postId">
           			<option value="%"></option>
-          			<option value="1">你阿玛</option>
-          			<option value="2">你妈</option>
           		</select>
           		<input type="submit" value="查询">
           	</form>

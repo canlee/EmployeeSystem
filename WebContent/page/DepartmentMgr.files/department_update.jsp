@@ -7,11 +7,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<LINK href="../../css/page.css" type=text/css rel=stylesheet>
 <script type="text/javascript" src="../../js/jquery/jquery.form.js"></script>
 <script type="text/javascript" src="../../js/jquery/jquery.js"></script>
-<script type="text/javascript" src="../../js/department/addDepartment.js"></script>
+<script type="text/javascript" src="../../js/department/updateDepartment.js"></script>
 <script type="text/javascript" src="../../js/public/toast.js"></script>
+<LINK href="../../css/page.css" type=text/css rel=stylesheet>
 <STYLE type=text/css> 
 {
 	FONT-SIZE: 12px
@@ -36,7 +36,9 @@
 	List<Department> deps = (List<Department>) request.getAttribute("departments");
 	JSONArray json = JSONArray.fromObject(deps);
 %>
-<script type="text/javascript">saveDeps(<%=json.toString() %>);</script>
+<script type="text/javascript">
+	saveDeps(<%=json.toString() %>);
+</script>
 </head>
 <BODY 
 style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif); BACKGROUND-REPEAT: repeat-x">
@@ -50,7 +52,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">增加部门 </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">修改部门 </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -61,42 +63,43 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
         <TD 
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
     vAlign=top align=middle>
-    		<div class="has_department" align="left">
-    			<table class="gridView"><tbody><tr>
-					<th valign="top">
-	   					现有部门：
-	   				</th>
-			    	<td>
-			    		<%
-			    			if(deps != null) {
-			    				for(Department dep : deps) {
-			    		%>
-			    					<span><%=dep.getDepName() %></span>
-			    		<%
-			    				}
-			    			}
-			    		%>
-	    			</td>
-    			</tr></tbody></table>
-    		</div>
-          <DIV style="margin-top: 50px; ">
-	          <form id="form_addDep" action="insertDep" method="post">
+          <DIV>
+	          <form action="updateDep" id="form_update_department" method="post">
+	          	<div align="center" style="padding: 10px;">
+	          		<span>选择部门：</span>
+	          		<select name="depId" size="1" style="margin-left: 10px; margin-right: 10px;">
+	          			<option value=""></option>
+	          			<%
+	          				if(deps != null) {
+	          					for(Department dep : deps) {
+	          			%>
+	          						<option value="<%=dep.getDepId() %>"><%=dep.getDepName() %></option>
+	          			<%
+	          					}
+	          				}
+	          			%>
+	          		</select>
+	          	</div>
 	            <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
 	      style="WIDTH: 100%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
 	      border=1>
 	              <TBODY>
 	                <TR>
 	                  <TH class=gridViewHeader scope=col>部门名称</TH>
-	                  <th class="gridViewItem"><input id="input_dep" type="text" name="department" style="width: 200px;"></th>
+	                  <th class="gridViewItem"><input id="depName" name="depName" type="text" value=""></th>
 	                </TR>
 	                <TR>
-	                  <TH class=gridViewHeader scope=col>&nbsp;</TH>
-	                  <th class="gridViewItem"><input id="btn_add" class="buttonBlue" type="button" value="添加"></th>
+	                  <TH class=gridViewHeader scope=col>部门所有人员权限</TH>
+	                  <th class="gridViewItem"><a class="cmdField" href="../AuthorityMgr.files/AddAuthority.html">去修改</a></th>
 	                </TR>
 	              </TBODY>
 	            </TABLE>
 	          </form>
-	          <div class="tips"></div>
+	          <div align="center" id="btn_ok">
+	          	<button id="btn_delete" class="buttonBlue" style="margin: 10px 30px 10px 10px;">删除部门</button>
+	          	<button id="btn_update" class="buttonBlue" style="margin: 10px 10px 10px 30px;">确定修改</button>
+	          </div>
+	          <div class="tips">已经存在该部门名称</div>
           </DIV>
         </TD>
         <TD style="BACKGROUND-IMAGE: url(../../images/main_rs.gif)"></TD>
@@ -115,19 +118,27 @@ style="BACKGROUND-IMAGE: url(../../images/main_rf.gif)"></TD>
 </BODY>
 <%
 	String result = (String) request.getParameter("result");
-	if(result != null && result.equals("success")) {
+	if(result != null) {
+		if(result.equals("update_success")) {
 %>
-		<script type="text/javascript">
-			Toast("添加部门成功！", 2000);
-		</script>
+			<script type="text/javascript">Toast("修改部门成功！", 2000);</script>
 <%
-	}
-	else if(result != null && result.equals("fail")) {
+		}
+		else if(result.equals("update_fail")) {
 %>
-		<script type="text/javascript">
-			Toast("添加部门失败！", 2000);
-		</script>
+			<script type="text/javascript">Toast("修改部门失败！", 2000);</script>
 <%
+		}
+		else if(result.equals("delete_success")) {
+%>
+			<script type="text/javascript">Toast("删除部门成功！", 2000);</script>
+<%
+		}
+		else if(result.equals("delete_fail")) {
+%>
+			<script type="text/javascript">Toast("删除部门失败！", 2000);</script>
+<%
+		}
 	}
 %>
 </html>

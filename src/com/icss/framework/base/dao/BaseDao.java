@@ -26,4 +26,6 @@ public interface BaseDao {
 
 	public List<?> queryForList(final String sql, final List<?> paras)
 			throws DataAccessException;
+	
+	public void execute(String sql) throws DataAccessException;
 }

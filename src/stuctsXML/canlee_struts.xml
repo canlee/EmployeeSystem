@@ -23,9 +23,132 @@
 		<action name="insertDep" 
 			class="com.icss.employeeSystem.action.department.DepartmentAction" 
 			method="insert">
-			<result name="success" type="chain">
-				addDep
+			<result name="success" type="redirect">
+				/page/DepartmentMgr.files/addDep?result=success
 			</result>
+			<result name="fail" type="redirect">
+				/page/DepartmentMgr.files/addDep?result=fail
+			</result>
+		</action>
+		
+		<action name="queryDep"
+			class="com.icss.employeeSystem.action.department.DepartmentAction"
+			method="queryDepartment">
+			<result name="success">
+				/page/DepartmentMgr.files/department_query.jsp
+			</result>	
+		</action>
+		
+		<action name="queryDetailDep" 
+			class="com.icss.employeeSystem.action.department.DepartmentAction" 
+			method="queryDetailDepartment">
+		</action>
+		
+		<action name="getUpdateDep"
+			class="com.icss.employeeSystem.action.department.DepartmentAction"
+			method="getUpdateDepartment">
+			<result name="success">
+				/page/DepartmentMgr.files/department_update.jsp
+			</result>	
+		</action>
+		
+		<action name="updateDep" 
+			class="com.icss.employeeSystem.action.department.DepartmentAction" 
+			method="update">
+			<result name="success" type="redirect">
+				/page/DepartmenMgr.files/getUpdateDep?result=update_success
+			</result>
+			<result name="fail" type="redirect">
+				/page/DepartmenMgr.files/getUpdateDep?result=update_fail
+			</result>
+		</action>
+		
+		<action name="deleteDep" 
+			class="com.icss.employeeSystem.action.department.DepartmentAction" 
+			method="delete">
+			<result name="success" type="redirect">
+				/page/DepartmenMgr.files/getUpdateDep?result=delete_success
+			</result>
+			<result name="fail" type="redirect">
+				/page/DepartmenMgr.files/getUpdateDep?result=delete_fail
+			</result>
+		</action>
+		
+		<action name="insertPostPage" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="getInsertPostPage">
+			<result name="success">
+				/page/PostMgr.files/post_insert.jsp
+			</result>
+		</action>
+		
+		<action name="getPostsByDep" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="getPostsByDep">
+		</action>
+		
+		<action name="insertPost" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="insert">
+			<result name="success" type="redirect">
+				/page/PostMgr.files/insertPostPage?result=success
+			</result>
+			<result name="fail" type="redirect">
+				/page/PostMgr.files/insertPostPage?result=fail
+			</result>
+		</action>
+		
+		<action name="queryPostPage" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="getQueryPostPage">
+			<result name="success">
+				/page/PostMgr.files/post_query.jsp
+			</result>
+		</action>
+		
+		<action name="queryPostsByDep" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="queryPostsByDep">
+		</action>
+		
+		<action name="queryPost" 
+			class="com.icss.employeeSystem.action.post.PostAction"  
+			method="query">
+		</action>
+		
+		<action name="updatePostPage" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="getUpdatePostPage">
+			<result name="success">
+				/page/PostMgr.files/post_update.jsp
+			</result>
+		</action>
+		
+		<action name="updatePost" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="update">
+			<result name="success" type="redirect">
+				/page/PostMgr.files/updatePostPage?result=update_success
+			</result>
+			<result name="fail" type="redirect">
+				/page/PostMgr.files/updatePostPage?result=update_fail
+			</result>
+		</action>
+		
+		<action name="deletePost" 
+			class="com.icss.employeeSystem.action.post.PostAction" 
+			method="delete">
+			<result name="success" type="redirect">
+				/page/PostMgr.files/updatePostPage?result=delete_success
+			</result>
+			<result name="fail" type="redirect">
+				/page/PostMgr.files/updatePostPage?result=delete_fail
+			</result>
+		</action>
+		
+		<action name="getAllDep" 
+			class="com.icss.employeeSystem.action.department.DepartmentAction" 
+			method="getAllDepartment">
 		</action>
 		
 	</package>

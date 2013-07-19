@@ -1,30 +1,28 @@
-<%@page import="com.icss.employeeSystem.model.vo.EmployeeVo"%>
+<%@page import="net.sf.json.JSONArray"%>
+<%@page import="com.icss.employeeSystem.model.po.Department"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="GB18030"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-<TITLE>Apply For Holiday Page</TITLE>
-<META http-equiv=Content-Type content="text/html; charset=utf-8">
-<LINK href="../../css/public.css" type=text/css rel=stylesheet>
-<LINK href="../../css/page.css" type=text/css rel=stylesheet>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="../../js/jquery/jquery.form.js"></script>
 <script type="text/javascript" src="../../js/jquery/jquery.js"></script>
-<script type="text/javascript" src="../../js/public/holidaySelect.js"></script>
-<script type="text/javascript" src="../../js/authority/applyHoliday.js"></script>
+<script type="text/javascript" src="../../js/post/queryPost.js"></script>
+<LINK href="../../css/page.css" type=text/css rel=stylesheet>
 <STYLE type=text/css> 
-body
 {
-	FONT-SIZE: 5px
+	FONT-SIZE: 12px
 }
 .gridView {
 	BORDER-RIGHT: #bad6ec 1px; BORDER-TOP: #bad6ec 1px; BORDER-LEFT: #bad6ec 1px; COLOR: #566984; BORDER-BOTTOM: #bad6ec 1px; FONT-FAMILY: Courier New
 }
 .gridViewHeader {
-	text-align: center; BORDER-RIGHT: #bad6ec 1px solid; BORDER-TOP: #bad6ec 1px solid; BACKGROUND-IMAGE: url(../../images/bg_th.gif); BORDER-LEFT: #bad6ec 1px solid; LINE-HEIGHT: 27px; BORDER-BOTTOM: #bad6ec 1px solid
+	BORDER-RIGHT: #bad6ec 1px solid; BORDER-TOP: #bad6ec 1px solid; BACKGROUND-IMAGE: url(../../images/bg_th.gif); BORDER-LEFT: #bad6ec 1px solid; LINE-HEIGHT: 27px; BORDER-BOTTOM: #bad6ec 1px solid; 
 }
 .gridViewItem {
-	BORDER-RIGHT: #bad6ec 1px solid; BORDER-TOP: #bad6ec 1px solid; BORDER-LEFT: #bad6ec 1px solid; LINE-HEIGHT: 32px; BORDER-BOTTOM: #bad6ec 1px solid; TEXT-ALIGN: center;
+	BORDER-RIGHT: #bad6ec 1px solid; BORDER-TOP: #bad6ec 1px solid; BORDER-LEFT: #bad6ec 1px solid; LINE-HEIGHT: 32px; BORDER-BOTTOM: #bad6ec 1px solid; TEXT-ALIGN: center
 }
 .cmdField {
 	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BACKGROUND-IMAGE: url(../../images/bg_rectbtn.png); OVERFLOW: hidden; BORDER-LEFT: 0px; WIDTH: 67px; COLOR: #364c6d; LINE-HEIGHT: 27px; BORDER-BOTTOM: 0px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 27px; BACKGROUND-COLOR: transparent; TEXT-DECORATION: none
@@ -33,8 +31,12 @@ body
 	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BACKGROUND-IMAGE: url(../../images/bg_button_blue.gif); BORDER-LEFT: 0px; WIDTH: 78px; COLOR: white; BORDER-BOTTOM: 0px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 21px
 }
 </STYLE>
-<META content="MSHTML 6.00.2900.5848" name=GENERATOR>
-</HEAD>
+<%
+	List<Department> deps = (List<Department>) request.getAttribute("departments");
+	JSONArray json = JSONArray.fromObject(deps);
+%>
+<script type="text/javascript">saveDeps(<%=json.toString() %>);</script>
+</head>
 <BODY 
 style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif); BACKGROUND-REPEAT: repeat-x">
 <DIV>
@@ -47,7 +49,7 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN 
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">«ÎºŸ </SPAN><SPAN 
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">Êü•ËØ¢Â≤ó‰Ωç </SPAN><SPAN 
       style="FLOAT: left; BACKGROUND-IMAGE: url(../../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD 
     style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../../images/main_rc.gif)" 
@@ -57,44 +59,47 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
         <TD style="BACKGROUND-IMAGE: url(../../images/main_ls.gif)">&nbsp;</TD>
         <TD 
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white" 
-    vAlign=top align=center>
+    vAlign=top align=middle>
           <DIV>
-          	<form id="form_applyHoliday" action="applyHoliday" method="post">
-          	<input style="display: none" name="empId" value="<%=((EmployeeVo)session.getAttribute("employee")).getEmpID() %>" />
+          	<div align="center">
+          		<span>ÈÄâÊã©ÈÉ®Èó®Ôºö</span>
+          		<select name="depId" size="1" style="margin: 10px; width: 100px;">
+          			<option value=""></option>
+          			<%
+          				if(deps != null) {
+          					for(Department dep : deps) {
+          			%>
+          						<option value="<%=dep.getDepId() %>"><%=dep.getDepName() %></option>
+          			<%
+          					}
+          				}
+          			%>
+          		</select>
+          		<br>
+          		<span>ÈÄâÊã©Â≤ó‰ΩçÔºö</span>
+          		<select name="postId" size="1" style="margin: 10px; width: 100px;">
+          			<option value=""></option>
+          		</select>
+          		<br>
+          		<button id="btn_query" class="buttonBlue" style="margin-bottom: 10px;">Êü•ËØ¢</button>
+          	</div>
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1 
-      style="WIDTH: 70%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
+      style="WIDTH: 100%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all 
       border=1>
-              <TBODY>
+              <TBODY id="postInfo">
                 <TR>
-                  <TH class=gridViewHeader>ºŸ∆⁄≥§∂»</TH>
-                  <TD class=gridViewItem>
-                  	<div class="float_left" style="margin-left: 165px; _margin-left: 90px;">
-	                  	<input type="text" name="holidayLength"/>
-	                  	<span class="tips">«Î ‰»Î’˚ ˝</span>
-                  	</div>
-                  </TD>
+                  <TH class=gridViewHeader scope=col style="width: 50%;">Â≤ó‰ΩçÂêçÁß∞</TH>
+                  <td class="gridViewItem" id="postName"></td>
                 </TR>
                 <TR>
-                  <TH class=gridViewHeader>∆ º»’∆⁄(ƒÍ-‘¬-»’)</TH>
-                  <TD class=gridViewItem>
-                  	<select id="holidayYear" name="holidayYear"></select>ƒÍ
-                  	<select id="holidayMonth" name="holidayMonth"></select>‘¬
-                  	<select id="holidayDay" name="holidayDay"></select>»’
-                  </TD>
+                  <TH class=gridViewHeader scope=col>Â≤ó‰Ωç‰∫∫Êï∞</TH>
+                  <td class="gridViewItem" id="employeeCount"></td>
                 </TR>
                 <TR>
-                  <TH class=gridViewHeader style="background-color: #ECF5FF; background-image: none;">‘≠“Ú</TH>
-                  <TD class=gridViewItem><textarea name="reason" cols="50" rows="15"></textarea></TD>
+                  <TH class=gridViewHeader scope=col colspan="2">Â≤ó‰Ωç‰∫∫Âëò</TH>
                 </TR>
-                <TR>
-                	<TD class="gridViewBtn" colspan="2" align="right">
-                		<input id="btn_submit" class="buttonBlue" type="button" value="Ã·Ωª"/>
-                		<input class="buttonBlue" type="reset" value="÷ÿ÷√"/>
-                	</TD>
-                </TR>                                                                      
               </TBODY>
             </TABLE>
-            </form>
           </DIV>
         </TD>
         <TD style="BACKGROUND-IMAGE: url(../../images/main_rs.gif)"></TD>
@@ -111,4 +116,4 @@ style="BACKGROUND-IMAGE: url(../../images/main_rf.gif)"></TD>
   </TABLE>
 </DIV>
 </BODY>
-</HTML>
+</html>

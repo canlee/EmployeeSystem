@@ -4,6 +4,7 @@
 <TITLE>Insert Page</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
 <LINK href="../../css/page.css" type=text/css rel=stylesheet>
+<LINK href="../../css/public.css" type=text/css rel=stylesheet>
 <script type="text/javascript" src="../../js/jquery/jquery.form.js"></script>
 <script type="text/javascript" src="../../js/jquery/jquery.js"></script>
 <script type="text/javascript" src="../../js/public/dateSelect.js"></script>
@@ -11,7 +12,7 @@
 <STYLE type=text/css> 
 body
 {
-	FONT-SIZE: 5px
+	FONT-SIZE: 12px
 }
 .gridView {
 	BORDER-RIGHT: #bad6ec 1px; BORDER-TOP: #bad6ec 1px; BORDER-LEFT: #bad6ec 1px; COLOR: #566984; BORDER-BOTTOM: #bad6ec 1px; FONT-FAMILY: Courier New
@@ -30,6 +31,13 @@ body
 }
 .gridViewBtn {
 	BORDER-RIGHT: #bad6ec 1px solid; BORDER-TOP: #bad6ec 1px solid; BORDER-LEFT: #bad6ec 1px solid; LINE-HEIGHT: 32px; BORDER-BOTTOM: #bad6ec 1px solid;
+}
+.tips {
+	line-height: 27px;
+}
+.margin_165 {
+	margin-left: 165px;
+	_margin-left: 90px;
 }
 </STYLE>
 <META content="MSHTML 6.00.2900.5848" name=GENERATOR>
@@ -65,15 +73,33 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
               <TBODY>
                 <TR>
                   <TD class=gridViewHeader>员工号</TD>
-                  <TD class=gridViewItem><input type="text" name="empId" id="empId" /><span id="empIds" style="color: red;font-size: 8px;display:none">用户名不能为空</span></TD>
+                  <TD class=gridViewItem>
+                  	<div class="float_left margin_165">
+                  		<input type="text" name="empId" id="empId" />
+                  		<span id="empIds" class="tips">用户名不能为空</span>
+                  		<div class="clear"></div>
+               		</div>
+               	   </TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>姓名</TD>
-                  <TD class=gridViewItem><input type="text" name="empName" id="empName"/><span id="empNames" style="color: red;font-size: 8px"></span></TD>
+                  <TD class=gridViewItem>
+                  	<div class="float_left margin_165">
+	                  	<input type="text" name="empName" id="empName"/>
+	                  	<span id="empNames" class="tips"></span>
+	                  	<div class="clear"></div>
+                  	</div>
+                  </TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>密码</TD>
-                  <TD class=gridViewItem><input type="text" name="password" id="password""/><span id="passwords" style="color: red;font-size: 8px"></span></TD>
+                  <TD class=gridViewItem>
+                 	 <div class="float_left margin_165">
+	                  	<input type="text" name="password" id="password""/>
+	                  	<span id="passwords" class="tips"></span>
+	                  	<div class="clear"></div>
+                  	</div>
+                  </TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>性别</TD>
@@ -105,33 +131,36 @@ style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../../images/bg.gif)
                 <TR>
                   <TD class=gridViewHeader>工资</TD>
                   <TD class=gridViewItem>
-                  	<input type="text" name="salary" id="salary"/><span id="salarys" style="color: red;font-size: 8px"></span>
+                  	<div class="float_left margin_165">
+	                  	<input type="text" name="salary" id="salary"/>
+	                  	<span id="salarys" class="tips"></span>
+	                  	<div class="clear"></div>
+                  	</div>
                   </TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>部门</TD>
                   <TD class=gridViewItem>
-                  	<select name="department">
-                  		<option value="技术部">技术部</option>
-                  		<option value="人事部">人事部</option>
-                  		<option value="宣传部">宣传部</option>
+                  	<select name="department" style="min-width: 100px;">
+                  		<option value=""></option>
                   	</select>
                   </TD>
                 </TR>
                 <TR>
                   <TD class=gridViewHeader>职位</TD>
                   <TD class=gridViewItem>
-                  	<select name="post" id="post">
-                  		<option value="1"></option>
-                  		<option value="2">普通员工</option>
-                  		<option value="3">部长</option>
-                  	</select>
-                  	<span id="posts" style="color: red;font-size: 8px"></span>
+                  	<div class="float_left" style="margin-left: 196px;">
+	                  	<select name="post" id="post" style="min-width: 100px;">
+	                  		<option value=""></option>
+	                  	</select>
+	                  	<span id="posts" class="tips"></span>
+	                  	<div class="clear"></div>
+                  	</div>
                   </TD>
                 </TR>
                 <TR>
                 	<TD class="gridViewBtn" colspan="2" align="right">
-                		<input class="buttonBlue" type="submit" value="提交"/>
+                		<input id="btn_submit" class="buttonBlue" type="button" value="提交"/>
                 		<input class="buttonBlue" type="reset" value="重置"/>
                 	</TD>
                 </TR>                                                                      

@@ -29,4 +29,8 @@ public class JdbcDaoHelper extends JdbcDaoSupport {
 			throws DataAccessException {
 		return getJdbcTemplate().queryForList(sql, paras.toArray());
 	}
+	
+	public final void execute(String sql) throws DataAccessException {
+		getJdbcTemplate().execute(sql);
+	}
 }
